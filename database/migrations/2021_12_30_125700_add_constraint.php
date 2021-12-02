@@ -13,8 +13,13 @@ class AddConstraint extends Migration
      */
     public function up()
     {
+        Schema::table('mangas', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+
         Schema::table('chapters', function (Blueprint $table) {
             $table->foreign('manga_id')->references('id')->on('mangas');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::table('comments', function (Blueprint $table) {

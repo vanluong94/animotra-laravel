@@ -20,6 +20,7 @@ class CreateMangasTable extends Migration
             $table->longText('thumbnail')->nullable();
             $table->string('release_status', 50)->nullable();
             $table->string('publish_status', 50)->default('published');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
