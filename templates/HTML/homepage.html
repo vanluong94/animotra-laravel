@@ -8,12 +8,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.css">
+	<link rel="stylesheet" href="styles/reset.css">
 	<link rel="stylesheet" href="styles/general.css">
 	<link rel="stylesheet" href="styles/m-slider.css">
-	<link rel="stylesheet" href="styles/m-item.css">
+	<link rel="stylesheet" href="styles/m-collection.css">
 	<link rel="stylesheet" href="styles/home.css">
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.js"></script>
@@ -82,18 +83,18 @@
 	</header>
 
 	<!-- BODY -->
-	<div id="site-body">
+	<main id="site-body">
 
 		<!-- HOME SLIDER -->
 		<section class="home-section home-featured-slider">
 			<div class="container">
-				<div class="m-slider featured-slider">
-					<div class="m-slider-top">
-						<div class="m-heading"><span class="m-heading-text">Featured</span></div>
+				<div class="m-collection m-collection--big-thumbnail m-slider featured-slider">
+					<div class="m-collection__heading">
+						<div class="m-heading"><h4 class="m-heading__content">Featured</h4></div>
 					</div>
-					<div class="m-slider-content glider-contain">
-						<div class="glider" data-glider='{"slidesToShow":3,"slidesToScroll":1,"draggable":true,"dots":".dots","scrollLock":true, "rewind":true}'>
-							<div class="m-item loop-item">
+					<div class="m-collection__content glider-contain">
+						<div class="glider" data-glider='{"slidesToShow":3,"slidesToScroll":1,"dots":".dots","scrollLock":true}'>
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-StyhVqAzIy4t.jpg"
 										alt="">
@@ -119,7 +120,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx104647-dMGZSavRxHcM.jpg"
 										alt="">
@@ -145,7 +146,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
 										alt="">
@@ -171,7 +172,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114236-lSQF4ljWQXdU.jpg"
 										alt="">
@@ -197,7 +198,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114308-8UBiS7U9buzu.jpg"
 										alt="">
@@ -233,128 +234,109 @@
 		<!-- TOP RATED SLIDER -->
 		<section class="home-section home-top-rated-slider">
 			<div class="container">
-				<div class="m-slider">
-					<div class="m-slider-top">
-						<div class="m-heading"><span class="m-heading-text">Top Rated Animes</span></div>
-						<div class="m-navigation">
-							<button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left"></i></button>
-							<button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right"></i></button>
-						</div>
+				<div class="m-collection m-collection--big-thumbnail">
+					<div class="m-collection__heading">
+						<div class="m-heading"><h4 class="m-heading__content">Top Rated Animes</h4></div>
 					</div>
-					<div class="m-slider-content glider-contain">
-						<div class="glider" data-glider='{"slidesToShow":4,"slidesToScroll":1,"arrows":{"prev":".glider-prev","next":".glider-next"}}'>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-StyhVqAzIy4t.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
+					<div class="m-collection__content">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="m-item">
+									<div class="thumbnail">
+										<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-StyhVqAzIy4t.jpg"
+											alt="">
+									</div>
+									<div class="meta-top">
+										<div class="left-badge">
+											<div class="left-badge-wrapper">
+												<div class="badge-text-big">9.5</div>
+												<div class="badge-text">rating</div>
+											</div>
+										</div>
+										<div class="top-badge">
+											<i class="fas fa-play"></i>
 										</div>
 									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
+									<div class="meta-bottom">
+										<div class="meta-title">
+											<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+											<div class="manga-chapter"><a href="#">Episode 05</a></div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx104647-dMGZSavRxHcM.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
+							<div class="col-md-3">
+								<div class="m-item">
+									<div class="thumbnail">
+										<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx104647-dMGZSavRxHcM.jpg"
+											alt="">
+									</div>
+									<div class="meta-top">
+										<div class="left-badge">
+											<div class="left-badge-wrapper">
+												<div class="badge-text-big">9.5</div>
+												<div class="badge-text">rating</div>
+											</div>
+										</div>
+										<div class="top-badge">
+											<i class="fas fa-play"></i>
 										</div>
 									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
+									<div class="meta-bottom">
+										<div class="meta-title">
+											<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+											<div class="manga-chapter"><a href="#">Episode 05</a></div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
+							<div class="col-md-3">
+								<div class="m-item">
+									<div class="thumbnail">
+										<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
+											alt="">
+									</div>
+									<div class="meta-top">
+										<div class="left-badge">
+											<div class="left-badge-wrapper">
+												<div class="badge-text-big">9.5</div>
+												<div class="badge-text">rating</div>
+											</div>
+										</div>
+										<div class="top-badge">
+											<i class="fas fa-play"></i>
 										</div>
 									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
+									<div class="meta-bottom">
+										<div class="meta-title">
+											<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+											<div class="manga-chapter"><a href="#">Episode 05</a></div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114236-lSQF4ljWQXdU.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
+							<div class="col-md-3">
+								<div class="m-item">
+									<div class="thumbnail">
+										<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114236-lSQF4ljWQXdU.jpg"
+											alt="">
+									</div>
+									<div class="meta-top">
+										<div class="left-badge">
+											<div class="left-badge-wrapper">
+												<div class="badge-text-big">9.5</div>
+												<div class="badge-text">rating</div>
+											</div>
+										</div>
+										<div class="top-badge">
+											<i class="fas fa-play"></i>
 										</div>
 									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114308-8UBiS7U9buzu.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
+									<div class="meta-bottom">
+										<div class="meta-title">
+											<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+											<div class="manga-chapter"><a href="#">Episode 05</a></div>
 										</div>
-									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
 									</div>
 								</div>
 							</div>
@@ -426,18 +408,18 @@
 
 		<section class="home-section home-latest-slider">
 			<div class="container">
-				<div class="m-slider">
-					<div class="m-slider-top">
-						<div class="m-heading"><span class="m-heading-text">Latest Manga</span></div>
+				<div class="m-collection m-slider m-collection--big-thumbnail">
+					<div class="m-collection__heading">
+						<div class="m-heading"><h4 class="m-heading__content">Latest Manga</h4></div>
 						<div class="m-navigation">
 							<button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left"></i></button>
 							<button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right"></i></button>
 						</div>
 					</div>
-					<div class="m-slider-content glider-contain">
+					<div class="m-collection__content glider-contain">
 						<div class="glider"
 							data-glider='{"slidesToShow":4,"slidesToScroll":1,"arrows":{"prev":".glider-prev","next":".glider-next"}}'>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-StyhVqAzIy4t.jpg"
 										alt="">
@@ -460,7 +442,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx104647-dMGZSavRxHcM.jpg"
 										alt="">
@@ -483,7 +465,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
 										alt="">
@@ -506,7 +488,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114236-lSQF4ljWQXdU.jpg"
 										alt="">
@@ -529,7 +511,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="m-item loop-item">
+							<div class="m-item">
 								<div class="thumbnail">
 									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114308-8UBiS7U9buzu.jpg"
 										alt="">
@@ -558,140 +540,6 @@
 			</div>
 		</section>
 		
-		<section class="home-section home-latest-movies">
-			<div class="container">
-				<div class="m-slider">
-					<div class="m-slider-top">
-						<div class="m-heading"><span class="m-heading-text">Latest Movies</span></div>
-						<div class="m-navigation">
-							<button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left"></i></button>
-							<button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right"></i></button>
-						</div>
-					</div>
-					<div class="m-slider-content glider-contain">
-						<div class="glider"
-							data-glider='{"slidesToShow":4,"slidesToScroll":1,"arrows":{"prev":".glider-prev","next":".glider-next"}}'>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-StyhVqAzIy4t.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
-										</div>
-									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx104647-dMGZSavRxHcM.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
-										</div>
-									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
-										</div>
-									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114236-lSQF4ljWQXdU.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
-										</div>
-									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="m-item loop-item">
-								<div class="thumbnail">
-									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114308-8UBiS7U9buzu.jpg"
-										alt="">
-								</div>
-								<div class="meta-top">
-									<div class="left-badge">
-										<div class="left-badge-wrapper">
-											<div class="badge-text-big">9.5</div>
-											<div class="badge-text">rating</div>
-										</div>
-									</div>
-									<div class="top-badge">
-										<i class="fas fa-play"></i>
-									</div>
-								</div>
-								<div class="meta-bottom">
-									<div class="meta-title">
-										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
-										<div class="manga-chapter"><a href="#">Episode 05</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-			
 		<!-- SUBSCRIPTION BANNER -->
 		<section class="home-section home-subscription-banner">
 			<div class="container">
@@ -752,312 +600,311 @@
 			</div>
 		</section>
 
-		<section class="home-section home-latest-blog">
+		<section class="home-section home-latest-movies">
 			<div class="container">
-				<div class="m-slider">
-					<div class="m-slider-top">
-						<div class="m-heading"><span class="m-heading-text">Latest Blog</span></div>
+				<div class="m-collection m-slider m-collection--big-thumbnail">
+					<div class="m-collection__heading">
+						<div class="m-heading"><h4 class="m-heading__content">Latest Movies</h4></div>
 						<div class="m-navigation">
 							<button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left"></i></button>
 							<button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right"></i></button>
 						</div>
 					</div>
-					<div class="m-slider-content glider-contain">
+					<div class="m-collection__content glider-contain">
 						<div class="glider"
-							data-glider='{"slidesToShow":3,"slidesToScroll":1,"arrows":{"prev":".glider-prev","next":".glider-next"}}'>
-							
-							<div class="blog-item loop-item">
-								<div class="item-wrapper">
-									<div class="item-thumbnail">
-										<div class="thumbnail">
-											<img src="https://via.placeholder.com/330x252" alt="">
-										</div>
-										<div class="meta-top">
-											<div class="left-badge">
-												<div class="left-badge-wrapper">
-													<div class="badge-text-big">29</div>
-													<div class="badge-text">April</div>
-												</div>
-											</div>
+							data-glider='{"slidesToShow":4,"slidesToScroll":1,"arrows":{"prev":".glider-prev","next":".glider-next"}}'>
+							<div class="m-item">
+								<div class="thumbnail">
+									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-StyhVqAzIy4t.jpg"
+										alt="">
+								</div>
+								<div class="meta-top">
+									<div class="left-badge">
+										<div class="left-badge-wrapper">
+											<div class="badge-text-big">9.5</div>
+											<div class="badge-text">rating</div>
 										</div>
 									</div>
-									<div class="item-content">
-										<div class="item-title">
-											<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-												ut
-												labore et dolore magna
-												aliqua</a>
-										</div>
-										<div class="item-excerpt">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-											dolore magna
-											aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis
-											aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-											Excepteur
-											sint
-											occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut
-											perspiciatis unde
-											omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-											quae
-											ab illo
-											inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-											quia
-											voluptas sit
-											aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-											nesciunt. Neque
-											porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-											numquam
-											eius modi
-											tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-										</div>
+									<div class="top-badge">
+										<i class="fas fa-play"></i>
+									</div>
+								</div>
+								<div class="meta-bottom">
+									<div class="meta-title">
+										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+										<div class="manga-chapter"><a href="#">Episode 05</a></div>
 									</div>
 								</div>
 							</div>
-
-							<div class="blog-item loop-item">
-								<div class="item-wrapper">
-									<div class="item-thumbnail">
-										<div class="thumbnail">
-											<img src="https://via.placeholder.com/330x252" alt="">
-										</div>
-										<div class="meta-top">
-											<div class="left-badge">
-												<div class="left-badge-wrapper">
-													<div class="badge-text-big">29</div>
-													<div class="badge-text">April</div>
-												</div>
-											</div>
+							<div class="m-item">
+								<div class="thumbnail">
+									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx104647-dMGZSavRxHcM.jpg"
+										alt="">
+								</div>
+								<div class="meta-top">
+									<div class="left-badge">
+										<div class="left-badge-wrapper">
+											<div class="badge-text-big">9.5</div>
+											<div class="badge-text">rating</div>
 										</div>
 									</div>
-									<div class="item-content">
-										<div class="item-title">
-											<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-												ut
-												labore et dolore magna
-												aliqua</a>
-										</div>
-										<div class="item-excerpt">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-											dolore magna
-											aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis
-											aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-											Excepteur
-											sint
-											occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut
-											perspiciatis unde
-											omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-											quae
-											ab illo
-											inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-											quia
-											voluptas sit
-											aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-											nesciunt. Neque
-											porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-											numquam
-											eius modi
-											tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-										</div>
+									<div class="top-badge">
+										<i class="fas fa-play"></i>
+									</div>
+								</div>
+								<div class="meta-bottom">
+									<div class="meta-title">
+										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+										<div class="manga-chapter"><a href="#">Episode 05</a></div>
 									</div>
 								</div>
 							</div>
-
-							<div class="blog-item loop-item">
-								<div class="item-wrapper">
-									<div class="item-thumbnail">
-										<div class="thumbnail">
-											<img src="https://via.placeholder.com/330x252" alt="">
-										</div>
-										<div class="meta-top">
-											<div class="left-badge">
-												<div class="left-badge-wrapper">
-													<div class="badge-text-big">29</div>
-													<div class="badge-text">April</div>
-												</div>
-											</div>
+							<div class="m-item">
+								<div class="thumbnail">
+									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21-tXMN3Y20PIL9.jpg"
+										alt="">
+								</div>
+								<div class="meta-top">
+									<div class="left-badge">
+										<div class="left-badge-wrapper">
+											<div class="badge-text-big">9.5</div>
+											<div class="badge-text">rating</div>
 										</div>
 									</div>
-									<div class="item-content">
-										<div class="item-title">
-											<a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-												labore et dolore magna
-												aliqua</a>
-										</div>
-										<div class="item-excerpt">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-											dolore magna
-											aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis
-											aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-											sint
-											occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut
-											perspiciatis unde
-											omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-											ab illo
-											inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-											voluptas sit
-											aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-											nesciunt. Neque
-											porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-											eius modi
-											tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-										</div>
+									<div class="top-badge">
+										<i class="fas fa-play"></i>
+									</div>
+								</div>
+								<div class="meta-bottom">
+									<div class="meta-title">
+										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+										<div class="manga-chapter"><a href="#">Episode 05</a></div>
 									</div>
 								</div>
 							</div>
-
+							<div class="m-item">
+								<div class="thumbnail">
+									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114236-lSQF4ljWQXdU.jpg"
+										alt="">
+								</div>
+								<div class="meta-top">
+									<div class="left-badge">
+										<div class="left-badge-wrapper">
+											<div class="badge-text-big">9.5</div>
+											<div class="badge-text">rating</div>
+										</div>
+									</div>
+									<div class="top-badge">
+										<i class="fas fa-play"></i>
+									</div>
+								</div>
+								<div class="meta-bottom">
+									<div class="meta-title">
+										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+										<div class="manga-chapter"><a href="#">Episode 05</a></div>
+									</div>
+								</div>
+							</div>
+							<div class="m-item">
+								<div class="thumbnail">
+									<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114308-8UBiS7U9buzu.jpg"
+										alt="">
+								</div>
+								<div class="meta-top">
+									<div class="left-badge">
+										<div class="left-badge-wrapper">
+											<div class="badge-text-big">9.5</div>
+											<div class="badge-text">rating</div>
+										</div>
+									</div>
+									<div class="top-badge">
+										<i class="fas fa-play"></i>
+									</div>
+								</div>
+								<div class="meta-bottom">
+									<div class="meta-title">
+										<div class="item-title"><a href="#">Shingeki no Kyojin S02</a></div>
+										<div class="manga-chapter"><a href="#">Episode 05</a></div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-
-	</div>
+			
+	</main>
 	
 	<footer id="site-footer">
 		<div class="container">
 			<div class="footer-widgets">
 				<div class="row">
 					<div class="footer-column col">
-						<div class="m-heading widget-title"><span class="m-heading-text widget-title-text ">Puplare Anime</span></div>
-						<div class="widget-content">
-							<div class="widget-manga-list">
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
-										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
-									</div>
+						<div class="widget">
+							<div class="widget__title">
+								<div class="m-heading ">
+									<h4 class="m-heading__content">Puplare Anime</h4>
 								</div>
-					
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
+							</div>
+							
+							<div class="widget__content">
+								<div class="m-collection m-collection--small-thumbnail">
+									<div class="m-collection__content">
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
 										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
-									</div>
-								</div>
-					
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
+							
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
 										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
+							
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="footer-column col">
-						<div class="m-heading widget-title"><span class="m-heading-text widget-title-text ">Puplare Manga</span></div>
-						<div class="widget-content">
-							<div class="widget-manga-list">
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
-										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
-									</div>
+						<div class="widget">
+							<div class="widget__title">
+								<div class="m-heading ">
+									<h4 class="m-heading__content">Puplare Anime</h4>
 								</div>
-					
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
+							</div>
+							
+							<div class="widget__content">
+								<div class="m-collection m-collection--small-thumbnail">
+									<div class="m-collection__content">
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
 										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
-									</div>
-								</div>
-					
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
+							
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
 										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
+							
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="footer-column col">
-						<div class="m-heading widget-title"><span class="m-heading-text widget-title-text ">Puplare Movies</span></div>
-						<div class="widget-content">
-							<div class="widget-manga-list">
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
-										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
-									</div>
+						<div class="widget">
+							<div class="widget__title">
+								<div class="m-heading ">
+									<h4 class="m-heading__content">Puplare Anime</h4>
 								</div>
-					
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
+							</div>
+							
+							<div class="widget__content">
+								<div class="m-collection m-collection--small-thumbnail">
+									<div class="m-collection__content">
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
 										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
-									</div>
-								</div>
-					
-								<div class="widget-item loop-item">
-									<div class="item-thumbnail">
-										<div class="thumbnail thumbnail-square">
-											<img src="https://via.placeholder.com/100x100" alt="">
+							
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
 										</div>
-									</div>
-									<div class="item-meta">
-										<div class="item-title"><a href="#">Berserk 2017</a></div>
-										<div class="item-title"><a href="#">Chapter 1</a></div>
-										<div class="item-link"><a href="#">Watch now</a></div>
+							
+										<div class="m-item">
+											<div class="item-thumbnail">
+												<div class="thumbnail thumbnail-square">
+													<img src="https://via.placeholder.com/100x100" alt="">
+												</div>
+											</div>
+											<div class="item-meta">
+												<div class="item-title"><a href="#">Berserk 2017</a></div>
+												<div class="item-title"><a href="#">Chapter 1</a></div>
+												<div class="item-link"><a href="#">Read now</a></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="footer-column col">
-						<div class="m-heading widget-title"><span class="m-heading-text widget-title-text ">Anime Of The Day</span></div>
-						<div class="widget-content">
+						<div class="m-heading widget__title"><span class="m-heading__content">Anime Of The Day</span></div>
+						<div class="widget__content">
 							<img src="https://via.placeholder.com/270x240" alt="">
 						</div>
 					</div>

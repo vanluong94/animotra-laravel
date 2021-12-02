@@ -1,15 +1,15 @@
 /* SLIDER */
-.m-slider .m-slider-top .m-navigation {
+.m-slider .m-collection__heading .m-navigation {
     position: relative;
 }
 
-.m-slider .m-slider-top {
+.m-slider .m-collection__heading {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.m-slider .m-slider-top .m-navigation button {
+.m-slider .m-collection__heading .m-navigation button {
     position: static;
     font-size: 15px;
     padding: 5px 10px;
@@ -17,15 +17,15 @@
     border-top: 1.5px solid;
 }
 
-.m-slider .m-slider-top .m-navigation button:active, .m-slider .m-slider-top .m-navigation button:focus{
+.m-slider .m-collection__heading .m-navigation button:active, .m-slider .m-collection__heading .m-navigation button:focus{
 	outline: none;
 }
 
-.m-slider .m-slider-top .m-navigation button.glider-prev {
+.m-slider .m-collection__heading .m-navigation button.glider-prev {
     border-left: 1.5px solid;
 }
 
-.m-slider .m-slider-top .m-navigation button.glider-next {
+.m-slider .m-collection__heading .m-navigation button.glider-next {
     border-right: 1.5px solid;
 }
 
@@ -49,8 +49,8 @@
 }
 
 .m-slider .glider{
-	margin-left: -15px;
-	margin-right: -15px;
+	margin-left: -12px;
+	margin-right: -12px;
 }
 
 /* FEATURED SLIDER */
@@ -64,18 +64,23 @@
 
 .m-slider.featured-slider .m-heading {
     position: absolute;
+    border-left: 1.5px solid #fff;
+	border-right: 1.5px solid #fff;
+    right: 100%;
+	padding: 0;
+    margin: 0 15px 0 0;
+    line-height: 1.5;
+}
+
+.m-slider.featured-slider .m-heading .m-heading__content {
     color: #fff;
     writing-mode: vertical-lr;
     text-orientation: upright;
 	font-size: 20px;
 	font-weight: 200;
-    border-left: 1.5px solid #fff;
-	border-right: 1.5px solid #fff;
-	transform: translate(-132%, 0);
-	padding: 0;
 }
 
-.m-slider.featured-slider .m-heading::before{
+.m-slider.featured-slider .m-heading .m-heading__content::before{
 	content: unset;
 }
 
@@ -100,6 +105,15 @@
 	order: 1;
 }
 
-.m-slider.featured-slider .m-heading .m-heading-text:before {
+.m-slider.featured-slider .m-heading:before {
     content: unset;
+}
+
+.m-slider .m-item {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.m-slider .m-collection__heading {
+    position: relative;
 }
