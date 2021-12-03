@@ -1,0 +1,116 @@
+.manga__header {
+    padding: 50px 0px 35px;
+}
+
+body.manga-page {
+    color: rgb(121,121,121);
+}
+
+body.manga-page .meta-item__label {
+    margin-right: 2px;
+}
+
+.manga__title {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    font-size: 1.5rem;
+}
+
+.manga__header .meta-item__value {
+    color: rgb(133,208,131);
+}
+
+body.manga-page .page__content {
+    padding: 40px 0px;
+    background-color: rgb(252,252,252);
+    border-top: 1px solid rgb(228,228,228);
+}
+
+body.manga-page .manga__header .manga__rating i {
+    font-size: 17px;
+}
+
+.manga__rating i {
+    margin: 0px 1px;
+}
+
+.manga__rating i.filled {
+    color: rgb(242,193,109);
+}
+
+body.manga-page .manga__heading {
+    color: rgb(88,88,88);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+body.manga-page .manga__section {
+    margin-bottom: 2em;
+}
+
+body.manga-page .sidebar-col__content {
+    margin-top: -170px;
+}
+
+body.manga-page .manga__thumbnail {
+    position: relative;
+    padding-top: 150%;
+    overflow: hidden;
+}
+
+body.manga-page .manga__thumbnail img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+    width: unset;
+    max-width: unset;
+}
+
+.manga__info .manga__metas .meta-item {
+    border: 1px solid rgb(229,229,229);
+    padding: 20px;
+    font-weight: 500;
+}
+
+.manga__info .manga__metas .meta-item:not(:last-child) {
+    border-bottom: none;
+}
+
+.manga__info .manga__metas .meta-item .meta-item__value {
+    color: rgb(236 179 83);
+}
+
+.manga__buttons .btn {
+    background-color: rgb(220 220 220);
+    color: rgb(183 183 183);
+    border-radius: 0;
+    margin-right: 10px;
+    padding: 15px 20px;
+}
+
+.manga__buttons .btn .btn__icon {
+    font-size: 27px;
+}
+
+.manga__buttons .btn .btn__text {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.manga__buttons .btn.btn-favorite {
+    background-color: rgb(231 109 105);
+    color: #fff;
+}
+
+.manga__buttons .btn.btn-read-later {
+    background-color: rgb(149 135 188);
+    color: #fff;
+}
+
+.manga__buttons .btn.btn-subscribe {
+    background-color: rgb(135 208 132);
+    color: #fff;
+}
