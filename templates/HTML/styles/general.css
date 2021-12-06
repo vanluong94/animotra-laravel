@@ -63,6 +63,7 @@ img{
     background-color: var(--primary-color);
     border: unset;
     border-radius: 2em;
+	min-width: 100px;
 }
 
 /* HEADER */
