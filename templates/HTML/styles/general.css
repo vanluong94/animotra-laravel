@@ -50,10 +50,6 @@ img{
 	max-width: 100%;
 }
 
-section{
-	margin: 2em auto;
-}
-
 /* STYLE COMPONENT */
 .d-flex-center{
 	display: flex;
