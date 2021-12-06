@@ -1,89 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Manga Information Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Information Page</title>
 
-	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.css">
-	<link rel="stylesheet" href="styles/reset.css">
-	<link rel="stylesheet" href="styles/general.css">
-	<link rel="stylesheet" href="styles/m-slider.css">
-	<link rel="stylesheet" href="styles/m-collection.css">
-	<link rel="stylesheet" href="styles/manga.css">
-	
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/m-slider.css">
+    <link rel="stylesheet" href="styles/m-collection.css">
+    <link rel="stylesheet" href="styles/manga.css">
+    <link rel="stylesheet" href="styles/page.css">
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
-</head> 
-<body class="manga-page">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js">
+    </script>
 
-	<!-- HEADER -->
-	<header id="site-header">
-		<div class="top-header">
-			<div class="container">
-				<div class="row align-items-center">
-					<!-- HEADER LEFT -->
-					<div class="header-left col">
-						<div class="header-left-row d-flex justify-content-start">
-							<div class="header-search-form">
-								<form action="">
-									<div class="search-input-wrapper">
-										<input class="search-input" type="text" placeholder="Search Keywords">
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<!-- HEADER CENTER -->
-					<div class="header-center col">
-						<div class="header-center-row d-flex justify-content-center">
-							<div class="site-logo">
-								<img src="images/logo.png" alt="Animatra">
-							</div>
-						</div>
-					</div>
-					<!-- HEADER RIGHT -->
-					<div class="header-right col">
-						<div class="header-right-row d-flex justify-content-end">
-							<button class="header-btn notification-btn">
-								<i class="fas fa-bell"></i>
-							</button>
-							<button class="header-btn user-btn">
-								<i class="fas fa-user"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="menu-header">
-			<div class="container">
-				<nav class="navbar navbar-expand-lg d-flex align-items-center justify-content-center">
-					<ul id="main-menu" class="navbar-nav menu">
-						<li class="nav-item active"><a class="nav-link" href="#">Home Page</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Online Anime</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Manga Reader</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Anime Ovas</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Online Movies</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Forums</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+</head>
 
-	<!-- BODY -->
-	<main id="site-body">
+<body class="manga-page has-page-header">
+
+    <!-- HEADER -->
+    <header id="site-header">
+        <div class="top-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- HEADER LEFT -->
+                    <div class="header-left col">
+                        <div class="header-left-row d-flex justify-content-start">
+                            <div class="header-search-form">
+                                <form action="">
+                                    <div class="search-input-wrapper">
+                                        <input class="search-input" type="text" placeholder="Search Keywords">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- HEADER CENTER -->
+                    <div class="header-center col">
+                        <div class="header-center-row d-flex justify-content-center">
+                            <div class="site-logo">
+                                <img src="images/logo.png" alt="Animatra">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- HEADER RIGHT -->
+                    <div class="header-right col">
+                        <div class="header-right-row d-flex justify-content-end">
+                            <button class="header-btn notification-btn">
+                                <i class="fas fa-bell"></i>
+                            </button>
+                            <button class="header-btn user-btn">
+                                <i class="fas fa-user"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg d-flex align-items-center justify-content-center">
+                    <ul id="main-menu" class="navbar-nav menu">
+                        <li class="nav-item active"><a class="nav-link" href="#">Home Page</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Online Anime</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Manga Reader</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Anime Ovas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Online Movies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Forums</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- BODY -->
+    <main id="site-body">
         <div class="page">
 
             <!-- PAGE HEADER -->
@@ -94,9 +100,9 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-8">
                                 <h1 class="manga__title h3">Fullmetal Alchemist</h1>
-                                <div class="manga__status mb-1">
-                                    <span class="manga-meta-item__label">Manga Status:</span>
-                                    <span class="manga-meta-item__value">Completed</span>
+                                <div class="manga-status mb-1">
+                                    <span class="manga-status__label mr-1">Manga Status:</span>
+                                    <span class="manga-status__value">Completed</span>
                                 </div>
                                 <div class="manga__rating my-2">
                                     <i class="fas fa-star filled"></i>
@@ -118,137 +124,133 @@
 
                         <!-- SIDEBAR -->
                         <div class="sidebar-col col-md-4">
-                            <div class="sidebar-col__content">
+                            <div class="sidebar-col__content sidebar--offset">
 
-								<!-- MANGA INFO -->
+                                <!-- MANGA INFO -->
                                 <section class="manga-info mb-5">
-									<div class="m-table">
-										<div class="m-table-row p-0">
-											<div class="manga-thumbnail">
-												<a href="#">
-													<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127720-ADJgIrUVMdU9.jpg" alt="">
-												</a>
-											</div>
-										</div>
-										<div class="m-table-row">
-											<div class="manga-meta-item">
-												<span class="manga-meta-item__label">Launch Date:</span>
-												<span class="manga-meta-item__value">04/2017</span>
-											</div>
-										</div>
-										<div class="m-table-row">
-											<div class="manga-meta-item">
-												<span class="manga-meta-item__label">Author:</span>
-												<span class="manga-meta-item__value">Studio Periot</span>
-											</div>
-										</div>
-										<div class="m-table-row">
-											<div class="manga-meta-item">
-												<span class="manga-meta-item__label">Age:</span>
-												<span class="manga-meta-item__value">PG13</span>
-											</div>
-										</div>
-										<div class="m-table-row">
-											<div class="manga-meta-item">
-												<span class="manga-meta-item__label">Rank:</span>
-												<span class="manga-meta-item__value">#768</span>
-											</div>
-										</div>
-										<div class="m-table-row">
-											<div class="manga-meta-item">
-												<span class="manga-meta-item__label">Chapters:</span>
-												<span class="manga-meta-item__value">#365</span>
-											</div>
-										</div>
-										<div class="m-table-row">
-											<div class="manga-meta-item">
-												<span class="manga-meta-item__label">End Date:</span>
-												<span class="manga-meta-item__value">07/2023</span>
-											</div>
-										</div>
-									</div>
+                                    <div class="m-table">
+                                        <div class="m-table__row p-0">
+                                            <div class="manga-thumbnail">
+                                                <a href="#">
+                                                    <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127720-ADJgIrUVMdU9.jpg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="m-table__row">
+                                            <span class="m-table__row-label">Launch Date:</span>
+                                            <span class="m-table__row-value">04/2017</span>
+                                        </div>
+                                        <div class="m-table__row">
+                                            <span class="m-table__row-label">Author:</span>
+                                            <span class="m-table__row-value">Studio Periot</span>
+                                        </div>
+                                        <div class="m-table__row">
+                                            <span class="m-table__row-label">Age:</span>
+                                            <span class="m-table__row-value">PG13</span>
+                                        </div>
+                                        <div class="m-table__row">
+                                            <span class="m-table__row-label">Rank:</span>
+                                            <span class="m-table__row-value">#768</span>
+                                        </div>
+                                        <div class="m-table__row">
+                                            <span class="m-table__row-label">Chapters:</span>
+                                            <span class="m-table__row-value">#365</span>
+                                        </div>
+                                        <div class="m-table__row">
+                                            <span class="m-table__row-label">End Date:</span>
+                                            <span class="m-table__row-value">07/2023</span>
+                                        </div>
+                                    </div>
                                 </section>
 
-								<!-- RELATED MANGA -->
-								<section class="related-mangas mb-5">
-									<h3 class="manga-info-heading text-uppercase">Related Mangas</h3>
-									<div class="m-collection m-collection--small my-0">
-										<div class="m-collection__content">
-											<div class="m-item">
-												<div class="item-thumbnail">
-													<div class="thumbnail">
-														<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx129874-DMJGM3jrzQ2H.jpg" alt="">
-													</div>
-												</div>
-												<div class="item-meta">
-													<div class="item-title"><a href="#">Berserk 2017</a></div>
-													<div class="item-title"><a href="#">Chapter 1</a></div>
-													<div class="item-link"><a href="#">Read now</a></div>
-												</div>
-											</div>
-											<div class="m-item">
-												<div class="item-thumbnail">
-													<div class="thumbnail">
-														<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131573-PmhPTNRs7aF2.jpg" alt="">
-													</div>
-												</div>
-												<div class="item-meta">
-													<div class="item-title"><a href="#">Berserk 2017</a></div>
-													<div class="item-title"><a href="#">Chapter 1</a></div>
-													<div class="item-link"><a href="#">Read now</a></div>
-												</div>
-											</div>
-											<div class="m-item">
-												<div class="item-thumbnail">
-													<div class="thumbnail">
-														<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131681-ODIRpBIbR5Eu.jpg" alt="">
-													</div>
-												</div>
-												<div class="item-meta">
-													<div class="item-title"><a href="#">Berserk 2017</a></div>
-													<div class="item-title"><a href="#">Chapter 1</a></div>
-													<div class="item-link"><a href="#">Read now</a></div>
-												</div>
-											</div>
-											<div class="m-item">
-												<div class="item-thumbnail">
-													<div class="thumbnail">
-														<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg" alt="">
-													</div>
-												</div>
-												<div class="item-meta">
-													<div class="item-title"><a href="#">Berserk 2017</a></div>
-													<div class="item-title"><a href="#">Chapter 1</a></div>
-													<div class="item-link"><a href="#">Read now</a></div>
-												</div>
-											</div>
-											<div class="m-item">
-												<div class="item-thumbnail">
-													<div class="thumbnail">
-														<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-m5ZMNtFioc7j.png" alt="">
-													</div>
-												</div>
-												<div class="item-meta">
-													<div class="item-title"><a href="#">Berserk 2017</a></div>
-													<div class="item-title"><a href="#">Chapter 1</a></div>
-													<div class="item-link"><a href="#">Read now</a></div>
-												</div>
-											</div>
-											<div class="m-item">
-												<div class="item-thumbnail">
-													<div class="thumbnail">
-														<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx129874-DMJGM3jrzQ2H.jpg" alt="">
-													</div>
-												</div>
-												<div class="item-meta">
-													<div class="item-title"><a href="#">Berserk 2017</a></div>
-													<div class="item-title"><a href="#">Chapter 1</a></div>
-													<div class="item-link"><a href="#">Read now</a></div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
+                                <!-- RELATED MANGA -->
+                                <section class="related-mangas mb-5">
+                                    <h3 class="manga-info-heading text-uppercase">Related Mangas</h3>
+                                    <div class="m-collection m-collection--small my-0">
+                                        <div class="m-collection__content">
+                                            <div class="m-item">
+                                                <div class="item-thumbnail">
+                                                    <div class="thumbnail">
+                                                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx129874-DMJGM3jrzQ2H.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="item-title"><a href="#">Berserk 2017</a></div>
+                                                    <div class="item-title"><a href="#">Chapter 1</a></div>
+                                                    <div class="item-link"><a href="#">Read now</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="m-item">
+                                                <div class="item-thumbnail">
+                                                    <div class="thumbnail">
+                                                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131573-PmhPTNRs7aF2.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="item-title"><a href="#">Berserk 2017</a></div>
+                                                    <div class="item-title"><a href="#">Chapter 1</a></div>
+                                                    <div class="item-link"><a href="#">Read now</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="m-item">
+                                                <div class="item-thumbnail">
+                                                    <div class="thumbnail">
+                                                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131681-ODIRpBIbR5Eu.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="item-title"><a href="#">Berserk 2017</a></div>
+                                                    <div class="item-title"><a href="#">Chapter 1</a></div>
+                                                    <div class="item-link"><a href="#">Read now</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="m-item">
+                                                <div class="item-thumbnail">
+                                                    <div class="thumbnail">
+                                                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="item-title"><a href="#">Berserk 2017</a></div>
+                                                    <div class="item-title"><a href="#">Chapter 1</a></div>
+                                                    <div class="item-link"><a href="#">Read now</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="m-item">
+                                                <div class="item-thumbnail">
+                                                    <div class="thumbnail">
+                                                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-m5ZMNtFioc7j.png"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="item-title"><a href="#">Berserk 2017</a></div>
+                                                    <div class="item-title"><a href="#">Chapter 1</a></div>
+                                                    <div class="item-link"><a href="#">Read now</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="m-item">
+                                                <div class="item-thumbnail">
+                                                    <div class="thumbnail">
+                                                        <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx129874-DMJGM3jrzQ2H.jpg"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="item-title"><a href="#">Berserk 2017</a></div>
+                                                    <div class="item-title"><a href="#">Chapter 1</a></div>
+                                                    <div class="item-link"><a href="#">Read now</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
 
                             </div>
                         </div>
@@ -262,10 +264,17 @@
                                 <section class="manga-summary mb-5">
                                     <h3 class="manga-info-heading text-uppercase">The Story Line</h3>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat velit, hendrerit id eros eu, pretium eleifend nibh. Suspendisse potenti. Integer pellentesque ullamcorper dui, nec consequat quam rhoncus vitae. Quisque vehicula dui in massa iaculis, id maximus odio finibus. Proin laoreet eleifend nunc ut feugiat. Pellentesque porttitor purus mauris, vitae luctus elit ultrices nec. Phasellus eu aliquam sapien, et rhoncus sem. Suspendisse eget massa sed sapien iaculis elementum eu at sapien. Nulla eleifend neque molestie, pulvinar nisi vitae, viverra mi.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat velit,
+                                        hendrerit id eros eu, pretium eleifend nibh. Suspendisse potenti. Integer
+                                        pellentesque ullamcorper dui, nec consequat quam rhoncus vitae. Quisque vehicula
+                                        dui in massa iaculis, id maximus odio finibus. Proin laoreet eleifend nunc ut
+                                        feugiat. Pellentesque porttitor purus mauris, vitae luctus elit ultrices nec.
+                                        Phasellus eu aliquam sapien, et rhoncus sem. Suspendisse eget massa sed sapien
+                                        iaculis elementum eu at sapien. Nulla eleifend neque molestie, pulvinar nisi
+                                        vitae, viverra mi.
                                     </p>
                                 </section>
-    
+
                                 <!-- BUTTONS -->
                                 <section class="manga-buttons mb-5">
                                     <div class="btn btn-favorite">
@@ -281,155 +290,157 @@
                                         <div class="btn__text"><span class="text-uppercase">Subscribe</span></div>
                                     </div>
                                 </section>
-    
+
                                 <section class="manga-chapters-list mb-5">
                                     <h3 class="manga-info-heading text-uppercase">Chapters List</h3>
-									<ul id="chapters-list">
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 1
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 2
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 3
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 4
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 5
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 6
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 7
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-										<li class="chapter-item">
-											<div class="chapter-item--left">
-												<div class="chapter-name">
-													Chapter 8
-												</div>
-												<div class="chapter-extend-name">
-													Chapter extend title goes here
-												</div>
-											</div>
-											<div class="chapter-item--right">
-												<div class="chapter-buttons">
-													<div class="btn"><i class="fas fa-book-reader"></i></div>
-												</div>
-											</div>
-										</li>
-									</ul>
+                                    <ul id="chapters-list">
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 1
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 2
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 3
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 4
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 5
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 6
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 7
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="chapter-item">
+                                            <div class="chapter-item--left">
+                                                <div class="chapter-name">
+                                                    Chapter 8
+                                                </div>
+                                                <div class="chapter-extend-name">
+                                                    Chapter extend title goes here
+                                                </div>
+                                            </div>
+                                            <div class="chapter-item--right">
+                                                <div class="chapter-buttons">
+                                                    <div class="btn"><i class="fas fa-book-reader"></i></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </section>
 
-								<section class="manga-tags mb-5">
+                                <section class="manga-tags mb-5">
                                     <h3 class="manga-info-heading text-uppercase">Tags</h3>
-									<ul id="tags-list">
-										<li class="tag-item"><a href="#">manga</a></li>
-										<li class="tag-item"><a href="#">fullmetal</a></li>
-										<li class="tag-item"><a href="#">alchemist</a></li>
-										<li class="tag-item"><a href="#">brotherhood</a></li>
-										<li class="tag-item"><a href="#">action</a></li>
-										<li class="tag-item"><a href="#">adventure</a></li>
-										<li class="tag-item"><a href="#">comedya</a></li>
-										<li class="tag-item"><a href="#">chapter</a></li>
-										<li class="tag-item"><a href="#">manga</a></li>
-										<li class="tag-item"><a href="#">fullmetal</a></li>
-										<li class="tag-item"><a href="#">alchemist</a></li>
-										<li class="tag-item"><a href="#">brotherhood</a></li>
-										<li class="tag-item"><a href="#">action</a></li>
-									</ul>
-								</section>
+                                    <ul id="tags-list">
+                                        <li class="tag-item"><a href="#">manga</a></li>
+                                        <li class="tag-item"><a href="#">fullmetal</a></li>
+                                        <li class="tag-item"><a href="#">alchemist</a></li>
+                                        <li class="tag-item"><a href="#">brotherhood</a></li>
+                                        <li class="tag-item"><a href="#">action</a></li>
+                                        <li class="tag-item"><a href="#">adventure</a></li>
+                                        <li class="tag-item"><a href="#">comedya</a></li>
+                                        <li class="tag-item"><a href="#">chapter</a></li>
+                                        <li class="tag-item"><a href="#">manga</a></li>
+                                        <li class="tag-item"><a href="#">fullmetal</a></li>
+                                        <li class="tag-item"><a href="#">alchemist</a></li>
+                                        <li class="tag-item"><a href="#">brotherhood</a></li>
+                                        <li class="tag-item"><a href="#">action</a></li>
+                                    </ul>
+                                </section>
 
-								<section class="manga-comments mb-5">
-									<div class="m-heading"><h4 class="m-heading__content">Add Comment</h4></div>
-								</section>
+                                <section class="manga-comments mb-5">
+                                    <div class="m-heading">
+                                        <h4 class="m-heading__content">Add Comment</h4>
+                                    </div>
+                                </section>
                             </div>
 
                         </div>
@@ -438,8 +449,9 @@
             </div>
         </div>
     </main>
-	
-	<footer id="site-footer">
+
+    <!-- FOOTER -->
+    <footer id="site-footer" class="text-white">
 		<div class="container">
 			<div class="footer-widgets">
 				<div class="row">
@@ -630,7 +642,8 @@
 		</div>		
 	</footer>
 
-	<div id="site-sub-footer">
+    <!-- SUB FOOTER -->
+	<div id="site-sub-footer" class="text-white">
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col">
@@ -647,9 +660,10 @@
 		</div>
 	</div>
 
-	<!-- FOOTER SCRIPT -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-	<script src="scripts/m-slider.js"></script>
+    <!-- FOOTER SCRIPT -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="scripts/m-slider.js"></script>
 
 </body>
+
 </html>

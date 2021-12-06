@@ -1,0 +1,14 @@
+.page__header {
+    position: relative;
+}
+
+body.has-page-header .page__content {
+    padding: 40px 0px;
+    background-color: rgb(252,252,252);
+    border-top: 1px solid rgb(228,228,228);
+}
+
+.sidebar-col__content.sidebar--offset {
+    margin-top: -120px;
+    background-color: #fff;
+}

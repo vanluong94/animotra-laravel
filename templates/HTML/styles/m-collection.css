@@ -6,6 +6,10 @@
     margin: 1em 0;
 }
 
+.m-collection .m-item {
+    margin-bottom: 20px;
+}
+
 .m-item {
     position: relative;
 }
@@ -44,7 +48,7 @@
 }
 
 /* BIG THUMBNAIL LAYOUT */
-.m-collection--big .m-item .meta-top {
+.m-collection--big .m-item .meta__top {
     position: absolute;
     top: 0;
     width: 100%;
@@ -57,29 +61,31 @@
     font-weight: 500;
 }
 
-.m-collection--big .m-item .meta-top .left-badge {
+.m-collection--big .m-item .meta__top .badge--left {
     background-color: var(--primary-color);
     color: #fff;
     position: relative;
     overflow: hidden;
     border-bottom-right-radius: 100%;
     width: 30%;
-	padding-top: 30%;
+    padding-top: 30%;
 }
 
-.m-collection--big .m-item .meta-top .left-badge .badge-text-big {
-	font-size: 2em;
-	line-height: 1em;
-	font-family: 'Roboto', sans-serif;
-	order: 2;
+.m-collection--big .m-item .meta__top .badge--left .badge-text-big {
+	font-size: 1.8em;
+    line-height: 1em;
+    font-family: 'Roboto', sans-serif;
+    order: 2;
 }
 
-.m-collection--big .m-item .meta-top .left-badge .badge-text {
+.m-collection--big .m-item .meta__top .badge--left .badge-text {
 	text-transform: uppercase;
-	order: 1;
+    order: 1;
+    line-height: 1.2em;
+    font-size: .8em;
 }
 
-.m-collection--big .m-item .meta-top .left-badge-wrapper {
+.m-collection--big .m-item .meta__top .badge--left-wrapper {
     position: absolute;
     top: 15%;
 	left: 15%;
@@ -87,7 +93,7 @@
     flex-flow: column;
 }
 
-.m-collection--big .m-item .meta-top .top-badge{
+.m-collection--big .m-item .meta__top .badge--right{
 	align-self: flex-start;
 	background-color: var(--secondary-color);
 	color: #fff;
@@ -113,7 +119,7 @@
     z-index: 1;
 }
 
-.m-collection--big .m-item .meta-bottom {
+.m-collection--big .m-item .meta__bottom {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -124,7 +130,7 @@
 	z-index: 2;
 }
 
-.m-collection--big .m-item .meta-bottom .meta-type {
+.m-collection--big .m-item .meta__bottom .meta-type {
     align-self: flex-end;
     width: 35px;
     height: 35px;
@@ -135,23 +141,23 @@
     border-radius: 100%;
 }
 
-.m-collection--big .m-item .meta-bottom .meta-type > i {
+.m-collection--big .m-item .meta__bottom .meta-type > i {
     margin-left: 4px;
 }
 
-.m-collection--big .m-item .meta-bottom .meta-title {
+.m-collection--big .m-item .meta__bottom .meta-title {
 	font-family: 'Roboto';
     font-size: 1.2em;
     text-transform: uppercase;
     width: 100%;
 }
 
-.m-collection--big .m-item .meta-bottom .meta-title .item-title {
+.m-collection--big .m-item .meta__bottom .meta-title .item-title {
     font-weight: 500;
     white-space: nowrap;
 }
 
-.m-collection--big .m-item .meta-bottom .meta-title .item-title + .manga-chapter {
+.m-collection--big .m-item .meta__bottom .meta-title .item-title + .manga-chapter {
 	border-top: 1px solid #fff;
 	font-weight: 100;
 	padding-top: 5px;
