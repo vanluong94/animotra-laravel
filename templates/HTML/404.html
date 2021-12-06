@@ -60,12 +60,60 @@
                     <!-- HEADER RIGHT -->
                     <div class="header-right col">
                         <div class="header-right-row d-flex justify-content-end">
-                            <button class="header-btn notification-btn">
-                                <i class="fas fa-bell"></i>
-                            </button>
-                            <button class="header-btn user-btn">
-                                <i class="fas fa-user"></i>
-                            </button>
+                            <div class="header-btn-group header-notifications position-relative">
+                                <a class="header-btn notification-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notificationsDropdown">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="badge">3</span>
+                                </a>
+
+                                <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="notificationsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Notifications Center
+                                    </h6>
+                                    <a class="dropdown-item notification-item" href="#">
+                                        <div>
+                                            <div class="notification-datetime">December 12, 2019</div>
+                                            <span class="notification-content">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item notification-item" href="#">
+                                        <div>
+                                            <div class="notification-datetime">December 12, 2019</div>
+                                            <span class="notification-content">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item notification-item" href="#">
+                                        <div>
+                                            <div class="notification-datetime">December 12, 2019</div>
+                                            <span class="notification-content">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item dropdown-footer" href="#">Show All Alerts</a>
+                                </div>
+                            </div>
+
+                            <div class="header-btn-group header-user position-relative">
+                                <a class="header-btn user-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenuDropdownBtn">
+                                    <i class="fas fa-user"></i>
+                                </a>
+
+                                <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="userMenuDropdownBtn" id="userMenuDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-heart"></i>Favorite
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-history"></i>History
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-id-card"></i>Profile
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-sign-out-alt"></i>Log out
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
     color: inherit;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link:focus, .nav-link:hover {
     color: inherit;
 }
 
