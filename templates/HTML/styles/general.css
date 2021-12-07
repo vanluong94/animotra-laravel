@@ -11,47 +11,6 @@
 	--heading-color: rgb(88,88,88);
 }
 
-/* GENERAL */
-*{
-	box-sizing: border-box;
-	color: inherit;
-}
-
-body{
-	/* color: #3b3b3b; */
-	color: rgb(121,121,121);
-	font-family: 'Raleway', sans-serif;
-	font-size: 15px;
-	font-weight: 300;
-}
-
-input {
-    box-shadow: none;
-    border: none;
-	outline: none;
-	border-radius: 20px;
-}
-
-a{
-	color: inherit;
-	text-decoration: none;
-}
-
-a:hover{
-	color: inherit;
-}
-
-button{
-	outline: none;
-	border: none;
-	box-shadow: none;
-}
-
-img{
-	width: 100%;
-	max-width: 100%;
-}
-
 /* STYLE COMPONENT */
 .d-flex-center{
 	display: flex;
@@ -114,10 +73,19 @@ img{
 ul#main-menu > li.nav-item > a{
 	text-transform: uppercase;
 	font-size: 13px;
+	font-weight: 500;
 	letter-spacing: .2em;
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-bottom: .5rem;
+}
+
+ul#main-menu > li.nav-item > a:first-child {
+    padding-left: 0;
+}
+
+ul#main-menu > li.nav-item > a:last-child {
+    padding-right: 0;
 }
 
 ul#main-menu > li.nav-item > a:after{
@@ -365,7 +333,18 @@ footer{
 	font-weight: 600;
 }
 
+/* FORM */
+.form-floating>.form-control {
+    border-radius: 2em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
 
+.form-floating>label {
+    left: 1.3em;
+    padding-left: 0;
+    padding-right: 0;
+}
 
 /* Animated */
 @-webkit-keyframes growIn {

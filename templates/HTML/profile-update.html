@@ -120,18 +120,18 @@
         </div>
         <div class="menu-header">
             <div class="container">
-                <nav class="navbar navbar-expand-lg d-flex align-items-center justify-content-center">
-                    <ul id="main-menu" class="navbar-nav menu">
-                        <li class="nav-item active"><a class="nav-link" href="#">Home Page</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Online Anime</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Manga Reader</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Anime Ovas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Online Movies</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Forums</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                    </ul>
-                </nav>
+                <nav class="navbar navbar-expand-lg">
+					<ul id="main-menu" class="navbar-nav menu w-100 justify-content-between">
+						<li class="nav-item active"><a class="nav-link" href="homepage.html">Home Page</a></li>
+						<li class="nav-item"><a class="nav-link" href="manga.html">Manga Page</a></li>
+						<li class="nav-item"><a class="nav-link" href="chapter.html">Chapter Page</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Search Page</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">All Page</a></li>
+						<li class="nav-item"><a class="nav-link" href="profile-favorite.html">Favorite</a></li>
+						<li class="nav-item"><a class="nav-link" href="profile-update.html">Profile</a></li>
+						<li class="nav-item"><a class="nav-link" href="404.html">404 Page</a></li>
+					</ul>
+				</nav>
             </div>
         </div>
     </header>
@@ -237,13 +237,13 @@
     
                                     <form action="">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="user_name" name="user_name" value="vincentluong" readonly>
+                                            <input type="text" class="form-control" id="user_name" name="user_name" value="vincentluong" readonly placeholder="Username">
                                             <label for="user_name">Username</label>
                                         </div>
     
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" name="user_display_name" id="user_display_name" value="Vincent Luong">
-                                            <label for="user_name">Username</label>
+                                            <input type="text" class="form-control" name="user_display_name" id="user_display_name" value="Vincent Luong" placeholder="Display Name">
+                                            <label for="user_name">Display Name</label>
                                         </div>
                                         
                                         <div class="form-floating mb-3">
@@ -252,7 +252,7 @@
                                         </div>
     
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="user_email" value="example@aptech.com" required>
+                                            <input type="email" class="form-control" id="user_email" value="example@aptech.com" required placeholder="Email Address">
                                             <label for="user_email">Email address</label>
                                         </div>
                                           
