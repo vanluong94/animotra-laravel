@@ -1,0 +1,27 @@
+#chapterNavigator {
+    background-color: var(--bs-gray-300);
+}
+
+#chapterNavigator .btn {
+    padding: 15px 65px;
+    /* font-size: 95%; */
+}
+
+#readingFrame {
+    border: 1px solid var(--border-color);
+    background-color: var(--bs-white);
+}
+
+#readingFrame .reading__content {
+    padding: 65px;
+}
+
+#readingFrame .reading__header {
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#readingFrame .reading__header .btn {
+    color: var(--bs-white);
+    padding: 15px;
+}
