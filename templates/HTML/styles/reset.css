@@ -33,9 +33,9 @@ button{
 	box-shadow: none;
 }
 
-.btn:active, .btn:focus {
+.btn:active, .btn:focus, button:active, button:focus {
 	outline: none;
-	box-shadow: none;
+	box-shadow: none !important;
 }
 
 img{

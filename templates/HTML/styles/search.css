@@ -1,0 +1,15 @@
+ul.filters-list.filter-sorting > li.filter-item > a {
+    padding: 0px 10px;
+}
+
+ul.filters-list.filter-alphabet > li.filter-item > a {
+    padding: 0px 6px;
+}
+
+ul.filters-list > li.filter-item:not(:last-child) {
+    border-right: 1px solid var(--border-color);
+}
+
+ul.filters-list > li.filter-item > a {
+    display: block;
+}

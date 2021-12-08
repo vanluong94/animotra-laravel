@@ -98,7 +98,7 @@
 }
 
 .m-slider.featured-slider .m-item .meta__top .badge--left{
-	background-color: var(--secondary-color);
+	background-color: var(--secondary-color-transparent);
 }
 
 .m-slider.featured-slider .m-item .meta__top .badge--left .badge-text{

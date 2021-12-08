@@ -1,6 +1,8 @@
 :root{
 	--primary-color: #816bab;
+	--primary-color-transparent: #816babeb;
 	--secondary-color: #ffab19;
+	--secondary-color-transparent: #ffab19d9;
 	--header-bg-color: #523c7f;
 	--footer-bg-color: #483273;
 	--sub-footer-bg-color: #1b1b1b;
@@ -13,6 +15,10 @@
 }
 
 /* STYLE COMPONENT */
+.text-gray { 
+	color: var(--text-color);
+}
+
 .d-flex-center{
 	display: flex;
 	justify-content: center;
@@ -44,6 +50,10 @@
 
 .btn:hover, .btn:active, .btn:focus {
 	opacity: .8;
+}
+
+.border-bottom {
+	border-bottom: 1px solid var(--border-color);
 }
 
 /* HEADER */
@@ -115,7 +125,7 @@ ul#main-menu > li.nav-item > a:after{
     height: 2.5px;
     background-color: #fff;
     margin-top: 6px;
-	transition: width ease-in-out .3s;
+	transition: width ease-in-out .2s;
 	width: 0;
 }
 
