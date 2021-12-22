@@ -2,3 +2,8 @@
     background: url(../../../img/background.png) no-repeat;
     background-color: #563f81;
 }
+
+.bg-gradient-primary {
+    background: rgb(75,54,118);
+    background: linear-gradient(120deg, rgba(75,54,118,1) 0%, rgba(94,72,137,1) 50%, rgba(84,62,120,1) 100%);
+}
