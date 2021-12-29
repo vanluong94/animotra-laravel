@@ -21,6 +21,7 @@ class CreateChaptersTable extends Migration
             $table->string('extend_name', 150)->nullable();
             $table->longText('content');
             $table->unsignedInteger('coin')->default(0);
+            $table->timestamp('released_at')->nullable()->useCurrent();
             $table->timestamps();
         });
     }

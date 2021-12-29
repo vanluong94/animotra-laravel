@@ -4,6 +4,46 @@
 }
 
 .bg-gradient-primary {
-    background: rgb(75,54,118);
-    background: linear-gradient(120deg, rgba(75,54,118,1) 0%, rgba(94,72,137,1) 50%, rgba(84,62,120,1) 100%);
+    /* background: rgb(75,54,118);
+    background: linear-gradient(120deg, rgba(75,54,118,1) 0%, rgba(94,72,137,1) 50%, rgba(84,62,120,1) 100%); */
+    background: rgb(109 86 155);
+    background: linear-gradient(180deg, rgb(109 86 155) 0, rgb(63 45 100) 100%);
+}
+
+.loading-object .spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.loading-object > * {
+    opacity: .3;
+}
+
+.toast {
+    position: fixed;
+    min-width: 50vw;
+    left: 50%;
+    transform: translate(-50%,0);
+    transition: bottom .3s ease-in-out, opacity .2s ease-in-out;
+    bottom: -100px;
+    opacity: 0;
+    display: block;
+}
+
+.toast.show {
+    bottom: 50px;
+    opacity: 1;
+}
+
+.toast.hide {
+    bottom: -100px;
+    opacity: 0;
+    display: block;
 }

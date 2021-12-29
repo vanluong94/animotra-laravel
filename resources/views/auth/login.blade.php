@@ -1,4 +1,12 @@
-<x-admin-layout title="Login" bodyClass="bg-animotra">
+@section('pageTitle')
+Login
+@endsection
+
+@section('bodyClass')
+bg-animotra
+@endsection
+
+<x-admin-layout>
     <div class="container">
 
         <!-- Outer Row -->
@@ -21,7 +29,7 @@
                             <x-auth-session-status class="mb-4" :status="session('status')" />
 
                             <!-- Validation Errors -->
-                            <x-auth-validation-errors class="alert alert-danger" :errors="$errors" />
+                            <x-auth-validation-errors :errors="$errors" />
                             
                             <form method="POST" action="{{ route('login') }}" class="user">
 

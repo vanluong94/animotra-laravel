@@ -1,9 +1,9 @@
-<x-admin-layout title="Login" bodyClass="">
+<x-admin-layout>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <x-admin-sidebar></x-admin-sidebar>
+        <x-admin.sidebar></x-admin.sidebar>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -13,12 +13,17 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <x-admin-topbar></x-admin-topbar>
+                <x-admin.topbar></x-admin.topbar>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    @yield('pageHeading')
+
+                    <x-alert-errors></x-alert-errors>
+                    <x-alert-success></x-alert-success>
+                    
                     {{ $slot }}
 
                 </div>

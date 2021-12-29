@@ -5,16 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ env('APP_NAME') }} - {{ $attributes->get('title') }}</title>
+        <title>{{ env('APP_NAME') }} - @yield('pageTitle')</title>
 
-        <link rel="shortcut icon" href="favicon.png" type="image/png">
+        <link rel="shortcut icon" href="/favicon.png" type="image/png">
 
         {{ $header_meta }}
+        @yield('headerMeta')
+
+        <script src="/js/utils.js"></script>
         
     </head>
-    <body class="{{ $attributes->get('bodyClass') }}">
+    <body class="@yield('bodyClass')">
         {{ $slot }}
 
         {{ $footer_scripts }}
+        @yield('footerScripts')
+
+        <x-modal-confirm-delete></x-modal-confirm-delete>
+        <script src="/js/initialize.js"></script>
     </body>
 </html>

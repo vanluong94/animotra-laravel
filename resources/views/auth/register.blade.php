@@ -1,4 +1,12 @@
-<x-admin-layout title="Login" bodyClass="bg-animotra">
+@section('bodyClass')
+bg-animotra
+@endsection
+
+@section('pageTitle')
+Register
+@endsection
+
+<x-admin-layout>
     <div class="container">
 
         <div class="row justify-content-center">
@@ -18,7 +26,7 @@
                             </div>
 
                             <!-- Validation Errors -->
-                            <x-auth-validation-errors class="alert alert-danger mb-4" :errors="$errors" />
+                            <x-auth-validation-errors :errors="$errors" />
 
                             <form class="user" method="POST" action="{{ route('register') }}">
 
