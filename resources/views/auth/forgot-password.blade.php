@@ -1,8 +1,5 @@
 @section('pageTitle', 'Forgot Password')
-
-@section('bodyClass')
-bg-animotra
-@endsection
+@section('bodyClass', 'bg-animotra')
 
 <x-admin-layout>
     <div class="container">

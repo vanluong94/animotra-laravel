@@ -1,6 +1,5 @@
-@section('bodyClass', 'bg-animotra')
-
 @section('pageTitle', 'Register')
+@section('bodyClass', 'bg-animotra')
 
 <x-admin-layout>
     <div class="container">

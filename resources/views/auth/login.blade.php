@@ -1,8 +1,5 @@
 @section('pageTitle', 'Login')
-
-@section('bodyClass')
-bg-animotra
-@endsection
+@section('bodyClass', 'bg-animotra')
 
 <x-admin-layout>
     <div class="container">

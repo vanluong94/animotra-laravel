@@ -1,6 +1,6 @@
-@section('headerMeta')
+@push('headerScripts')
     <link rel="stylesheet" href="/assets/admin/css/manga.css">
-@endsection
+@endpush
 
 @section('pageTitle', 'Edit Manga Chapters List')
 

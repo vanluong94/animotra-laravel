@@ -9,18 +9,16 @@
 
         <link rel="shortcut icon" href="/favicon.png" type="image/png">
 
-        {{ $header_meta }}
-
-        @yield('headerMeta')
+        @stack('headerScripts')
 
         <script src="/js/utils.js"></script>
         
     </head>
     <body class="@yield('bodyClass')">
+        
         {{ $slot }}
 
-        {{ $footer_scripts }}
-        @yield('footerScripts')
+        @stack('footerScripts')
 
         <x-modal-confirm-delete></x-modal-confirm-delete>
         <script src="/js/initialize.js"></script>
