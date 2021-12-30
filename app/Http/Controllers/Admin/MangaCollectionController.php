@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper\Str;
 use App\Http\Controllers\Controller;
 use App\Models\MangaCollection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\View\View;
-use Illuminate\Support\Str;
+use Yajra\Datatables\Datatables;
 
 class MangaCollectionController extends Controller
 {
@@ -48,12 +47,10 @@ class MangaCollectionController extends Controller
             ]);
         }
 
-        $label = MangaCollection::getTypeLabel( $type );
-
         return redirect( route('admin.collection.edit', [
             'type' => $type,
             'id' => $collection->id
-        ] ) )->with( 'successMsg', "{$label} saved successfully!" );
+        ] ) )->with(  'successMsg', $collection->getTypeLabelSingular() . " saved successfully!" );
 
     }
 
@@ -83,10 +80,74 @@ class MangaCollectionController extends Controller
 
         $collection->delete();
 
-        $label = MangaCollection::getTypeLabel( $type );
+        return redirect( 
+            route('admin.collection.all', $type ) 
+        )->with( 'successMsg', sprintf( 
+            'Deleted %s "%s" successfully!', 
+            $collection->getTypeLabelSingular(), 
+            $collection->name 
+        ) );
 
-        return redirect( route('admin.collection.all', $type ) )->with('successMsg', "Deleted {$label} \"{$collection->name}\" successfully!");
+    }
 
+    /**
+     * Return list of collections via AJAX
+     */
+    public function ajaxList(Request $request, $type) {
+
+        $collections = MangaCollection::whereType( $type );
+
+        return Datatables::of( $collections )
+        ->addColumn('manga_count', function( MangaCollection $collection ){
+            return 0;
+        })
+        ->addColumn('actions', function( MangaCollection $collection ) {
+
+            $output = sprintf( 
+                '<a class="btn btn-success btn-sm mr-1 btn-icon-split" href="%s">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                    <span class="text text-center flex-grow-1">View</span>
+                </a>',
+                $collection->getViewURL()
+            );
+
+            $output .= sprintf(
+                '<a class="btn btn-primary btn-sm mr-1 btn-icon-split" href="%s">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-pen"></i>
+                    </span>
+                    <span class="text text-center flex-grow-1">Edit</span>
+                </a>',
+                $collection->getAdminEditURL()
+            );
+
+            $output .= sprintf(
+                '<a 
+                    class="btn btn-danger btn-sm btn-icon-split"
+                    onclick="aCommon.deleteModal( \'%s\', \'%s\', \'%s\' )"
+                >
+                    <span class="icon text-white-50">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text text-center flex-grow-1">Delete</span>
+                </a>',
+                $collection->getTypeLabelSingular(), 
+                $collection->name, 
+                $collection->getAdminDeleteURL()
+            );
+
+            return $output;
+        })
+        ->editColumn('created_at', function( $collection ){
+            return Str::humanReadString( $collection->created_at );
+        })
+        ->editColumn('updated_at', function( $collection ){
+            return Str::humanReadString( $collection->updated_at );
+        })
+        ->rawColumns(['actions'])
+        ->make();
     }
     
 }

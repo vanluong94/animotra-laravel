@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helper\Str;
 use App\Slug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,9 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 class MangaCollection extends Model
 {
     use HasFactory;
-    use Slug;
-
-    protected $fillable = [ 'type', 'name', 'slug' ];
 
     const TYPES = [
         'category' => [
@@ -34,6 +32,37 @@ class MangaCollection extends Model
         ],
     ];
 
+    protected $fillable = [ 'type', 'name', 'slug' ];
+
+    /**
+     * Retrieve the editting URL
+     * @return string $url
+     */
+    public function getAdminEditURL() {
+        return route('admin.collection.edit', [
+            'id'   => $this->id,
+            'type' => $this->type
+        ]);
+    }
+
+    /**
+     * Retrieve the delete URL 
+     * @return string $url
+     */
+    public function getAdminDeleteURL() {
+        return route('admin.collection.delete', [
+            'id'   => $this->id,
+            'type' => $this->type
+        ]);
+    }
+
+    /**
+     * @return string $url
+     */
+    public function getViewURL() {
+        return '#';
+    }
+
     /**
      * @override parent save() method to generate slug before saving
      */
@@ -49,7 +78,7 @@ class MangaCollection extends Model
     public function genUniqueSlug() {
         $is_valid = false;
         $suffix = 0;
-        $slug = $this->slugify( $this->name );
+        $slug = Str::slugify( $this->name );
 
         while( ! $is_valid ) {
             $is_valid = MangaCollection::where([
@@ -63,6 +92,20 @@ class MangaCollection extends Model
         }
 
         $this->slug = $slug;
+    }
+
+    /**
+     * @return string $plural_label
+     */
+    public function getTypeLabelPlural() {
+        return self::getTypeLabel( $this->type, true );
+    }
+
+    /**
+     * @return string $singular_label
+     */
+    public function getTypeLabelSingular() {
+        return self::getTypeLabel( $this->type, false );
     }
 
     /**

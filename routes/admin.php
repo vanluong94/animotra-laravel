@@ -43,6 +43,10 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
      * Ajax routes
      */
     Route::prefix('ajax')->group(function(){
+
+        Route::prefix('collection')->group(function(){
+            Route::get('{type}/list', [ MangaCollectionController::class, 'ajaxlist' ])->name('admin.ajax.collection.list');
+        });
         
         Route::prefix('chapter')->group(function(){
             Route::post('save', [ ChapterAjaxController::class, 'save' ])->name('ajax.chapter.save');

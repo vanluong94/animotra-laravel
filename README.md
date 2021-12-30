@@ -1,5 +1,6 @@
 ## TODOS
-- [ ] Thêm nút View cho admin.collection.edit
+- [ ] Thêm link cho nút View cho admin.collection.edit
+- [ ] Thêm manga count cho collection
 
 ## DEMO STEPS
 

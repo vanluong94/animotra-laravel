@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="/favicon.png" type="image/png">
 
         {{ $header_meta }}
+
         @yield('headerMeta')
 
         <script src="/js/utils.js"></script>
