@@ -38,7 +38,7 @@
                             onclick="aCommon.deleteModal(
                                 '{{ $label }}',
                                 '{{ $name }}',
-                                '{{ route('admin.collection.delete', compact(['type', 'id'])) . '?_token=' . csrf_token() }}'
+                                '{{ route('admin.collection.delete', compact(['type', 'id'])) }}'
                             )"
                         >
                             <span class="icon text-white-50">

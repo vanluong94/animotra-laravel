@@ -36,7 +36,7 @@ const aCommon = {
         
         objecTypeEl.innerText  = type;
         objectNameEl.innerText = name;
-        objectURLEl.href       = url;
+        objectURLEl.href       = url + '?_token=' + document.querySelector('meta[name="csrf-token"]').content;
         
         modal.show();
 
