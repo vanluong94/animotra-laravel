@@ -33,6 +33,14 @@
                     </button>
                     
                     @if (isset($id))
+
+                        <a class="btn btn-primary btn-icon-split" href="{{ route('collection.view',[ 'type' => $type, 'slug' => $slug ]) }}">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                            <span class="text text-center flex-grow-1">View</span>
+                        </a>
+
                         <a 
                             class="btn btn-danger btn-icon-split"
                             onclick="aCommon.deleteModal(

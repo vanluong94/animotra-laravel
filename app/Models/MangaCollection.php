@@ -39,7 +39,7 @@ class MangaCollection extends Model
      * @return string $url
      */
     public function getViewURL() {
-        return '#';
+        return route('collection.view',[ 'type' => $this->type, 'slug' => $this->slug ]);
     }
 
     /**

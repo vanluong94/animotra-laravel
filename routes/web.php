@@ -19,3 +19,10 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
+
+/**
+ * Manga Collections routes
+ */
+Route::prefix('collection')->group(function() {
+    Route::get('{type}/{slug}', [ MangaCollectionController::class, 'view' ])->name('collection.view');
+});
