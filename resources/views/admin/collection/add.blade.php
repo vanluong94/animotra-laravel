@@ -1,6 +1,4 @@
-@section('pageTitle') 
-Add New {{ App\Models\MangaCollection::getTypeLabel( $type ) }}
-@endsection
+@section('pageTitle', 'Add New ' . App\Models\MangaCollection::getTypeLabel( $type )) 
 
 @section('pageHeading')
     <!-- Page Heading -->

@@ -1,6 +1,4 @@
-@section('pageTitle')
-Forgot Password
-@endsection
+@section('pageTitle', 'Forgot Password')
 
 @section('bodyClass')
 bg-animotra

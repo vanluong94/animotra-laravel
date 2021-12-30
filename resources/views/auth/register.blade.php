@@ -1,10 +1,6 @@
-@section('bodyClass')
-bg-animotra
-@endsection
+@section('bodyClass', 'bg-animotra')
 
-@section('pageTitle')
-Register
-@endsection
+@section('pageTitle', 'Register')
 
 <x-admin-layout>
     <div class="container">

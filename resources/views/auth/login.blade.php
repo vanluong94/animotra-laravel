@@ -1,6 +1,4 @@
-@section('pageTitle')
-Login
-@endsection
+@section('pageTitle', 'Login')
 
 @section('bodyClass')
 bg-animotra

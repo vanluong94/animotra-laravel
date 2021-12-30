@@ -2,9 +2,7 @@
     <link rel="stylesheet" href="/assets/admin/css/manga.css">
 @endsection
 
-@section('pageTitle')
-Edit Manga Chapters List
-@endsection
+@section('pageTitle', 'Edit Manga Chapters List')
 
 <x-dashboard-layout>
 
