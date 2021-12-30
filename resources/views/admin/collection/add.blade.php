@@ -2,7 +2,7 @@
 
 @section('pageHeading')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Add New {{ App\Models\MangaCollection::getTypeLabel( $type ) }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">Add New {{ App\Models\MangaCollection::getTypeLabel( $type ) }}</h1>
 @endsection
 
 <x-dashboard-layout>

@@ -7,7 +7,7 @@
 <x-dashboard-layout>
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Manga Chapters List</h1>
+    <h1 class="h3 mb-4 text-gray-800">Edit Manga Chapters List</h1>
 
     <x-admin.card-chapter-list></x-admin.card-chapter-list>
     
