@@ -38,50 +38,21 @@
         </div>
     </li>
 
-    {{-- Categories --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoriesMenu"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-archive"></i>
-            <span>Categories</span>
-        </a>
-        <div id="categoriesMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('admin.collection.all', 'category') }}"><i class="fas fa-stream"></i> All Categories</a>
-                <a class="collapse-item" href="{{ route('admin.collection.add', 'category') }}"><i class="fas fa-plus-circle"></i> Create Category</a>
+    @foreach (config('other.manga.collections') as $type => $typeData )
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/collection/' . $type . '/*') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#{{ $type . 'Menu' }}"
+                aria-expanded="{{ request()->is('admin/collection/' . $type . '/*') ? 'true' : 'false' }}" aria-controls="collapseTwo">
+                <i class="{{ $typeData['icon'] }}"></i>
+                <span>{{ $typeData['label']['plural'] }}</span>
+            </a>
+            <div id="{{ $type . 'Menu' }}" class="collapse {{ request()->is('admin/collection/' . $type . '/*') ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item {{ request()->is('admin/collection/' . $type . '/all') ? 'active' : '' }}" href="{{ route('admin.collection.all', $type) }}"><i class="fas fa-stream"></i> All {{ $typeData['label']['plural'] }}</a>
+                    <a class="collapse-item {{ request()->is('admin/collection/' . $type . '/add') ? 'active' : '' }}" href="{{ route('admin.collection.add', $type) }}"><i class="fas fa-plus-circle"></i> Create {{ $typeData['label']['singular'] }}</a>
+                </div>
             </div>
-        </div>
-    </li>
-
-    {{-- Tags --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tagsMenu"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-tags"></i>
-            <span>Tags</span>
-        </a>
-        <div id="tagsMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html"><i class="fas fa-stream"></i> All Tags</a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-plus-circle"></i> Create Tag</a>
-            </div>
-        </div>
-    </li>
-
-    {{-- Authors --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#authorsMenu"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-pen-nib"></i>
-            <span>Authors</span>
-        </a>
-        <div id="authorsMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html"><i class="fas fa-stream"></i> All Authors</a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-plus-circle"></i> Create Author</a>
-            </div>
-        </div>
-    </li>
+        </li>
+    @endforeach
 
     <!-- Divider -->
     <hr class="sidebar-divider">

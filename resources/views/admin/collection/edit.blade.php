@@ -13,8 +13,7 @@
 <x-dashboard-layout>
     
     <x-admin.card-collection 
-        type="category" 
-        type-label="Category"
+        :type="$type" 
         :name="$collection->name"
         :slug="$collection->slug"
         :id="$collection->id"

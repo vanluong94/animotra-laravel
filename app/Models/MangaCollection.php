@@ -11,27 +11,6 @@ class MangaCollection extends Model
 {
     use HasFactory;
 
-    const TYPES = [
-        'category' => [
-            'label' => [
-                'singular' => 'Category',
-                'plural'   => 'Categories'
-            ],
-        ],
-        'tag' => [
-            'label' => [
-                'singular' => 'Tag',
-                'plural'   => 'Tags'
-            ],
-        ],
-        'author' => [
-            'label' => [
-                'singular' => 'Author',
-                'plural'   => 'Authors'
-            ],
-        ],
-    ];
-
     protected $fillable = [ 'type', 'name', 'slug' ];
 
     /**
@@ -113,16 +92,7 @@ class MangaCollection extends Model
      * @param boolean $plural 
      */
     public static function getTypeLabel( $type, $plural = false ){
-        if( self::isValidType( $type ) ){
-            if( $plural ){
-                return self::TYPES[ $type ]['label']['plural'];
-            }else{
-                return self::TYPES[ $type ]['label']['singular'];
-            }
-        }
-    }
-
-    public static function isValidType( $type ){
-        return isset( self::TYPES[ $type ] );
+        $plural = $plural ? 'plural' : 'singular';
+        return config( "other.manga.collections.{$type}.label.{$plural}" );
     }
 }

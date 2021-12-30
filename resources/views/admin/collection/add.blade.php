@@ -14,8 +14,7 @@
 
 <x-dashboard-layout>
     <x-admin.card-collection 
-        type="category" 
-        type-label="Category"
+        :type="$type" 
         :name="old('name')"
     ></x-admin.card-collection>
 </x-dashboard-layout>
