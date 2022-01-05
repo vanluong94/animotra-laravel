@@ -16,11 +16,13 @@ class CreateMangasTable extends Migration
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
             $table->string('title', 150);
+            $table->string('slug', 150)->unique();
             $table->longText('summary')->nullable();
             $table->longText('thumbnail')->nullable();
             $table->string('release_status', 50)->nullable();
             $table->string('publish_status', 50)->default('published');
             $table->unsignedBigInteger('user_id');
+            $table->timestamp('published_at');
             $table->timestamps();
         });
     }

@@ -17,7 +17,6 @@ class CreateMangaCollectionRelationshipsTable extends Migration
             $table->unsignedBigInteger('collection_id');
             $table->unsignedBigInteger('manga_id');
             $table->primary(['collection_id', 'manga_id']);
-            $table->timestamps();
         });
     }
 

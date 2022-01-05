@@ -55,6 +55,7 @@ class MangaCollection extends Model
      * @return void
      */
     public function genUniqueSlug() {
+
         $is_valid = false;
         $suffix = 0;
         $slug = Str::slugify( $this->name );
@@ -63,7 +64,7 @@ class MangaCollection extends Model
             $is_valid = MangaCollection::where([
                 'type' => $this->type,
                 'slug' => $slug,
-            ])->first() ? false : true;
+            ])->where('id', '!=', $this->id)->first() ? false : true;
 
             if( ! $is_valid ) {
                 $slug .= '-' . ++$suffix;
@@ -71,6 +72,7 @@ class MangaCollection extends Model
         }
 
         $this->slug = $slug;
+        
     }
 
     /**
@@ -95,4 +97,5 @@ class MangaCollection extends Model
         $plural = $plural ? 'plural' : 'singular';
         return config( "other.manga.collections.{$type}.label.{$plural}" );
     }
+
 }

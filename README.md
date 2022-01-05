@@ -1,6 +1,7 @@
 ## TODOS
 - [x] Thêm link cho nút View cho admin.collection.edit
 - [ ] Thêm manga count cho collection
+- [ ] Handle delete manga collection khi có linked post
 
 ## DEMO STEPS
 

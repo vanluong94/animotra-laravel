@@ -9,8 +9,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -25,15 +25,15 @@
 
     {{-- Manga --}}
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#mangaMenu"
+        <a class="nav-link  {{ request()->routeIs('admin.manga.*') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#mangaMenu"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-book-open"></i>
             <span>Manga</span>
         </a>
-        <div id="mangaMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="mangaMenu" class="collapse {{ request()->routeIs('admin.manga.*') ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html"><i class="fas fa-stream"></i> All Mangas</a>
-                <a class="collapse-item" href="{{ route('admin.manga.add') }}"><i class="fas fa-plus-circle"></i> Create Manga</a>
+                <a class="collapse-item {{ request()->routeIs('admin.manga.all') }}" href="{{ route('admin.manga.all') }}"><i class="fas fa-stream"></i> All Mangas</a>
+                <a class="collapse-item {{ request()->routeIs('admin.manga.add') }}" href="{{ route('admin.manga.add') }}"><i class="fas fa-plus-circle"></i> Create Manga</a>
             </div>
         </div>
     </li>

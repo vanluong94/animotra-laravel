@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\MangaController;
+use App\Http\Controllers\Admin\MangaCollectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +27,8 @@ require __DIR__.'/admin.php';
  */
 Route::prefix('collection')->group(function() {
     Route::get('{type}/{slug}', [ MangaCollectionController::class, 'view' ])->name('collection.view');
+});
+
+Route::prefix('manga')->group(function() {
+    Route::get('manga/{slug}', [ MangaController::class, 'view' ])->name('manga.view');
 });
