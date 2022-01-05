@@ -46,6 +46,7 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
 
         Route::prefix('collection')->group(function(){
             Route::get('{type}/list', [ MangaCollectionController::class, 'ajaxlist' ])->name('admin.ajax.collection.list');
+            Route::get('{type}/search', [ MangaCollectionController::class, 'ajaxSearch' ])->name('admin.ajax.collection.search');
         });
         
         Route::prefix('chapter')->group(function(){

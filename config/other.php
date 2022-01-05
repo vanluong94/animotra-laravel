@@ -24,6 +24,13 @@ return [
                 ],
                 'icon' => 'fas fa-pen-nib'
             ],
+            'year' => [
+                'label' => [
+                    'singular' => 'Release Year',
+                    'plural'   => 'Release Years'
+                ],
+                'icon' => 'fas fa-calendar-day'
+            ],
         ]
     ]
 ];

@@ -6,6 +6,7 @@ use App\Helper\Str;
 use App\Http\Controllers\Controller;
 use App\Models\MangaCollection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Yajra\Datatables\Datatables;
 
 class MangaCollectionController extends Controller
@@ -92,6 +93,7 @@ class MangaCollectionController extends Controller
 
     /**
      * Return list of collections via AJAX
+     * @return \Illuminate\Http\JsonResponse
      */
     public function ajaxList(Request $request, $type) {
 
@@ -148,6 +150,39 @@ class MangaCollectionController extends Controller
         })
         ->rawColumns(['actions'])
         ->make();
+    }
+
+    /**
+     * Search manga collections via AJAX
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function ajaxSearch(Request $request, $type) {
+
+        $query = MangaCollection::whereType( $type )
+        ->where('name', 'like', '%' . $request->input('search') . '%');
+
+        if( $request->has('selected') && ( $selected = $request->input('selected') ) ) {
+            if( is_array( $selected ) ){
+                $query = $query->whereNotIn('name', $selected);
+            } else {
+                $query = $query->where('name', 'not like', $selected);
+            }
+        }
+
+        $results = $query->paginate(10);
+
+        return response()->json([
+            'results' => array_map(function($collection){
+                return [
+                    'id'   => $collection->name,
+                    'text' => $collection->name
+                ];
+            }, $results->items()),
+            'pagination' => [
+                'more' => $results->hasMorePages()
+            ],
+        ]);
+
     }
     
 }
