@@ -48,8 +48,8 @@ class Manga extends Model
             }
         }
 
-        if( isset( $data['thumbnail'] ) ){
-            $file = $data['thumbnail'];
+        if( isset( $data['thumbnail_file'] ) ){
+            $file = $data['thumbnail_file'];
             if( $file instanceof UploadedFile ){
                 $thumb = $file->storePublicly('/thumbnails', [ 'disk' => 'public' ]);
                 if( $thumb ){

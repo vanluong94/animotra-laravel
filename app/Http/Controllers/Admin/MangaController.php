@@ -37,7 +37,8 @@ class MangaController extends Controller
 
     public function save(Request $request) {
 
-        $rules = [
+        // validate post request
+        $data = $request->validate([
             'title'          => 'required|min:1|max:150',
             'publish_status' => [
                 'required', 
@@ -50,13 +51,14 @@ class MangaController extends Controller
             'year' => [
                 'integer', 'min:1', 'max:2100'
             ],
-            'thumbnail'    => 'required|image',
-            'published_at' => 'date',
-            'summary'      => 'min:5',
-            'categories'   => 'array',
-            'authors'      => 'array',
-            'tags'         => 'array',
-        ];
+            'thumbnail_file' => 'required_without:thumbnail|image',
+            'thumbnail'      => 'required_without:thumbnail_file',
+            'published_at'   => 'required_with:id|date',
+            'summary'        => 'min:5',
+            'categories'     => 'array',
+            'authors'        => 'array',
+            'tags'           => 'array',
+        ]);
 
         if( $request->get('id') ){
 
@@ -67,16 +69,6 @@ class MangaController extends Controller
                     'msg' => 'Manga not found'
                 ]);
             }
-
-            if( $manga->thumbnail ) {
-                unset( $rules['thumbnail'] );
-            }
-            
-            // adding rules
-            $rules['published_at'] = 'required|date';
-
-            // validate post request
-            $data = $request->validate( $rules );
 
             // for delete purpose
             foreach( ['categories', 'authors', 'tags'] as $param ){
@@ -90,14 +82,9 @@ class MangaController extends Controller
             }
 
         } else {
-
-            // validate post request
-            $data = $request->validate( $rules );
-
             $data['user_id'] = $request->user()->id;
             $data['published_at'] = Carbon::now();
             $manga = new Manga();
-
         }
 
         $manga->savePostedData( $data );

@@ -26,7 +26,8 @@
                         @endphp>
                             <label>
                                 <i class="fas fa-image fa-4x"></i>
-                                <input type="file" accept=".jpeg,.jpg,.png" name="thumbnail" {{ !empty( $thumbnail ) ? '' : 'required' }} >
+                                <input type="file" accept=".jpeg,.jpg,.png" name="thumbnail_file" {{ !empty( $thumbnail ) ? '' : 'required' }} >
+                                <input type="hidden" name="thumbnail" value="{{ !empty( $thumbnail ) ? $thumbnail : '' }}">
                             </label>
                         </div>
                         <div class="btn remove"><i class="fas fa-times"></i></div>
@@ -58,7 +59,7 @@
                         <label>Publish Status</label>
                         <select name="publish_status" id="" class="form-control">
                             <option value="published" {{ $publishStatus == 'published' ? 'selected' : '' }}>Published</option>
-                            <option value="pending" {{ $publishStatus == 'draft' ? 'selected' : '' }}>Draft</option>
+                            <option value="draft" {{ $publishStatus == 'draft' ? 'selected' : '' }}>Draft</option>
                         </select>
                     </div>  
 
@@ -243,8 +244,11 @@
             //     })
             // })
 
+            let $inputFileThumb = $mangaForm.find('input[name="thumbnail_file"]');
             let $inputThumb = $mangaForm.find('input[name="thumbnail"]');
-            $inputThumb.on('change', function(){
+
+            $inputFileThumb.on('change', function(){
+
                 let $this = $(this),
                     $wrapper = $this.parents('.wrapper'),
                     $placeholder = $this.parents('.img-placeholder');
@@ -258,10 +262,13 @@
                     $placeholder.removeClass('has-img');
                     $wrapper.css('background-image', '');
                 }
+
+                $inputThumb.val('');
+
             })
 
             $mangaForm.find('.btn.remove').on('click', function(){
-                $inputThumb.val('').trigger('change');
+                $inputFileThumb.val('').trigger('change');
             })
         })
     </script>
