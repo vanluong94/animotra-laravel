@@ -30,5 +30,6 @@ Route::prefix('collection')->group(function() {
 });
 
 Route::prefix('manga')->group(function() {
-    Route::get('manga/{slug}', [ MangaController::class, 'view' ])->name('manga.view');
+    Route::get('{slug}', [ MangaController::class, 'view' ])->name('manga.view');
+    Route::get('{slug}/{chapter}', [ ChapterController::class, 'view' ])->name('chapter.view');
 });

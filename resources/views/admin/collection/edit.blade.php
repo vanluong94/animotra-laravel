@@ -1,4 +1,4 @@
-@section('pageTitle', 'Edit ' . $collection->getTypeLabelSingular()) 
+@section('pageTitle', 'Admin | Edit ' . $collection->getTypeLabelSingular()) 
 
 @section('pageHeading')
     <!-- Page Heading -->

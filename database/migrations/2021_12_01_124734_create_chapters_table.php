@@ -18,8 +18,9 @@ class CreateChaptersTable extends Migration
             $table->unsignedBigInteger('manga_id');
             $table->unsignedBigInteger('user_id');
             $table->string('name', 150);
+            $table->string('slug', 150);
             $table->string('extend_name', 150)->nullable();
-            $table->longText('content');
+            $table->longText('content')->nullable();
             $table->unsignedInteger('coin')->default(0);
             $table->timestamp('released_at')->nullable()->useCurrent();
             $table->timestamps();

@@ -69,7 +69,9 @@
                     </div>  
 
                     <div class="form-group">
-                        <a href="javascript:void(0)" class="btn btn-info btn-icon-split d-flex justify-content-start mb-2" data-toggle="tooltip" data-placement="top" title="Manga must be saved first">
+                        <a href="{{ isset( $id ) ? route('admin.manga.chapter.all', $id) : 'javascript:void(0)'}}" class="btn btn-info btn-icon-split d-flex justify-content-start mb-2" @php
+                            echo ! isset( $id ) ? 'data-toggle="tooltip" data-placement="top" title="Manga must be saved first"' : '';
+                        @endphp>
                             <span class="icon text-white-50">
                                 <i class="fas fa-th-list"></i>  
                             </span>

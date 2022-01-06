@@ -3,6 +3,9 @@
 - [ ] Thêm manga count cho collection
 - [ ] Handle delete manga collection khi có linked post
 
+## PRODUCTION TODOS 
+- [ ] Xóa thumbnail cũ khi update manga thumbnail
+
 ## DEMO STEPS
 
 ### I. Admin

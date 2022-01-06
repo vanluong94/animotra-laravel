@@ -1,0 +1,53 @@
+ul.chapter-images {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-gap: 15px;
+}
+
+ul.chapter-images > li.chapter-img {
+    padding-top: 133%;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+}
+
+ul.chapter-images > li.chapter-img.img-ghost {
+    opacity: .3;
+}
+
+ul.chapter-images > li.chapter-img .page-index {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: var(--info);
+    color: var(--white);
+    font-size: 11px;
+}
+
+ul.chapter-images > li.chapter-img .page-delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: var(--danger);
+    color: var(--white);
+    display: none;
+}
+
+ul.chapter-images > li.chapter-img:hover .page-delete {
+    display: block;
+}
+
+ul.chapter-images > li.chapter-img.has-file input[type="file"] {
+    display: none;
+}

@@ -1,18 +1,3 @@
-ul.chapter-images {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-gap: 15px;
-}
-
-ul.chapter-images > li.chapter-img {
-    padding-top: 133%;
-    position: relative;
-    overflow: hidden;
-}
-
 /* ul.chapter-images > li.chapter-img > .chapter-img__wrapper {
     position: absolute;
     left: 0;

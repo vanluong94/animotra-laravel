@@ -5,7 +5,7 @@
     <script src="/assets/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 @endpush
 
-@section('pageTitle', 'All Mangas')
+@section('pageTitle', 'Admin | All Mangas')
 
 @section('pageHeading')
     <!-- Page Heading -->

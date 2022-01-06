@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="/assets/admin/css/manga.css">
 @endpush
 
-@section('pageTitle', 'Edit Manga')
+@section('pageTitle', 'Admin | Edit Manga')
 
 @section('pageHeading')
     <!-- Page Heading -->

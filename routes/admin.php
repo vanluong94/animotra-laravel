@@ -17,16 +17,15 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
 
         Route::get('all', [ MangaController::class, 'all' ])->name('admin.manga.all');
         Route::get('add', [ MangaController::class, 'add' ])->name('admin.manga.add');
-        Route::get('edit/{id}', [ MangaController::class, 'edit' ])->name('admin.manga.edit');
         Route::post('save', [ MangaController::class, 'save' ])->name('ajax.manga.save');
-        Route::get('delete/{id}', [ MangaController::class, 'delete' ])->name('admin.manga.delete')->middleware(VerifyCsrfTokenAll::class);
+        Route::get('{id}/edit', [ MangaController::class, 'edit' ])->name('admin.manga.edit');
+        Route::get('{id}/delete', [ MangaController::class, 'delete' ])->name('admin.manga.delete')->middleware(VerifyCsrfTokenAll::class);
 
-        Route::get('chapters', function(){
-            return view('admin.manga.chapters');
-        })->name('admin.manga.chapters');
-
-        // Route::post('/add', )
-        
+        Route::get('{id}/chapters', [ ChapterController::class, 'all' ])->name('admin.manga.chapter.all');
+        Route::post('{id}/chapter/save', [ ChapterController::class, 'save' ])->name('admin.manga.chapter.save');
+        Route::get('{id}/chapter/add', [ ChapterController::class, 'add' ])->name('admin.manga.chapter.add');
+        Route::get('{id}/chapter/{chapter}/edit', [ ChapterController::class, 'edit' ])->name('admin.manga.chapter.edit');
+        Route::get('{id}/chapter/{chapter}/delete', [ ChapterController::class, 'delete' ])->name('admin.manga.chapter.delete')->middleware(VerifyCsrfTokenAll::class);
 
     });
     
@@ -37,8 +36,8 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
         Route::get('{type}/all', [ MangaCollectionController::class, 'all' ])->name('admin.collection.all');
         Route::get('{type}/add', [ MangaCollectionController::class, 'add' ])->name('admin.collection.add');
         Route::post('{type}/save', [ MangaCollectionController::class, 'save' ])->name('admin.collection.save');
-        Route::get('{type}/edit/{id}', [ MangaCollectionController::class, 'edit' ])->name('admin.collection.edit');
-        Route::get('{type}/delete/{id}', [ MangaCollectionController::class, 'delete' ])->name('admin.collection.delete')->middleware(VerifyCsrfTokenAll::class);
+        Route::get('{type}/{id}/edit', [ MangaCollectionController::class, 'edit' ])->name('admin.collection.edit');
+        Route::get('{type}/{id}/delete', [ MangaCollectionController::class, 'delete' ])->name('admin.collection.delete')->middleware(VerifyCsrfTokenAll::class);
     });
 
     /**
@@ -55,10 +54,12 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
             Route::post('save', [ ChapterAjaxController::class, 'save' ])->name('ajax.chapter.save');
             Route::post('upload', [ ChapterAjaxController::class, 'upload' ])->name('ajax.chapter.upload')
                 ->withoutMiddleware(VerifyCsrfToken::class);
+
         });
 
         Route::prefix('manga')->group(function(){
             Route::get('list', [ MangaController::class, 'ajaxList' ])->name('admin.ajax.manga.list');
+            Route::get('{id}/chapters', [ ChapterController::class, 'ajaxList' ])->name('admin.ajax.chapter.list');
         });
 
     });

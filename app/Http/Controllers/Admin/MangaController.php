@@ -122,7 +122,7 @@ class MangaController extends Controller
 
         $mangas = Manga::all();
 
-        return Datatables::of( $mangas )
+        return DataTables::of( $mangas )
         ->addColumn('actions', function( Manga $manga ) {
 
             $output = '';
