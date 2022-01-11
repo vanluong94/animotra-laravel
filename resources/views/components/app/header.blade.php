@@ -7,9 +7,9 @@
                 <div class="header-left col">
                     <div class="header-left-row d-flex justify-content-start">
                         <div class="header-search-form">
-                            <form action="">
+                            <form method="get" action="{{ route('manga.all') }}">
                                 <div class="search-input-wrapper">
-                                    <input class="search-input" type="text" placeholder="Search Keywords">
+                                    <input class="search-input" type="text" name="s" placeholder="Search Keywords">
                                 </div>
                             </form>
                         </div>
