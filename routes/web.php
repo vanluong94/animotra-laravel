@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\MangaController;
-use App\Http\Controllers\Admin\MangaCollectionController;
+use App\Http\Controllers\MangaController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +32,7 @@ Route::prefix('collection')->group(function() {
 });
 
 Route::prefix('manga')->group(function() {
+    Route::get('all', [ MangaController::class, 'all' ])->name('manga.all');
     Route::get('{slug}', [ MangaController::class, 'view' ])->name('manga.view');
     Route::get('{slug}/{chapter}', [ ChapterController::class, 'view' ])->name('chapter.view');
 });

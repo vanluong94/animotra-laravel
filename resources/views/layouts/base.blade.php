@@ -9,6 +9,8 @@
 
         <link rel="shortcut icon" href="/favicon.png" type="image/png">
 
+        @stack('vendorScripts')
+        
         @stack('headerScripts')
 
         <script src="/js/utils.js"></script>

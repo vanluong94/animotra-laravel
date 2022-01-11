@@ -76,6 +76,7 @@
     line-height: 1em;
     font-family: 'Roboto', sans-serif;
     order: 2;
+    text-align: center;
 }
 
 .m-collection--big .m-item .meta__top .badge--left .badge-text {
@@ -128,7 +129,16 @@
     display: flex;
     justify-content: space-between;
 	padding: 20px;
-	z-index: 2;
+	z-index: 3;
+}
+
+.m-collection--big .m-item > a.item-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
 }
 
 .m-collection--big .m-item .meta__bottom .meta-type {
@@ -167,6 +177,8 @@
 
 .m-collection--big .m-item .thumbnail {
     padding-top: 150%;
+    background-size: cover;
+    background-position: center;
 }
 
 /* SMALL THUMBNAIL LAYOUT */
@@ -218,6 +230,7 @@
     padding-top: 150%;
 }
 
+/* PAGINATION */
 nav.m-pagination {
     display: flex;
 }

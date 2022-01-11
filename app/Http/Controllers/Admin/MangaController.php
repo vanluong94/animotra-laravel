@@ -185,17 +185,4 @@ class MangaController extends Controller
 
     }
 
-    public function view( $slug ) {
-        $manga = Manga::whereSlug( $slug )->first();
-
-        if( ! $manga ) {
-            abort(404);
-        }
-
-        // increase view
-        $manga->increaseViews();
-
-        return view('app.manga', compact(['manga']));
-    }
-
 }

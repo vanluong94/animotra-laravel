@@ -17,6 +17,15 @@
     <script src="/assets/app/js/manga.js"></script>    
 @endpush
 
+@push('floatMenuItems')
+    <a href="{{ $manga->getAdminEditUrl() }}" class="menu-item item-2" data-toggle="tooltip" data-placement="top" title="Edit Manga">
+        <i class="fas fa-pen-square"></i>
+    </a>
+    <a href="{{ route('admin.manga.all') }}" class="menu-item item-4" data-toggle="tooltip" data-placement="top" title="All Mangas Dashboard">
+        <i class="fas fa-th-list"></i>
+    </a>
+@endpush
+
 @section('bodyClass', 'manga-page has-page-header ' . (Auth::check() ? 'has-user' : ''))
 
 @section('pageTitle', $manga->title )
@@ -69,7 +78,7 @@
                                             </div>
                                         </div>
 
-                                        @if ($manga->categories)
+                                        @if ($manga->categories->isNotEmpty())
                                             <div class="m-table__row">
                                                 <span class="m-table__row-label">Category:</span>
                                                 <span class="m-table__row-value">
@@ -80,7 +89,7 @@
                                             </div>
                                         @endif
 
-                                        @if ($manga->year)
+                                        @if ($manga->year->isNotEmpty())
                                             <div class="m-table__row">
                                                 <span class="m-table__row-label">Release Year:</span>
                                                 <span class="m-table__row-value">
@@ -91,7 +100,7 @@
                                             </div>
                                         @endif
 
-                                        @if ($manga->authors)
+                                        @if ($manga->authors->isNotEmpty())
                                             <div class="m-table__row">
                                                 <span class="m-table__row-label">Author:</span>
                                                 <span class="m-table__row-value">
@@ -114,7 +123,7 @@
                                     </div>
                                 </section>
 
-                                @if ($manga->relatedMangas())
+                                @if ($manga->relatedMangas()->isNotEmpty())
                                     <!-- RELATED MANGA -->
                                     <section class="related-mangas mb-5">
                                         <h3 class="manga-info-heading text-uppercase">Related Mangas</h3>
@@ -156,13 +165,15 @@
 
                             <div class="main-col__content">
 
-                                <!-- SUMMARY -->
-                                <section class="manga-summary mb-5">
-                                    <h3 class="manga-info-heading text-uppercase">The Story Line</h3>
-                                    <p>
-                                        {!! $manga->getSummary() !!}
-                                    </p>
-                                </section>
+                                @if($manga->getSummary()) 
+                                    <!-- SUMMARY -->
+                                    <section class="manga-summary mb-5">
+                                        <h3 class="manga-info-heading text-uppercase">The Story Line</h3>
+                                        <p>
+                                            {!! $manga->getSummary() !!}
+                                        </p>
+                                    </section>
+                                @endif
 
                                 <!-- BUTTONS -->
                                 <section class="manga-buttons mb-5">
@@ -205,39 +216,43 @@
                                         
                                 </section>
 
-                                <section class="manga-chapters-list mb-5">
-                                    <h3 class="manga-info-heading text-uppercase">Chapters List</h3>
-                                    <ul id="chapters-list">
-                                        @foreach ($manga->chapters as $chapter)
-                                            <li class="chapter-item">
-                                                <div class="chapter-item--left">
-                                                    <div class="chapter-name">
-                                                        <a href="{{ $chapter->getViewUrl() }}">{{ $chapter->name }}</a>
+                                @if ($manga->chapters->isNotEmpty())
+                                    <section class="manga-chapters-list mb-5">
+                                        <h3 class="manga-info-heading text-uppercase">Chapters List</h3>
+                                        <ul id="chapters-list">
+                                            @foreach ($manga->chapters as $chapter)
+                                                <li class="chapter-item">
+                                                    <div class="chapter-item--left">
+                                                        <div class="chapter-name">
+                                                            <a href="{{ $chapter->getViewUrl() }}">{{ $chapter->name }}</a>
+                                                        </div>
+                                                        <div class="chapter-extend-name">
+                                                            <a href="{{ $chapter->getViewUrl() }}">{{ $chapter->extend_name }}</a>
+                                                        </div>
                                                     </div>
-                                                    <div class="chapter-extend-name">
-                                                        <a href="{{ $chapter->getViewUrl() }}">{{ $chapter->extend_name }}</a>
+                                                    <div class="chapter-item--right">
+                                                        <div class="chapter-buttons">
+                                                            <a class="btn" href="{{ $chapter->getViewUrl() }}"><i class="fas fa-book-reader"></i></a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="chapter-item--right">
-                                                    <div class="chapter-buttons">
-                                                        <a class="btn" href="{{ $chapter->getViewUrl() }}"><i class="fas fa-book-reader"></i></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </section>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </section>
+                                @endif
 
-                                <section class="manga-tags mb-5">
-                                    <h3 class="manga-info-heading text-uppercase">Tags</h3>
-                                    <ul id="tags-list">
-                                        @foreach ($manga->tags as $tag)
-                                            <li>
-                                                <a href="{{ $tag->getViewURL() }}" class="tag-item">{{ $tag->name }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </section>
+                                @if ($manga->tags->isNotEmpty())
+                                    <section class="manga-tags mb-5">
+                                        <h3 class="manga-info-heading text-uppercase">Tags</h3>
+                                        <ul id="tags-list">
+                                            @foreach ($manga->tags as $tag)
+                                                <li>
+                                                    <a href="{{ $tag->getViewURL() }}" class="tag-item">{{ $tag->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </section>
+                                @endif
 
                                 <section class="manga-comments mb-5">
 

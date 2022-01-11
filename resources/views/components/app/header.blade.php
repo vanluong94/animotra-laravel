@@ -19,7 +19,7 @@
                 <div class="header-center col">
                     <div class="header-center-row d-flex justify-content-center">
                         <div class="site-logo">
-                            <a href="homepage.html"><img src="/logo.png" alt="Animatra"></a>
+                            <a href="{{ route('home') }}"><img src="/logo.png" alt="Animatra"></a>
                         </div>
                     </div>
                 </div>
