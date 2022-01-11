@@ -49,13 +49,6 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
             Route::get('{type}/list', [ MangaCollectionController::class, 'ajaxList' ])->name('admin.ajax.collection.list');
             Route::get('{type}/search', [ MangaCollectionController::class, 'ajaxSearch' ])->name('admin.ajax.collection.search');
         });
-        
-        Route::prefix('chapter')->group(function(){
-            Route::post('save', [ ChapterAjaxController::class, 'save' ])->name('ajax.chapter.save');
-            Route::post('upload', [ ChapterAjaxController::class, 'upload' ])->name('ajax.chapter.upload')
-                ->withoutMiddleware(VerifyCsrfToken::class);
-
-        });
 
         Route::prefix('manga')->group(function(){
             Route::get('list', [ MangaController::class, 'ajaxList' ])->name('admin.ajax.manga.list');

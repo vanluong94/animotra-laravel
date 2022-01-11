@@ -1,0 +1,17 @@
+.home-subscription-banner{
+	background-color: var(--primary-color);
+	color: var(--primary-text-color);
+}
+
+.subscription{
+	font-family: 'Roboto', sans-serif;
+}
+
+.subscription .subscription-logo {
+    font-size: 20px;
+    margin-left: 4px;
+}
+
+body.home section{
+	margin: 2em auto;
+}

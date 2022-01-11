@@ -14,11 +14,14 @@ class CreateUserCollectionsTable extends Migration
     public function up()
     {
         Schema::create('user_collections', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
+            $table->id();
+            $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('manga_id');
-            $table->string('type', 20);
-            $table->primary(['user_id', 'manga_id', 'type']);
+            $table->string('type', 20)->index();
             $table->timestamps();
+
+            $table->index([ 'user_id', 'manga_id', 'type' ]);
+            $table->index([ 'user_id', 'type' ]);
         });
     }
 

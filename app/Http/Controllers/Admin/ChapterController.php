@@ -53,7 +53,7 @@ class ChapterController extends Controller
             'coin'        => 'integer|min:1',
             'files.*'     => 'image',
             'images'      => 'required|array',
-            'released_at' => 'required_with:id|date',
+            'released_at' => 'nullable|date',
         ]);
 
         // merge default values
@@ -98,10 +98,6 @@ class ChapterController extends Controller
         }
 
         return view('admin.chapter.edit', compact(['chapter']));
-
-    }
-
-    public function view() {
 
     }
 
@@ -167,7 +163,7 @@ class ChapterController extends Controller
             $output .= sprintf(
                 '<a 
                     class="btn btn-danger btn-sm btn-icon-split"
-                    onclick="aCommon.deleteModal( \'Chapter\', \'%s\', \'%s\' )"
+                    onclick="appUtils.deleteModal( \'Chapter\', \'%s\', \'%s\' )"
                 >
                     <span class="icon text-white-50">
                         <i class="fas fa-trash"></i>

@@ -1,0 +1,37 @@
+.user-summary .user-avatar {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.user-display-name {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+ul#profile-menu {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    margin: 0;
+}
+
+.page__header {
+    position: relative;
+}
+
+ul#profile-menu > li > a {
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 15px;
+    display: block;
+    transform: border-bottom ease-in-out .3s;
+    border-bottom: 5px solid transparent;
+}
+
+ul#profile-menu > li.active > a, ul#profile-menu > li > a:hover {
+    border-bottom: 5px solid;
+    color: var(--primary-color);
+}

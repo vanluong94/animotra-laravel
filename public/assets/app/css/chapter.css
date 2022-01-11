@@ -1,0 +1,40 @@
+#chapterNavigator {
+    background-color: var(--bs-gray-300);
+}
+
+#chapterNavigator .btn {
+    padding: 15px 65px;
+    /* font-size: 95%; */
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+#readingFrame {
+    border: 1px solid var(--border-color);
+    background-color: var(--bs-white);
+}
+
+#readingFrame .reading__content {
+    padding: 65px;
+}
+
+#readingFrame .reading__header {
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#readingFrame .reading__header .btn {
+    color: var(--bs-white);
+    padding: 15px;
+}
+
+#chaptersDropdown.form-select {
+    background-position: right 1.5em center;
+    width: 220px;
+    padding: 15px 2.5em 15px 2em;
+}
+
+select#pagesDropdown {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+

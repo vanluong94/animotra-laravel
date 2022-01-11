@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Helper\Str;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class Manga extends Model
@@ -15,8 +15,16 @@ class Manga extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'slug', 'summary', 'publish_status', 'release_status', 'thumbnail', 'user_id', 'published_at'
+        'title', 'slug', 'summary', 'publish_status', 'release_status', 'thumbnail', 'user_id', 'rating', 'published_at'
     ];
+
+    /**
+     * @param string $slug
+     * @return Manga|null
+     */
+    public static function findBySlug( $slug ) {
+        return self::whereSlug( $slug )->first();
+    }
 
     /**
      * @param array $data 
@@ -173,9 +181,21 @@ class Manga extends Model
         return route('admin.manga.delete', $this->id);
     }
 
+    public function getAdminChaptersList() {
+        return route('admin.manga.chapter.all', $this->id);
+    }
+
     public function getPublishedAtInputValue() {
         $at = new Carbon( $this->published_at );
         return $at->format('Y-m-d\TH:i');
+    }
+
+    public function getReleaseStatus() {
+        return ucfirst( $this->release_status );
+    }
+
+    public function getSummary() {
+        return str_replace( "\n", "<br>", $this->summary );
     }
 
     /**
@@ -214,6 +234,72 @@ class Manga extends Model
 
     public function getThumbnailURL() {
         return asset(Storage::url( $this->thumbnail ));
+    }
+
+    public function chapters() {
+        return $this->hasMany( Chapter::class );
+    }
+
+    public function userRatings() {
+        return $this->hasMany( UserRating::class );
+    }
+
+    public function comments() {
+        return $this->hasMany( Comment::class );
+    }
+
+    public function isBookmarked( $type ) {
+        return UserCollection::where([
+            'user_id'  => request()->user()->id,
+            'manga_id' => $this->id,
+            'type'     => $type
+        ])->first() ? true : false;
+    }
+
+    public function relatedMangas() {
+        $categories = $this->categories();
+        $tags       = $this->tags();
+        $authors    = $this->authors();
+        
+        return Manga::where('id', 'not like', $this->id)
+        ->where(function($query) use ($categories, $tags, $authors) {
+            $query->whereHas('categories', function(Builder $query) use ($categories){
+                $query->whereIn('id', $categories->pluck('id'));
+            })
+            ->orWhereHas('tags', function(Builder $query) use ($tags){
+                $query->whereIn('id', $tags->pluck('id'));
+            })
+            ->orWhereHas('authors', function(Builder $query) use ($authors){
+                $query->whereIn('id', $authors->pluck('id'));
+            });
+        })
+        ->get();
+    }
+
+    public function getLatestChapter() {
+        return $this->chapters->pop();
+    }
+
+    public function increaseViews() {
+
+        $manga_view = MangaView::whereMangaId( $this->id )
+        ->whereDate('created_at', Carbon::today())
+        ->first();
+
+        if( ! $manga_view ){
+            $manga_view = MangaView::create([
+                'manga_id' => $this->id,
+            ]);
+        }
+
+        MangaView::whereMangaId( $this->id )
+        ->whereDate('created_at', Carbon::today())
+        ->increment('views', 1);
+
+    }
+
+    public function totalViews() {
+        return MangaView::whereMangaId( $this->id )->sum('views');
     }
 
 }

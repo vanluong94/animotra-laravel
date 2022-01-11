@@ -4,9 +4,11 @@ namespace App\Models;
 
 use App\Helper\Str;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
 class Chapter extends Model
@@ -15,6 +17,11 @@ class Chapter extends Model
 
     protected $fillable = [ 'name', 'extend_name', 'coin', 'released_at', 'user_id', 'content', 'slug' ];
 
+    public static function findBySlug( $manga_slug, $chapter_slug ) {
+        return self::whereHas('manga', function(Builder $query) use ($manga_slug) {
+            $query->whereSlug( $manga_slug );
+        })->whereSlug( $chapter_slug )->first();
+    }
 
     /**
      * @param array $data 
@@ -45,6 +52,7 @@ class Chapter extends Model
 
         $images = [];
         $old_images = $this->getImages();
+
         if( isset( $data['files'] ) ){
             $files = [];
             foreach ($data['files'] as $file) {
@@ -60,7 +68,7 @@ class Chapter extends Model
         foreach( $data['images'] as $index => $image ){
             if( $image == 'file' ){ // if this is place holder for uploaded file
                 $images[ $index ] = array_shift( $files );
-            } else if( in_array( $image, $old_images ) ) {
+            } else if( $old_images->contains( $image ) ) {
                 $images[ $index ] = $image;
             }
         }   
@@ -75,8 +83,18 @@ class Chapter extends Model
 
     }
 
-    public function saveContent( array $data ) {
+    public function getAdminEditUrl() {
+        return route('admin.manga.chapter.edit', [ 
+            'chapter' => $this->id, 
+            'id' => $this->manga->id 
+        ]);
+    }
 
+    public function getViewUrl() {
+        return route('chapter.view', [
+            'slug' => $this->manga->slug,
+            'chapter' => $this->slug
+        ]);
     }
 
     public function manga() {
@@ -87,18 +105,37 @@ class Chapter extends Model
         return $this->belongsTo( User::class );
     }
 
+    /**
+     * @return Collection
+     */
     public function getImages() {
-        return json_decode( $this->content, true );
+        return Collection::make( json_decode( $this->content, true ) );
     }
+
+    /**
+     * @return Collection
+     */
     public function getImageUrls() {
-        return array_map( function( $img ){
+        return $this->getImages()->map(function( $img ){
             return Storage::url( $img );
-        }, $this->getImages() );
+        });
     }
 
     public function getReleasedAtInputValue() {
         $at = new Carbon( $this->released_at );
         return $at->format('Y-m-d\TH:i');
+    }
+
+    public function getFullName() {
+        $name = $this->name;
+        if( $this->extend_name ){
+            $name .= ' - ' . $this->extend_name;
+        }
+        return $name;
+    }
+
+    public function comments() {
+        return $this->hasMany( Comment::class );
     }
 
     /**

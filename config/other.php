@@ -32,5 +32,10 @@ return [
                 'icon' => 'fas fa-calendar-day'
             ],
         ]
+    ],
+    'user' => [
+        'collections' => [
+            'favorite', 'read_later', 'subscribe'
+        ]
     ]
 ];

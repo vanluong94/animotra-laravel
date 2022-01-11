@@ -43,7 +43,7 @@
 
                         <a 
                             class="btn btn-danger btn-icon-split"
-                            onclick="aCommon.deleteModal(
+                            onclick="appUtils.deleteModal(
                                 '{{ $label }}',
                                 '{{ $name }}',
                                 '{{ route('admin.collection.delete', compact(['type', 'id'])) }}'

@@ -21,6 +21,8 @@
         @stack('footerScripts')
 
         <x-modal-confirm-delete></x-modal-confirm-delete>
+
         <script src="/js/initialize.js"></script>
+        
     </body>
 </html>

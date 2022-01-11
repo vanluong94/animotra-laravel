@@ -128,7 +128,7 @@ class MangaCollectionController extends Controller
             $output .= sprintf(
                 '<a 
                     class="btn btn-danger btn-sm btn-icon-split"
-                    onclick="aCommon.deleteModal( \'%s\', \'%s\', \'%s\' )"
+                    onclick="appUtils.deleteModal( \'%s\', \'%s\', \'%s\' )"
                 >
                     <span class="icon text-white-50">
                         <i class="fas fa-trash"></i>

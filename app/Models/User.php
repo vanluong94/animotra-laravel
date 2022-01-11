@@ -42,4 +42,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatar() {
+        return $this->avatar ? $this->avatar : asset( 'img/avatar-person.svg' );
+    }
+
+    public function isAdmin() {
+        return $this->role == 'admin';
+    }
+
 }

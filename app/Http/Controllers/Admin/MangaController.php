@@ -49,11 +49,11 @@ class MangaController extends Controller
                 Rule:: in([ 'ongoing', 'end', 'completed'])
             ],
             'year' => [
-                'integer', 'min:1', 'max:2100'
+                'nullable', 'integer', 'min:1', 'max:2100'
             ],
             'thumbnail_file' => 'required_without:thumbnail|image',
             'thumbnail'      => 'required_without:thumbnail_file',
-            'published_at'   => 'required_with:id|date',
+            'published_at'   => 'nullable|date',
             'summary'        => 'min:5',
             'categories'     => 'array',
             'authors'        => 'array',
@@ -128,34 +128,33 @@ class MangaController extends Controller
             $output = '';
 
             $output .= sprintf( 
-                '<a class="btn btn-success btn-sm mr-1 btn-icon-split" href="%s">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-eye"></i>
-                    </span>
-                    <span class="text text-center flex-grow-1">View</span>
+                '<a class="btn btn-success btn-sm mr-1" href="%s"  data-toggle="tooltip" data-placement="top" title="View">
+                    <i class="fas fa-eye"></i>
                 </a>',
                 $manga->getViewURL()
             );
 
             $output .= sprintf(
-                '<a class="btn btn-primary btn-sm mr-1 btn-icon-split" href="%s">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                    </span>
-                    <span class="text text-center flex-grow-1">Edit</span>
+                '<a class="btn btn-primary btn-sm mr-1" href="%s" data-toggle="tooltip" data-placement="top" title="Edit">
+                    <i class="fas fa-pen"></i>
                 </a>',
                 $manga->getAdminEditURL()
             );
 
             $output .= sprintf(
+                '<a class="btn btn-info btn-sm mr-1" href="%s" data-toggle="tooltip" data-placement="top" title="Chapters List">
+                    <i class="fas fa-th-list"></i>  
+                </a>',
+                $manga->getAdminChaptersList()
+            );
+
+            $output .= sprintf(
                 '<a 
-                    class="btn btn-danger btn-sm btn-icon-split"
-                    onclick="aCommon.deleteModal( \'Manga\', \'%s\', \'%s\' )"
+                    class="btn btn-danger btn-sm"
+                    onclick="appUtils.deleteModal( \'Manga\', \'%s\', \'%s\' )"
+                    data-toggle="tooltip" data-placement="top" title="Delete"
                 >
-                    <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                    </span>
-                    <span class="text text-center flex-grow-1">Delete</span>
+                    <i class="fas fa-trash"></i>
                 </a>',
                 $manga->title, 
                 $manga->getAdminDeleteURL()
@@ -185,4 +184,18 @@ class MangaController extends Controller
         ->make();
 
     }
+
+    public function view( $slug ) {
+        $manga = Manga::whereSlug( $slug )->first();
+
+        if( ! $manga ) {
+            abort(404);
+        }
+
+        // increase view
+        $manga->increaseViews();
+
+        return view('app.manga', compact(['manga']));
+    }
+
 }

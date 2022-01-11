@@ -1,0 +1,89 @@
+*{
+	box-sizing: border-box;
+	color: inherit;
+}
+
+body{
+	/* color: #3b3b3b; */
+	color: rgb(121,121,121);
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+	font-weight: 300;
+}
+
+input {
+    box-shadow: none;
+    border: none;
+	outline: none;
+	border-radius: 20px;
+}
+
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover{
+	color: inherit;
+}
+
+button{
+	outline: none;
+	border: none;
+	box-shadow: none;
+}
+
+.btn:active, .btn:focus, button:active, button:focus {
+	outline: none;
+	box-shadow: none !important;
+}
+
+img{
+	width: 100%;
+	max-width: 100%;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+@media(min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1140px;
+    }
+}
+
+.nav-link {
+    color: inherit;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:hover {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--heading-color);
+}
+
+.text-white h1, 
+.text-white h2,  
+.text-white h3,  
+.text-white h4,  
+.text-white h5,  
+.text-white h6,
+.text-white .h1,  
+.text-white .h2,  
+.text-white .h3,  
+.text-white .h4,  
+.text-white .h5,  
+.text-white .h6,
+.text-white .m-heading {
+    color: rgba(var(--bs-white-rgb),var(--bs-text-opacity));
+}

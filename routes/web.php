@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\MangaController;
 use App\Http\Controllers\Admin\MangaCollectionController;
+use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,7 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
+require __DIR__.'/ajax.php';
 
 /**
  * Manga Collections routes
@@ -32,4 +35,8 @@ Route::prefix('collection')->group(function() {
 Route::prefix('manga')->group(function() {
     Route::get('{slug}', [ MangaController::class, 'view' ])->name('manga.view');
     Route::get('{slug}/{chapter}', [ ChapterController::class, 'view' ])->name('chapter.view');
+});
+
+Route::middleware('auth')->group(function(){
+    Route::post( 'comment', [ CommentController::class, 'post' ] )->name('comment.post');
 });

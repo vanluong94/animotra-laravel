@@ -1,4 +1,4 @@
-const aCommon = {
+const appUtils = {
     alert(msg, type) {
 
         let bg = type == 'success' ? 'bg-success' : 'bg-danger';
@@ -49,4 +49,24 @@ const aCommon = {
         $el.find('.spinner').remove();
         $el.removeClass('loading-object');
     },
+    getCsrfToken() {
+        return document.querySelector('meta[name="csrf-token"]').content;
+    },
+    animateCSS(node, animation, prefix = 'animate__'){
+        // We create a Promise and return it
+        return new Promise((resolve, reject) => {
+            const animationName = `${prefix}${animation}`;
+            
+            node.classList.add(`${prefix}animated`, animationName);
+            
+            // When the animation ends, we clean the classes and resolve the Promise
+            function handleAnimationEnd(event) {
+                event.stopPropagation();
+                node.classList.remove(`${prefix}animated`, animationName);
+                resolve('Animation ended');
+            }
+            
+            node.addEventListener('animationend', handleAnimationEnd, {once: true});
+        })
+    }   
 }  

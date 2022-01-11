@@ -10,6 +10,10 @@
     background: linear-gradient(180deg, rgb(109 86 155) 0, rgb(63 45 100) 100%);
 }
 
+.loading-object {
+    position: relative;
+}
+
 .loading-object .spinner {
     position: absolute;
     top: 0;

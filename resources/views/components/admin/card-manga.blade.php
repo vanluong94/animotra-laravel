@@ -167,7 +167,7 @@
 
                         <a 
                             class="btn btn-danger btn-icon-split"
-                            onclick="aCommon.deleteModal(
+                            onclick="appUtils.deleteModal(
                                 'Manga',
                                 '{{ $title }}',
                                 '{{ route('admin.manga.delete', $id) }}'
@@ -230,17 +230,17 @@
             //         data: new FormData(form),
             //         beforeSend() {
             //             $input.prop('disabled', true);
-            //             aCommon.appendLoading($card);
+            //             appUtils.appendLoading($card);
             //         },
             //         success(resp) {
-            //             aCommon.alert(resp.msg, resp.error ? 'error' : 'success');
+            //             appUtils.alert(resp.msg, resp.error ? 'error' : 'success');
             //         },
             //         complete(xhr, stt, err) {
             //             $input.prop('disabled', false);
-            //             aCommon.removeLoading($card);
+            //             appUtils.removeLoading($card);
 
             //             if(xhr.status !== 200) {
-            //                 aCommon.alert(`ERROR ${xhr.status}: Something wrong occured`, 'error');
+            //                 appUtils.alert(`ERROR ${xhr.status}: Something wrong occured`, 'error');
             //             }
             //         }
             //     })

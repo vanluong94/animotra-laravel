@@ -67,7 +67,10 @@
                             { data: 'created_at', name: 'created_at' },
                             { data: 'actions', name: 'actions' }
                         ]
-                    });
+                    })
+                    .on('draw', function(){
+                        $('[data-toggle="tooltip"]').tooltip();
+                    })
                 })
             </script>
         </div>
