@@ -12,7 +12,6 @@
         <script type="text/javascript" src="/assets/vendor/jquery.min.js"></script>
         <script type="text/javascript" src="/assets/vendor/slick.min.js"></script>
         
-        <script src="/assets/vendor/bootstrap.bundle.min.js"></script>
     @endprepend 
 
     @prepend('headerScripts')
@@ -21,9 +20,11 @@
         <link rel="stylesheet" href="/assets/app/css/page.css">
         <link rel="stylesheet" href="/assets/app/css/m-slider.css">
         <link rel="stylesheet" href="/assets/app/css/m-collection.css">
+        <script src="/assets/vendor/popper.min.js"></script>
     @endprepend
 
     @push('footerScripts')
+        <script src="/assets/vendor/bootstrap.min.js"></script>
         <script src="/assets/app/js/m-slider.js"></script>
     @endpush
 

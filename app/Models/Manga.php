@@ -156,6 +156,15 @@ class Manga extends Model
         )->where('type', 'author');
     }
 
+    public function subscribedUsers() {
+        return $this->belongsToMany(
+            User::class, 
+            'user_collections',
+            'manga_id',
+            'user_id'
+        )->where('type', 'subscribe');
+    }
+
     public function year() {
         return $this->belongsToMany( 
             MangaCollection::class, 

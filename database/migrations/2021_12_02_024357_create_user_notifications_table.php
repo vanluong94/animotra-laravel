@@ -17,7 +17,8 @@ class CreateUserNotificationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->longText('content');
-            $table->tinyInteger('read');
+            $table->tinyInteger('read')->default(0);
+            $table->longText('link')->nullable();
             $table->timestamps();
         });
     }

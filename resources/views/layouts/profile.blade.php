@@ -18,9 +18,15 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-8">
                             <ul id="profile-menu">
-                                <li class="active"><a href="#">Profile</a></li>
-                                <li><a href="#">Notifications</a></li>
-                                <li><a href="#">Comments</a></li>
+                                <li class="{{ request()->routeIs('profile') ? 'active' : '' }}">
+                                    <a href="{{ route('profile') }}">Profile</a>
+                                </li>
+                                <li class="{{ request()->routeIs('profile.notifications') ? 'active' : '' }}">
+                                    <a href="{{ route('profile.notifications') }}">Notifications</a>
+                                </li>
+                                <li class="{{ request()->routeIs('profile.comments') ? 'active' : '' }}">
+                                    <a href="{{ route('profile.comments') }}">Comments</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

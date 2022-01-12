@@ -5,6 +5,7 @@ use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserNotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app.home');
 })->name('home');
 
 require __DIR__.'/auth.php';
@@ -47,8 +48,11 @@ Route::middleware('auth')->group(function(){
         Route::post( 'update', [ ProfileController::class, 'update' ])->name('profile.update');
         Route::post( 'password', [ ProfileController::class, 'password' ])->name('profile.password');
         Route::get( 'comments', [ ProfileController::class, 'comments' ])->name('profile.comments');
+        Route::get( 'notifications', [ ProfileController::class, 'notifications' ])->name('profile.notifications');
         Route::get( 'favorites', [ ProfileController::class, 'favorites' ])->name('profile.favorites');
         Route::get( 'read-later', [ ProfileController::class, 'readLater' ])->name('profile.readLater');
         Route::get( 'subscriptions', [ ProfileController::class, 'subscriptions' ])->name('profile.subscriptions');
     });
+
+    Route::get('notification/{id}', [ UserNotificationController::class, 'read' ])->name('notification.read');
 });

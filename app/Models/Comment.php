@@ -23,4 +23,29 @@ class Comment extends Model
         return $this->belongsTo( User::class );
     }
 
+    public function getPageName() {
+        if( $this->chapter ) {
+            return $this->manga->title . ' - ' . $this->chapter->getFullName();
+        } else {
+            return $this->manga->title;
+        }
+    }
+
+    public function getPageUrl() {
+        if( $this->chapter ) {
+            $url = route('chapter.view', [
+                'slug'    => $this->manga->slug,
+                'chapter' => $this->chapter->slug
+            ]);
+        } else {
+            $url = route('manga.view', [
+                'slug'    => $this->manga->slug,
+            ]);
+        }
+        return $url;
+    }
+
+    public function getViewUrl() {
+        return $this->getPageUrl() . '#' . $this-> id;
+    }
 }

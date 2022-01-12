@@ -26,37 +26,35 @@
                 <!-- HEADER RIGHT -->
                 <div class="header-right col">
                     <div class="header-right-row d-flex justify-content-end">
-                        <div class="header-btn-group header-notifications position-relative">
-                            <a class="header-btn notification-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notificationsDropdown">
-                                <i class="fas fa-bell"></i>
-                                <span class="badge">3</span>
-                            </a>
 
-                            <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="notificationsDropdown">
-                                <h6 class="dropdown-header">
-                                    Notifications Center
-                                </h6>
-                                <a class="dropdown-item notification-item" href="#">
-                                    <div>
-                                        <div class="notification-datetime">December 12, 2019</div>
-                                        <span class="notification-content">A new monthly report is ready to download!</span>
-                                    </div>
+                        @auth
+                            <div class="header-btn-group header-notifications position-relative">
+
+                                <a class="header-btn notification-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notificationsDropdown">
+                                    <i class="fas fa-bell"></i>
+                                    @if (($unread = Auth::user()->unreadNotifications->count()))
+                                        <span class="badge">{{ $unread }}</span>
+                                    @endif  
                                 </a>
-                                <a class="dropdown-item notification-item" href="#">
-                                    <div>
-                                        <div class="notification-datetime">December 12, 2019</div>
-                                        <span class="notification-content">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item notification-item" href="#">
-                                    <div>
-                                        <div class="notification-datetime">December 12, 2019</div>
-                                        <span class="notification-content">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item dropdown-footer" href="#">Show All Alerts</a>
+
+                                <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="notificationsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Notifications Center
+                                    </h6>
+
+                                    @foreach (Auth::user()->notifications()->limit(10)->get() as $noti)
+                                        <a class="dropdown-item d-flex align-items-center notification-item {{ $noti->isRead() ? '' : 'unread' }}" href="{{ $noti->getReadUrl() }}">
+                                            <div>
+                                                <div class="notification-datetime">{{ $noti->created_at->format( 'M d, Y' ) }}</div>
+                                                <span class="notification-content">{!! $noti->content !!}</span>
+                                            </div>
+                                        </a>
+                                    @endforeach
+                                    <a class="dropdown-item dropdown-footer" href="{{ route('profile.notifications') }}">Show All Alerts</a>
+                                </div>
+
                             </div>
-                        </div>
+                        @endauth
 
                         <div class="header-btn-group header-user position-relative">
                             <a class="header-btn user-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenuDropdownBtn">

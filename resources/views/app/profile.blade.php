@@ -6,7 +6,7 @@
         <x-alert-errors></x-alert-errors>
         <x-alert-success></x-alert-success>
     
-        <h1 class="h4 text-uppercase fw-bold mb-3">Edit Your Information</h1>
+        <h1 class="h4 text-uppercase fw-bold mb-4">Edit Your Information</h1>
     
         <form action="{{ route('profile.update') }}" method="POST">
     
@@ -33,7 +33,7 @@
     </section>
     
     <section>
-        <h1 class="h4 text-uppercase fw-bold">Change Your Password</h1>
+        <h1 class="h4 text-uppercase fw-bold mb-4">Change Your Password</h1>
     
         <form action="{{ route('profile.password') }}" method="POST">
     

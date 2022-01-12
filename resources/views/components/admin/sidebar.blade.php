@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
         <img src="/logo.png" alt="Animotra" class="w-75">
     </a>
 
@@ -16,6 +16,16 @@
     </li>
 
     <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('home') }}">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Website</span></a>
+    </li>
+
+    <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
@@ -25,15 +35,15 @@
 
     {{-- Manga --}}
     <li class="nav-item">
-        <a class="nav-link  {{ request()->routeIs('admin.manga.*') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#mangaMenu"
+        <a class="nav-link {{ request()->routeIs('admin.manga.*') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#mangaMenu"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-book-open"></i>
             <span>Manga</span>
         </a>
         <div id="mangaMenu" class="collapse {{ request()->routeIs('admin.manga.*') ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ request()->routeIs('admin.manga.all') }}" href="{{ route('admin.manga.all') }}"><i class="fas fa-stream"></i> All Mangas</a>
-                <a class="collapse-item {{ request()->routeIs('admin.manga.add') }}" href="{{ route('admin.manga.add') }}"><i class="fas fa-plus-circle"></i> Create Manga</a>
+                <a class="collapse-item {{ request()->routeIs('admin.manga.all') ? 'active' : '' }}" href="{{ route('admin.manga.all') }}"><i class="fas fa-stream"></i> All Mangas</a>
+                <a class="collapse-item {{ request()->routeIs('admin.manga.add') ? 'active' : '' }}" href="{{ route('admin.manga.add') }}"><i class="fas fa-plus-circle"></i> Create Manga</a>
             </div>
         </div>
     </li>

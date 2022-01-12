@@ -63,10 +63,19 @@ class ProfileController extends Controller
 
     }
 
-    public function comments() {
-
+    public function comments(Request $request) {
+        return view('app.profile-comments', [
+            'user'     => $request->user(),
+            'comments' => $request->user()->comments()->orderBy('created_at', 'desc')->limit(10)->get()
+        ]);
     }
 
+    public function notifications(Request $request) {
+        return view('app.profile-notifications', [
+            'user' => $request->user()
+        ]);
+    }
+    
     public function favorites(Request $request) {
         return view('app.profile-favorite', [
             'user' => $request->user(),

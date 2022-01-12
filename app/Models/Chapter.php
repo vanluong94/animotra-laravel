@@ -36,6 +36,8 @@ class Chapter extends Model
      */
     public function savePostedData( array $data ) {
 
+        $is_new = false;
+
         if( ! empty( $data['name'] ) ){
             if( $data['name'] !== $this->title ){ 
                 $data['slug'] = $this->findUniqueSlug( $data['name'] );
@@ -46,6 +48,10 @@ class Chapter extends Model
             if( isset( $data[ $param ] ) ){
                 $this->$param = $data[ $param ];
             }
+        }
+
+        if( ! $this->id ) {
+            $is_new = true;
         }
 
         $this->save(); // save to get chapter id first
@@ -80,6 +86,9 @@ class Chapter extends Model
 
         $this->save();
 
+        if( $is_new ){
+            UserNotifications::sendNewChapterNotifications( $this->manga, $this );
+        }
 
     }
 

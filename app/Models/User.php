@@ -63,6 +63,15 @@ class User extends Authenticatable
         return $this->hasMany( Comment::class );
     }
 
+    public function notifications() {
+        return $this->hasMany( UserNotifications::class )->orderByDesc('created_at');
+    }
+
+    public function unreadNotifications()
+    {
+        return $this->notifications()->where('read', 0);
+    }
+
     public function favoriteMangas() {
         return $this->belongsToMany( 
             Manga::class, 
