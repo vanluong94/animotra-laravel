@@ -24,6 +24,7 @@ const appUtils = {
                 $alert.remove();
             }, 5000)
         });
+        
     },
     deleteModal(type, name, url){
 

@@ -87,3 +87,27 @@ h1, h2, h3, h4, h5, h6,
 .text-white .m-heading {
     color: rgba(var(--bs-white-rgb),var(--bs-text-opacity));
 }
+
+.btn-success {
+    color: #fff;
+    background-color: var(--bs-success);
+    border-color: var(--bs-success);
+}
+
+.btn-info {
+    color: #fff;
+    background-color: var(--bs-info);
+    border-color: var(--bs-info);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: var(--bs-warning);
+    border-color: var(--bs-warning);
+}

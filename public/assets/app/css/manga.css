@@ -177,3 +177,7 @@ ul#tags-list .tag-item {
 .rating-sm {
     line-height: 24px;
 }
+
+.btn-go-chapter {
+    min-width: 100px;
+}

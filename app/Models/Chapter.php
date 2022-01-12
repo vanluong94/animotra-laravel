@@ -106,6 +106,13 @@ class Chapter extends Model
         ]);
     }
 
+    public function getPurchaseUrl() {
+        return route('chapter.purchase', [ 
+            'chapter' => $this->slug, 
+            'slug' => $this->manga->slug 
+        ]);
+    }
+
     public function manga() {
         return $this->belongsTo( Manga::class );
     }

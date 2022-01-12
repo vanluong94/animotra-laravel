@@ -58,4 +58,6 @@ Route::middleware('auth')->group(function(){
     });
 
     Route::get('notification/{id}', [ UserNotificationController::class, 'read' ])->name('notification.read');
+
+    Route::post('{slug}/{chapter}/purchase', [ ChapterController::class, 'purchase' ])->name('chapter.purchase');
 });

@@ -12,6 +12,12 @@
 	--text-color: rgb(121,121,121);
 	--heading-color: rgb(88,88,88);
 	--border-color: rgb(228,228,228);
+    --bs-success: #68a168;
+    --bs-info: #5bc0de;
+    --bs-warning: #f0ad4e;
+    --bs-danger: #d9534f;
+    --bs-light: #f7f7f7;
+    --bs-dark: #292b2c;
 }
 
 /* STYLE COMPONENT */
@@ -52,6 +58,8 @@
 
 .btn {
 	transition: opacity ease-out .2s;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
 }
 
 .btn:hover, .btn:active, .btn:focus {
@@ -200,6 +208,11 @@ ul#main-menu > li.nav-item > a:hover{
     border-bottom: 1px solid #e3e6f0;
     line-height: 1.3rem;
 	color: #3a3b45;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #e9ecef;
+    color: var(--bs-dark);
 }
 
 .dropdown-item.user-balance-item {

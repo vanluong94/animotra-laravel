@@ -235,7 +235,16 @@
                                                     </div>
                                                     <div class="chapter-item--right">
                                                         <div class="chapter-buttons">
-                                                            <a class="btn" href="{{ $chapter->getViewUrl() }}"><i class="fas fa-book-reader"></i></a>
+                                                            @if ($chapter->coin)
+                                                                <a href="{{ $chapter->getViewUrl() }}" class="btn btn-primary btn-go-chapter">
+                                                                    <img src="/img/token.png" alt="token" class="token-icon">{{ $chapter->coin }}
+                                                                </a>
+                                                            @else
+                                                                <a href="{{ $chapter->getViewUrl() }}" class="btn btn-success rounded-pill text-uppercase btn-go-chapter">
+                                                                    free
+                                                                </a>
+                                                            @endif
+                                                            {{-- <a class="btn" href="{{ $chapter->getViewUrl() }}"><i class="fas fa-book-reader"></i></a> --}}
                                                         </div>
                                                     </div>
                                                 </li>
@@ -260,7 +269,7 @@
                                 <section class="manga-comments mb-5">
 
                                     <div class="m-heading">
-                                        <h4 class="m-heading__content">Add Comment</h4>
+                                        <h4 class="m-heading__content">Comments</h4>
                                     </div>
                                     
                                     <x-app.comments :manga="$manga" :comments="$manga->comments"></x-app.comments>

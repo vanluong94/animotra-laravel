@@ -110,4 +110,17 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function purchasedChapters() {
+        return $this->belongsToMany( 
+            Chapter::class, 
+            'user_purchases',
+            'user_id', 
+            'chapter_id'
+        );
+    }
+
+    public function hasPurchased( Chapter $chapter ) {
+        return $this->purchasedChapters()->where('chapter_id', $chapter->id)->first();
+    }
+
 }

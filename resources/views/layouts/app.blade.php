@@ -30,7 +30,7 @@
 
     {{ $slot }}
 
-    @if (Auth::user()->isAdmin())
+    @if (Auth::check() && Auth::user()->isAdmin())
         @include('app.floating-menu')
     @endif
 

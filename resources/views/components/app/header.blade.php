@@ -57,33 +57,48 @@
                         @endauth
 
                         <div class="header-btn-group header-user position-relative">
+
+                            
                             <a class="header-btn user-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenuDropdownBtn">
                                 <i class="fas fa-user"></i>
                             </a>
-
+                            
                             <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="userMenuDropdownBtn" id="userMenuDropdown">
-                                <div class="dropdown-item p-4 d-flex flex-column align-items-center user-balance-item" href="#">
-                                    <div class="mb-2 fs-6">
-                                        <img src="/img/tokens.png" alt="token" class="token-icon me-2">
-                                        <span><strong>{{ Auth::user()->balance }}</strong> tokens</span>
+
+                                @auth
+                                    <div class="dropdown-item p-4 d-flex flex-column align-items-center user-balance-item" href="#">
+                                        <div class="mb-2 fs-6">
+                                            <img src="/img/tokens.png" alt="token" class="token-icon me-2">
+                                            <span><strong>{{ Auth::user()->balance }}</strong> tokens</span>
+                                        </div>
+                                        <a href="{{ route('profile.topup.page') }}" class="btn btn-primary btn-sm d-block w-75">
+                                            TOPUP
+                                        </a>
                                     </div>
-                                    <a href="{{ route('profile.topup.page') }}" class="btn btn-primary btn-sm d-block w-75">
-                                        TOPUP
+                                    <a class="dropdown-item" href="{{ route('profile.favorites') }}">
+                                        <i class="fas fa-heart"></i>Favorites
                                     </a>
-                                </div>
-                                <a class="dropdown-item" href="{{ route('profile.favorites') }}">
-                                    <i class="fas fa-heart"></i>Favorites
-                                </a>
-                                <a class="dropdown-item" href="{{ route('profile.subscriptions') }}">
-                                    <i class="fas fa-bookmark"></i>Subscriptions
-                                </a>
-                                <a class="dropdown-item" href="{{ route('profile') }}">
-                                    <i class="fas fa-id-card"></i>Profile
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}">
-                                    <i class="fas fa-sign-out-alt"></i>Log out
-                                </a>
+                                    <a class="dropdown-item" href="{{ route('profile.subscriptions') }}">
+                                        <i class="fas fa-bookmark"></i>Subscriptions
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        <i class="fas fa-id-card"></i>Profile
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        <i class="fas fa-sign-out-alt"></i>Log out
+                                    </a>
+                                @endauth
+
+                                @guest
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        <i class="fas fa-sign-in-alt"></i>Login
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('register') }}">
+                                        <i class="fas fa-user-plus"></i>Register
+                                    </a>
+                                @endguest
+                                
                             </div>
                         </div>
 

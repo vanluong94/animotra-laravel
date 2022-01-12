@@ -35,7 +35,7 @@
             <div class="page__header">
                 <div class="container">
                     <div class="d-flex flex-column justify-content-center align-items-center">
-                        <h1 class="text-uppercase h4 mb-4">{{ $chapter->manga->title }}</h1>
+                        <h1 class="text-uppercase h4 mb-4"><a href="{{ route('manga.view', $chapter->manga->slug) }}">{{ $chapter->manga->title }}</a></h1>
 
                         <div id="chapterNavigator" class="btn-group rounded-pill overflow-hidden" role="group">
                             <button id="chapterPrev" class="btn btn-secondary rounded-0">Previous</button>
@@ -55,35 +55,50 @@
             <div class="page__content">
                 <div class="container">
 
-                    <!-- READING FRAME -->
-                    <section id="readingFrame" class="mb-5">
-                        <div class="reading__header">
-                            <div id="chapterPageNavigator" class="d-flex justify-content-between">
-                                <button id="pagePrev" class="btn bg-transparent rounded-0"><i class="fas fa-angle-left me-1"></i> Previous Page</button>
-                                <select id="pagesDropdown" class="btn border-0 rounded-0 form-select w-auto px-5">
-                                    @foreach ($chapter->getImageUrls()->keys() as $index)
-                                        <option value="{{ $index + 1 }}">Page {{ str_pad( $index + 1, 2, 0, STR_PAD_LEFT )}}</option>
-                                    @endforeach
-                                </select>
-                                <button id="pageNext" class="btn bg-transparent rounded-0">Next Page <i class="fas fa-angle-right ms-1"></i></button>
-                            </div>
-                        </div>
-                        <div class="reading__content">
-                            <img id="theImage" src="{{ $chapter->getImageUrls()->shift() }}" alt="{{ $chapter->getFullName() }}">
-                        </div>
+                    @guest
+                        <x-alert-login-required></x-alert-login-required>    
+                    @endguest
 
-                        <script>
-                            const chapterImgs = {!! json_encode( $chapter->getImageUrls() ) !!}
-                        </script>
-                    </section>
+                    @auth
+                        @if(Auth::user()->hasPurchased($chapter))
+                            <!-- READING FRAME -->
+                            <section id="readingFrame">
+                                <div class="reading__header">
+                                    <div id="chapterPageNavigator" class="d-flex justify-content-between">
+                                        <button id="pagePrev" class="btn bg-transparent rounded-0"><i class="fas fa-angle-left me-1"></i> Previous Page</button>
+                                        <select id="pagesDropdown" class="btn border-0 rounded-0 form-select w-auto px-5">
+                                            @foreach ($chapter->getImageUrls()->keys() as $index)
+                                                <option value="{{ $index + 1 }}">Page {{ str_pad( $index + 1, 2, 0, STR_PAD_LEFT )}}</option>
+                                            @endforeach
+                                        </select>
+                                        <button id="pageNext" class="btn bg-transparent rounded-0">Next Page <i class="fas fa-angle-right ms-1"></i></button>
+                                    </div>
+                                </div>
+                                <div class="reading__content">
+                                    <img id="theImage" src="{{ $chapter->getImageUrls()->shift() }}" alt="{{ $chapter->getFullName() }}">
+                                </div>
 
-                    <!-- COMMENT -->
-                    <section id="comments">
-                        <div class="m-heading"><h4 class="m-heading__content">Add Comment</h4></div>
+                                <script>
+                                    const chapterImgs = {!! json_encode( $chapter->getImageUrls() ) !!}
+                                </script>
+                            </section>
+                        @else
+                            <x-alert-purchase :chapter="$chapter"></x-alert-purchase>
+                        @endif
+                    @endauth    
 
-                        <x-app.comments :manga="$chapter->manga" :chapter="$chapter" :comments="$chapter->comments"></x-app.comments>
-                        
-                    </section>
+                    <div class="mb-5"></div>
+
+                    @if (Auth::check() || $chapter->comments->count())
+                        <!-- COMMENT -->
+                        <section id="comments">
+
+                            <div class="m-heading"><h4 class="m-heading__content">Comments</h4></div>
+
+                            <x-app.comments :manga="$chapter->manga" :chapter="$chapter" :comments="$chapter->comments"></x-app.comments>
+                            
+                        </section>
+                    @endif
 
                 </div>
             </div>  
