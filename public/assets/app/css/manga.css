@@ -181,3 +181,8 @@ ul#tags-list .tag-item {
 .btn-go-chapter {
     min-width: 100px;
 }
+
+.btn-go-chapter.purchased {
+    background-color: var(--bs-gray-500);
+    background-color: var(--bs-success);
+}

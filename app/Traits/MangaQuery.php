@@ -38,7 +38,8 @@ trait MangaQuery {
     }
 
     public static function queryLatest() {
-        return Manga::orderByDesc('updated_at');
+        return Manga::leftJoin('chapters', 'chapters.manga_id', '=', 'mangas.id')
+        ->orderByDesc('chapters.created_at');
     }
 
     public static function queryTopRated() {

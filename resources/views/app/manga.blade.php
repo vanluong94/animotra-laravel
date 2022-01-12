@@ -221,8 +221,12 @@
 
                                 @if ($manga->chapters->isNotEmpty())
                                     <section class="manga-chapters-list mb-5">
+
                                         <h3 class="manga-info-heading text-uppercase">Chapters List</h3>
+
+                                        {{-- CHAPTER LIST START --}}
                                         <ul id="chapters-list">
+
                                             @foreach ($manga->chapters as $chapter)
                                                 <li class="chapter-item">
                                                     <div class="chapter-item--left">
@@ -236,7 +240,7 @@
                                                     <div class="chapter-item--right">
                                                         <div class="chapter-buttons">
                                                             @if ($chapter->coin)
-                                                                <a href="{{ $chapter->getViewUrl() }}" class="btn btn-primary btn-go-chapter">
+                                                                <a href="{{ $chapter->getViewUrl() }}" class="btn btn-primary btn-go-chapter {{ Auth::user()->hasPurchased($chapter) ? 'purchased' : '' }}">
                                                                     <img src="/img/token.png" alt="token" class="token-icon">{{ $chapter->coin }}
                                                                 </a>
                                                             @else
@@ -249,7 +253,10 @@
                                                     </div>
                                                 </li>
                                             @endforeach
+
                                         </ul>
+                                        {{-- CHAPTER LIST END --}}
+
                                     </section>
                                 @endif
 
