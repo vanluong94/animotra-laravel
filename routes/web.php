@@ -3,6 +3,8 @@
 use App\Http\Controllers\MangaController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +41,14 @@ Route::prefix('manga')->group(function() {
 
 Route::middleware('auth')->group(function(){
     Route::post( 'comment', [ CommentController::class, 'post' ] )->name('comment.post');
+
+    Route::prefix('profile')->group(function(){
+        Route::get( '/', [ ProfileController::class, 'profile' ])->name('profile');
+        Route::post( 'update', [ ProfileController::class, 'update' ])->name('profile.update');
+        Route::post( 'password', [ ProfileController::class, 'password' ])->name('profile.password');
+        Route::get( 'comments', [ ProfileController::class, 'comments' ])->name('profile.comments');
+        Route::get( 'favorites', [ ProfileController::class, 'favorites' ])->name('profile.favorites');
+        Route::get( 'read-later', [ ProfileController::class, 'readLater' ])->name('profile.readLater');
+        Route::get( 'subscriptions', [ ProfileController::class, 'subscriptions' ])->name('profile.subscriptions');
+    });
 });

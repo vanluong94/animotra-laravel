@@ -51,4 +51,43 @@ class User extends Authenticatable
         return $this->role == 'admin';
     }
 
+    public function getRoleLabel() {
+        if( $this->role == 'admin' ){
+            return 'administrator';
+        } else {
+            return 'member';
+        }
+    }
+
+    public function comments() {
+        return $this->hasMany( Comment::class );
+    }
+
+    public function favoriteMangas() {
+        return $this->belongsToMany( 
+            Manga::class, 
+            'user_collections',
+            'user_id', 
+            'manga_id'
+        )->where('type', 'favorite');
+    }
+
+    public function readLaterMangas() {
+        return $this->belongsToMany( 
+            Manga::class, 
+            'user_collections',
+            'user_id', 
+            'manga_id'
+        )->where('type', 'read_later');
+    }
+
+    public function subscribedMangas() {
+        return $this->belongsToMany( 
+            Manga::class, 
+            'user_collections',
+            'user_id', 
+            'manga_id'
+        )->where('type', 'subscribe');
+    }
+
 }

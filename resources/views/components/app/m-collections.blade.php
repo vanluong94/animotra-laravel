@@ -1,5 +1,5 @@
 @props([
-    'mangas'
+    'mangas', 'columnClass'
 ])
 
 @if ($mangas->count())
@@ -7,7 +7,7 @@
         <div class="m-collection__content">
             <div class="row">
                 @foreach ($mangas as $manga)
-                    <div class="col-md-3">
+                    <div class="{{ $columnClass }}">
                         <x-app.card-manga-big :manga="$manga"></x-app.card-manga-big>
                     </div>
                 @endforeach
@@ -17,7 +17,7 @@
 
     {{ $mangas->links() }}
 @else
-    <h3 class="text-center">
+    <p class="text-center py-5 text-gray display-6">
         <i class="fas fa-sad-cry"></i> No results found
-    </h3>
+    </p>
 @endif

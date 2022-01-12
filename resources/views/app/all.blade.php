@@ -83,7 +83,7 @@
     </script>
 @endpush
 
-@section('bodyClass', 'manga-page has-page-header ' . ($isSearchExpanded ? 'advanced-search' : '') )
+@section('bodyClass', 'all-page has-page-header ' . ($isSearchExpanded ? 'advanced-search' : '') )
 
 @section('pageTitle', 'All Mangas' )
 
@@ -223,7 +223,7 @@
 
             <div class="page__content">
                 <div class="container">
-                    <x-app.m-collections :mangas="$mangas"></x-app.m-collections>
+                    <x-app.m-collections :mangas="$mangas" columnClass="col-md-3"></x-app.m-collections>
                 </div>
             </div>
 

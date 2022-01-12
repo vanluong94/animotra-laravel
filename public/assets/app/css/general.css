@@ -368,6 +368,34 @@ footer{
     font-weight: 500;
 }
 
+.m-table > .m-table__row.has-link {
+    padding: 0;
+}
+
+.m-table > .m-table__row.has-link > a {
+    display: block;
+    position: relative;
+    padding: 20px;
+}
+
+.m-table > .m-table__row.has-link > a:after {
+    color: var(--bs-text-color);
+    content: '\f138';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    transition: right .3s ease-in-out;
+}
+
+.m-table > .m-table__row.has-link > a:hover {
+    background-color: #f9f9f9;
+}
+
+.m-table > .m-table__row.has-link > a:hover:after {
+    right: 17px;
+}
+
 .m-table > .m-table__row:not(:last-child) {
     border-bottom: none;
 }
