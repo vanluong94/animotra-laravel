@@ -39,7 +39,8 @@ class ChapterController extends Controller
         ]);
 
         if( 
-            ! UserPurchase::where([
+            $chapter->isPremium()
+            && ! UserPurchase::where([
                 [ 'user_id', $user->id ],
                 [ 'chapter_id', $chapter->id ],
                 [ 'manga_id', $chapter->manga->id ],

@@ -125,6 +125,10 @@ class Chapter extends Model
         return $this->belongsTo( User::class );
     }
 
+    public function isPremium() {
+        return $this->coin > 0;
+    }
+
     /**
      * @return Collection
      */
