@@ -68,6 +68,18 @@ class User extends Authenticatable
         return $this->hasMany( UserNotifications::class )->orderByDesc('created_at');
     }
 
+    public function mangas() {
+        return $this->hasMany( Manga::class );
+    }
+
+    public function chapters() {
+        return $this->hasMany( Chapter::class );
+    }
+
+    public function logs() {
+        return $this->hasMany( UserCoinLog::class );
+    }
+
     public function unreadNotifications()
     {
         return $this->notifications()->where('read', 0);
@@ -121,6 +133,14 @@ class User extends Authenticatable
 
     public function hasPurchased( Chapter $chapter ) {
         return $this->purchasedChapters()->where('chapter_id', $chapter->id)->first();
+    }
+
+    public function getAdminEditUrl() {
+        return route('admin.user.edit', $this->id);
+    }
+
+    public function getAdminDeleteUrl() {
+        return route('admin.user.delete', $this->id);
     }
 
 }

@@ -103,6 +103,7 @@ class MangaController extends Controller
             ]);
         }
 
+        $manga->chapters()->detach();
         $manga->categories()->detach();
         $manga->tags()->detach();
         $manga->authors()->detach();
@@ -157,7 +158,7 @@ class MangaController extends Controller
                     <i class="fas fa-trash"></i>
                 </a>',
                 $manga->title, 
-                $manga->getAdminDeleteURL()
+                $manga->getAdminDeleteUrl()
             );
 
             return $output;

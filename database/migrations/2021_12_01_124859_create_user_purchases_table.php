@@ -19,7 +19,7 @@ class CreateUserPurchasesTable extends Migration
             $table->unsignedBigInteger('chapter_id');
             $table->unsignedBigInteger('manga_id');
             $table->timestamps();
-            $table->primary([ 'user_id', 'manga_id' ]);
+            $table->primary([ 'user_id', 'chapter_id' ]);
         });
     }
 

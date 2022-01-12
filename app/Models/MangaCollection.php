@@ -28,7 +28,7 @@ class MangaCollection extends Model
      * Retrieve the delete URL 
      * @return string $url
      */
-    public function getAdminDeleteURL() {
+    public function getAdminDeleteUrl() {
         return route('admin.collection.delete', [
             'id'   => $this->id,
             'type' => $this->type

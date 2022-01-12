@@ -18,7 +18,7 @@ class CreateUserCoinLogsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('type', 50);
             $table->integer('coin');
-            $table->string('entry', 50);
+            $table->longText('entry');
             $table->timestamps();
         });
     }

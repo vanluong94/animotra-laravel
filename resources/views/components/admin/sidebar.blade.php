@@ -74,15 +74,15 @@
 
     {{-- Users --}}
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usersMenu"
+        <a class="nav-link {{ request()->is('admin/user/*') ? '' : 'collapsed' }}" href="#" data-toggle="collapse" data-target="#usersMenu"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-user"></i>
             <span>Users</span>
         </a>
-        <div id="usersMenu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="usersMenu" class="collapse {{ request()->routeIs('admin.user.*') ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html"><i class="fas fa-users"></i> All Users</a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-user-plus"></i> Create User</a>
+                <a class="collapse-item {{ request()->routeIs('admin.user.all') ? 'active' : '' }}" href="{{ route('admin.user.all') }}"><i class="fas fa-users"></i> All Users</a>
+                <a class="collapse-item {{ request()->routeIs('admin.user.add') ? 'active' : '' }}" href="{{ route('admin.user.add') }}"><i class="fas fa-user-plus"></i> Create User</a>
             </div>
         </div>
     </li>

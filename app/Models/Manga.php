@@ -187,7 +187,7 @@ class Manga extends Model
         return route('admin.manga.edit', $this->id);
     }
 
-    public function getAdminDeleteURL() {
+    public function getAdminDeleteUrl() {
         return route('admin.manga.delete', $this->id);
     }
 

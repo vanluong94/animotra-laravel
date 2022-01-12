@@ -62,6 +62,8 @@ Route::middleware('auth')->group(function(){
         Route::get( 'subscriptions', [ ProfileController::class, 'subscriptions' ])->name('profile.subscriptions');
         Route::get( 'topup', [ ProfileController::class, 'topupPage' ])->name('profile.topup.page');
         Route::post( 'topup', [ ProfileController::class, 'topup'])->name('profile.topup');
+        Route::get( 'logs', [ ProfileController::class, 'logs'])->name('profile.logs');
+        Route::get( 'logs/ajax', [ ProfileController::class, 'ajaxLogs'])->name('profile.logs.ajax');
     });
 
     Route::get('notification/{id}', [ UserNotificationController::class, 'read' ])->name('notification.read');

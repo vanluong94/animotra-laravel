@@ -137,7 +137,7 @@ class MangaCollectionController extends Controller
                 </a>',
                 $collection->getTypeLabelSingular(), 
                 $collection->name, 
-                $collection->getAdminDeleteURL()
+                $collection->getAdminDeleteUrl()
             );
 
             return $output;

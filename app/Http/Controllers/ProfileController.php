@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\PaypalException;
 use App\Helper\PayPalClient;
+use App\Helper\Str;
+use App\Models\UserCoinLog;
 use App\Models\UserTransaction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\DataTables;
 
 class ProfileController extends Controller
 {
@@ -144,6 +147,8 @@ class ProfileController extends Controller
                 throw new PaypalException('This order is already completed');
             }
 
+            DB::beginTransaction();
+
             UserTransaction::create([
                 'user_id'  => $request->user()->id,
                 'price'    => $price,
@@ -151,17 +156,51 @@ class ProfileController extends Controller
                 'coins'    => $data['token_amount'],
             ]);
 
+            UserCoinLog::create([
+                'user_id' => $request->user()->id,
+                'type'    => 'topup',
+                'coin'    => $data['token_amount'],
+                'entry'   => sprintf( 'Topup %d tokens via Paypal payment gateway', $data['token_amount'] )
+            ]);
+
             $request->user()->addBalance( $data['token_amount'] );
 
+            DB::commit();
+
         } catch (PaypalException $e) {
-            return redirect()->route('profile.tokens')->withErrors([
+            return redirect()->route('profile.topup.page')->withErrors([
                 'msg' => 'Failed to complete the payment. ' . $e->getMessage()
             ]);
         }
        
-        return redirect()->route('profile.tokens')->with([
+        return redirect()->route('profile.topup.page')->with([
             'successMsg' => sprintf( 'Topup %d tokens successfully!', $data['token_amount'] )
         ]);
+
+    }
+
+    public function logs(Request $request) {
+        return view('app.profile-logs', [
+            'user' => $request->user()
+        ]);
+    }
+
+    public function ajaxLogs(Request $request) {
+
+        $logs = $request->user()->logs();
+
+        return DataTables::of( $logs )
+        ->editColumn('created_at', function( $log ){
+            return Str::humanReadString( $log->created_at );
+        })
+        ->editColumn('type', function( $log ){
+            return ucfirst( $log->type );
+        })
+        ->addColumn('token', function( $log ){
+            return $log->coin;
+        })
+        ->rawColumns(['entry'])
+        ->make();
 
     }
 }

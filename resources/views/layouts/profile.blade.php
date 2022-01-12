@@ -24,6 +24,9 @@
                                 <li class="{{ request()->routeIs('profile.topup.page') ? 'active' : '' }}">
                                     <a href="{{ route('profile.topup.page') }}">Topup</a>
                                 </li>
+                                <li class="{{ request()->routeIs('profile.logs') ? 'active' : '' }}">
+                                    <a href="{{ route('profile.logs') }}">Token Logs</a>
+                                </li>
                                 <li class="{{ request()->routeIs('profile.notifications') ? 'active' : '' }}">
                                     <a href="{{ route('profile.notifications') }}">Notifications</a>
                                 </li>

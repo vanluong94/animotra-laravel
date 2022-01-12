@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ChapterAjaxController;
 use App\Http\Controllers\Admin\ChapterController;
 use App\Http\Controllers\Admin\MangaController;
 use App\Http\Controllers\Admin\MangaCollectionController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Middleware\VerifyCsrfTokenAll;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,12 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
         Route::get('{id}/chapter/{chapter}/delete', [ ChapterController::class, 'delete' ])->name('admin.manga.chapter.delete')->middleware(VerifyCsrfTokenAll::class);
 
     });
-    
+
+    Route::prefix('user')->group(function(){
+        Route::get('all', [ UserController::class, 'all' ])->name('admin.user.all');
+        Route::get('{id}/delete', [ UserController::class, 'delete' ])->name('admin.user.delete')->middleware(VerifyCsrfTokenAll::class);
+    });
+
     /**
      * Manga Collections routes
      */
@@ -55,6 +61,8 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
             Route::get('list', [ MangaController::class, 'ajaxList' ])->name('admin.ajax.manga.list');
             Route::get('{id}/chapters', [ ChapterController::class, 'ajaxList' ])->name('admin.ajax.chapter.list');
         });
+
+        Route::get('user/list', [ UserController::class, 'ajaxList' ])->name('admin.ajax.user.list');
 
     });
 
