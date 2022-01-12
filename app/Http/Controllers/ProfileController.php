@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\PaypalException;
+use App\Helper\PayPalClient;
+use App\Models\UserTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -95,5 +98,70 @@ class ProfileController extends Controller
             'user' => $request->user(),
             'mangas' => $request->user()->subscribedMangas()->paginate(9)
         ]);
+    }
+
+    public function topupPage(Request $request) {
+        return view('app.profile-topup', [
+            'user' => $request->user()
+        ]);
+    }
+
+    public function topup(Request $request) {
+
+        $data = $request->validate([
+            'token_amount' => 'required|integer|min:1000',
+            'paypal_token' => 'required'
+        ]);
+
+        $price = intval( $data['token_amount'] ) * intval( env('TOKEN_RATE') );
+
+        try {
+
+            $order = PayPalClient::getOrder( $data['paypal_token'] )->result;
+            $order = json_decode( json_encode( $order ), true );
+    
+            /**
+             * 1. validate status
+             */
+            if( ! in_array( $order['status'], array( 'COMPLETED' ) ) ){
+                throw new PaypalException('Failed to complete transaction');
+            }
+    
+            /**
+             * 2. validate amount
+             */
+            if( empty( $order['purchase_units'] ) ){
+                throw new PaypalException('Unable to find valid purchase unit');
+            }
+    
+            $purchase = $order['purchase_units'][0];
+            if( $purchase['amount']['currency_code'] != 'USD' || $purchase['amount']['value'] < $price ){
+                throw new PaypalException('Purchase is invalid, please contact us for more details');
+            }
+
+            $transaction = UserTransaction::whereOrderId( $order['id'] )->first();
+            if( $transaction ){
+                throw new PaypalException('This order is already completed');
+            }
+
+            UserTransaction::create([
+                'user_id'  => $request->user()->id,
+                'price'    => $price,
+                'order_id' => $order['id'],
+                'coins'    => $data['token_amount'],
+            ]);
+
+            $request->user()->addBalance( $data['token_amount'] );
+
+        } catch (PaypalException $e) {
+            return redirect()->route('profile.tokens')->withErrors([
+                'msg' => 'Failed to complete the payment. ' . $e->getMessage()
+            ]);
+        }
+       
+        return redirect()->route('profile.tokens')->with([
+            'successMsg' => sprintf( 'Topup %d tokens successfully!', $data['token_amount'] )
+        ]);
+
     }
 }

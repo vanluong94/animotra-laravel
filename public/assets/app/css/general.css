@@ -177,7 +177,7 @@ ul#main-menu > li.nav-item > a:hover{
 }
 
 .dropdown-list.dropdown-menu {
-	max-width: 20rem;
+	width: 230px;
 	overflow: hidden;
 	right: 0;
 	left: auto !important;
@@ -200,6 +200,10 @@ ul#main-menu > li.nav-item > a:hover{
     border-bottom: 1px solid #e3e6f0;
     line-height: 1.3rem;
 	color: #3a3b45;
+}
+
+.dropdown-item.user-balance-item {
+    background-color: #e9ecef;
 }
 
 .dropdown-footer {
@@ -651,4 +655,34 @@ ul.timeline.notifications-timeline > li:hover > .card {
 
 ul.timeline.notifications-timeline > li > .card {
     transition: background-color .3s ease-in;
+}
+
+/* TOAST */
+.toast {
+    position: fixed;
+    min-width: 50vw;
+    left: 50%;
+    transform: translate(-50%,0);
+    transition: bottom .3s ease-in-out, opacity .2s ease-in-out;
+    bottom: -100px;
+    opacity: 0;
+    display: block;
+}
+
+.toast.show {
+    bottom: 50px;
+    opacity: 1;
+}
+
+.toast.hide {
+    bottom: -100px;
+    opacity: 0;
+    display: block;
+}
+
+/* OTHER */
+.token-icon {
+    max-height: 1.3em;
+    width: auto;
+    margin-right: 5px;
 }

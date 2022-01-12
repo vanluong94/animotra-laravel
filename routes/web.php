@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserNotificationController;
+use App\View\Components\Profile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,8 @@ Route::middleware('auth')->group(function(){
         Route::get( 'favorites', [ ProfileController::class, 'favorites' ])->name('profile.favorites');
         Route::get( 'read-later', [ ProfileController::class, 'readLater' ])->name('profile.readLater');
         Route::get( 'subscriptions', [ ProfileController::class, 'subscriptions' ])->name('profile.subscriptions');
+        Route::get( 'topup', [ ProfileController::class, 'topupPage' ])->name('profile.topup.page');
+        Route::post( 'topup', [ ProfileController::class, 'topup'])->name('profile.topup');
     });
 
     Route::get('notification/{id}', [ UserNotificationController::class, 'read' ])->name('notification.read');

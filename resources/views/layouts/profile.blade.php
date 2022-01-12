@@ -21,6 +21,9 @@
                                 <li class="{{ request()->routeIs('profile') ? 'active' : '' }}">
                                     <a href="{{ route('profile') }}">Profile</a>
                                 </li>
+                                <li class="{{ request()->routeIs('profile.topup.page') ? 'active' : '' }}">
+                                    <a href="{{ route('profile.topup.page') }}">Topup</a>
+                                </li>
                                 <li class="{{ request()->routeIs('profile.notifications') ? 'active' : '' }}">
                                     <a href="{{ route('profile.notifications') }}">Notifications</a>
                                 </li>
@@ -54,8 +57,11 @@
                                                     <div class="user-display-name mb-2">
                                                         {{ $user->name }}
                                                     </div>
-                                                    <div class="user-role-name mb-2">
-                                                        <div class="btn btn-primary text-uppercase btn-sm px-3">{{ $user->getRoleLabel() }}</div>
+                                                    <div class="user-balance mb-2">
+                                                        <div class="btn btn-primary btn-sm px-3">
+                                                            <img src="/img/tokens.png" alt="token" class="token-icon">
+                                                            <span><strong>{{ $user->balance }}</strong> tokens</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

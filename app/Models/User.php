@@ -21,7 +21,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role', 
-        'avatar'
+        'avatar',
+        'balance'
     ];
 
     /**
@@ -97,6 +98,16 @@ class User extends Authenticatable
             'user_id', 
             'manga_id'
         )->where('type', 'subscribe');
+    }
+
+    public function addBalance( int $amount ) {
+        $this->balance = intval( $this->balance ) + $amount;
+        $this->save();
+    }
+
+    public function subBalance( int $amount ){
+        $this->balance = intval( $this->balance ) - $amount;
+        $this->save();
     }
 
 }
