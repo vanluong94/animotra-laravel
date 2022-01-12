@@ -2,7 +2,7 @@
 	--primary-color: #816bab;
 	--primary-color-transparent: #816babeb;
 	--secondary-color: #ffab19;
-	--secondary-color-transparent: #ffab19d9;
+	--secondary-color-transparent: #ffab19f5;
 	--header-bg-color: #523c7f;
 	--footer-bg-color: #483273;
 	--sub-footer-bg-color: #1b1b1b;
@@ -120,11 +120,15 @@
 }
 
 /* HEADER NAV */
+ul#main-menu > .nav-item {
+    padding: 0px 15px;
+}
+
 ul#main-menu > li.nav-item > a{
 	text-transform: uppercase;
 	font-size: 13px;
 	font-weight: 500;
-	letter-spacing: .2em;
+    letter-spacing: 2px;
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-bottom: .5rem;
@@ -355,7 +359,10 @@ input.search-input::placeholder{
 
 /* #site-footer*/
 footer{
-	background-color: var(--footer-bg-color);
+    background-color: var(--footer-bg-color);
+    background-image: url(/img/background-footer.png);
+    background-size: cover;
+    background-position-y: -11px;
 	color: var(--light-text-color);
 }
 
@@ -379,9 +386,9 @@ footer{
 }
 
 #site-footer .footer-widgets{
-	padding-top: 50px;
+	padding-top: 40px;
 	padding-bottom: 25px;
-	margin-bottom: 25px;
+	/* margin-bottom: 25px; */
 }
 
 #site-footer .footer-widgets + .footer-menu {

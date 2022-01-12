@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ChapterController;
 use App\Http\Controllers\Admin\MangaController;
 use App\Http\Controllers\Admin\MangaCollectionController;
 use App\Http\Middleware\VerifyCsrfTokenAll;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
@@ -56,5 +57,9 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
         });
 
     });
+
+    Route::get('settings', function(){
+        
+    })->name('admin.settings');
 
 });

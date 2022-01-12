@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserNotificationController;
+use App\Models\Manga;
 use App\View\Components\Profile;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app.home');
+    return view('app.home', [
+        'featuredMangas'    => Manga::queryNewest()->limit(8)->get(),
+        'latestMangas'      => Manga::queryLatest()->limit(8)->get(),
+        'topRatedMangas'    => Manga::queryTopRated()->limit(8)->get(),
+        'bestSellingMangas' => Manga::queryBestSelling()->limit(8)->get(),
+    ]);
 })->name('home');
 
 require __DIR__.'/auth.php';

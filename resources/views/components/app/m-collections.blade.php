@@ -8,7 +8,7 @@
             <div class="row">
                 @foreach ($mangas as $manga)
                     <div class="{{ $columnClass }}">
-                        <x-app.card-manga-big :manga="$manga"></x-app.card-manga-big>
+                        <x-manga-big-thumb :manga="$manga"></x-manga-big-thumb>
                     </div>
                 @endforeach
             </div>

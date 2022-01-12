@@ -110,15 +110,13 @@
     <div class="menu-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <ul id="main-menu" class="navbar-nav menu w-100 justify-content-between">
+                <ul id="main-menu" class="navbar-nav menu w-100 justify-content-center">
                     <li class="nav-item active"><a class="nav-link" href="homepage.html">Home Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="manga.html">Manga Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="chapter.html">Chapter Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html">Search Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">All Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile-favorite.html">Favorite</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile-update.html">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="404.html">404 Page</a></li>
+                    <li class="nav-item"><a class="nav-link" href="manga.html">All Mangas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="chapter.html">Best Selling Mangas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html">New Mangas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Latest Mangas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Top Rated Mangas</a></li>
                 </ul>
             </nav>
         </div>

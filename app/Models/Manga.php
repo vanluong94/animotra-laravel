@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Helper\Str;
+use App\Traits\MangaQuery;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Manga extends Model
 {
-    use HasFactory;
+    use HasFactory, MangaQuery;
 
     protected $fillable = [
         'title', 'slug', 'summary', 'publish_status', 'release_status', 'thumbnail', 'user_id', 'rating', 'published_at'

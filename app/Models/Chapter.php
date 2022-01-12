@@ -87,7 +87,11 @@ class Chapter extends Model
         $this->save();
 
         if( $is_new ){
+            // add notifications
             UserNotifications::sendNewChapterNotifications( $this->manga, $this );
+
+            // mark update timestamp for manga
+            $this->manga->save();
         }
 
     }

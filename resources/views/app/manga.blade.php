@@ -86,7 +86,7 @@
                                                 <span class="m-table__row-label">Category:</span>
                                                 <span class="m-table__row-value">
                                                     @foreach ($manga->categories as $cat)
-                                                        <a href="{{ $cat->getViewURL() }}">{{ $cat->name }}</a>
+                                                        <a href="{{ $cat->getViewUrl() }}">{{ $cat->name }}</a>
                                                     @endforeach
                                                 </span> 
                                             </div>
@@ -97,7 +97,7 @@
                                                 <span class="m-table__row-label">Release Year:</span>
                                                 <span class="m-table__row-value">
                                                     @foreach ($manga->year as $year)
-                                                        <a href="{{ $year->getViewURL() }}">{{ $year->name }}</a>
+                                                        <a href="{{ $year->getViewUrl() }}">{{ $year->name }}</a>
                                                     @endforeach
                                                 </span> 
                                             </div>
@@ -108,7 +108,7 @@
                                                 <span class="m-table__row-label">Author:</span>
                                                 <span class="m-table__row-value">
                                                     @foreach ($manga->authors as $author)
-                                                        <a href="{{ $author->getViewURL() }}">{{ $author->name }}</a>
+                                                        <a href="{{ $author->getViewUrl() }}">{{ $author->name }}</a>
                                                     @endforeach
                                                 </span> 
                                             </div>
@@ -259,7 +259,7 @@
                                         <ul id="tags-list">
                                             @foreach ($manga->tags as $tag)
                                                 <li>
-                                                    <a href="{{ $tag->getViewURL() }}" class="tag-item">{{ $tag->name }}</a>
+                                                    <a href="{{ $tag->getViewUrl() }}" class="tag-item">{{ $tag->name }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>

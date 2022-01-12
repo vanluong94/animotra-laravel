@@ -1,5 +1,6 @@
 .home-subscription-banner{
 	background-color: var(--primary-color);
+    background-image: url(/img/background-banner.png);
 	color: var(--primary-text-color);
 }
 
