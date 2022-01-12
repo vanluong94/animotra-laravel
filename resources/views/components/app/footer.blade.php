@@ -93,7 +93,7 @@
             </div>
             <div class="col">
                 <div class="sub-footer-right text-end my-4">
-                    <div class="h6 font-weight-normal">Copyright @2020</div>
+                    <div class="h6 font-weight-normal">Copyright @2021</div>
                 </div>
             </div>
         </div>

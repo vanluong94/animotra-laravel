@@ -171,6 +171,7 @@
     text-align: center;
     box-sizing: border-box;
     font-size: 26px;
+    z-index: 999;
 }
 
 .menu-item:hover {

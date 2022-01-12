@@ -50,6 +50,15 @@ class MangaCollection extends Model
         parent::save($options);
     }
 
+    public function mangas() {
+        return $this->belongsToMany( 
+            Manga::class, 
+            'manga_collection_relationships',
+            'collection_id',
+            'manga_id'
+        );
+    }
+
     /**
      * Auto generate slug base on collection's name
      * @return void
