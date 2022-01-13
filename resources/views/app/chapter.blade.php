@@ -21,7 +21,7 @@
     <a href="{{ $chapter->manga->getAdminEditURL() }}" class="menu-item item-3" data-toggle="tooltip" data-placement="top" title="Edit Manga">
         <i class="fas fa-book-open"></i>
     </a>
-    <a href="{{ $chapter->manga->getAdminChaptersList() }}" class="menu-item item-4" data-toggle="tooltip" data-placement="top" title="Edit Manga Chapters List">
+    <a href="{{ $chapter->manga->getAdminChaptersListUrl() }}" class="menu-item item-4" data-toggle="tooltip" data-placement="top" title="Edit Manga Chapters List">
         <i class="fas fa-th-list"></i>
     </a>
 @endpush

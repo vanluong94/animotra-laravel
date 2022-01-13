@@ -6,13 +6,12 @@ use App\Models\Manga;
 use App\Models\UserRating;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MangaController extends Controller
 {
     public function all(Request $request) {
 
-        $query = Manga::query();
+        $query = Manga::queryPublished();
 
         $s          = $request->input('s', '');
         $categories = $request->input('categories', []);
@@ -85,7 +84,7 @@ class MangaController extends Controller
     }
 
     public function view( $slug ) {
-        $manga = Manga::whereSlug( $slug )->first();
+        $manga = Manga::queryPublished()->whereSlug( $slug )->first();
 
         if( ! $manga ) {
             abort(404);
@@ -99,7 +98,7 @@ class MangaController extends Controller
 
     public function rate( Request $request, $id ) {
 
-        $manga = Manga::find( $id );
+        $manga = Manga::queryPublished()->find( $id );
 
         if( ! $manga ) {
             abort(404);

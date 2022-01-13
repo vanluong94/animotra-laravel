@@ -146,7 +146,7 @@ class MangaController extends Controller
                 '<a class="btn btn-info btn-sm mr-1" href="%s" data-toggle="tooltip" data-placement="top" title="Chapters List">
                     <i class="fas fa-th-list"></i>  
                 </a>',
-                $manga->getAdminChaptersList()
+                $manga->getAdminChaptersListUrl()
             );
 
             $output .= sprintf(

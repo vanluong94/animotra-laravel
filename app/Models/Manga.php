@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Helper\Str;
 use App\Traits\MangaQuery;
+use App\Traits\MangaUrl;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Manga extends Model
 {
-    use HasFactory, MangaQuery;
+    use HasFactory, MangaQuery, MangaUrl;
 
     protected $fillable = [
         'title', 'slug', 'summary', 'publish_status', 'release_status', 'thumbnail', 'user_id', 'rating', 'published_at'
@@ -177,22 +178,6 @@ class Manga extends Model
 
     public function user() {
         return $this->belongsTo( User::class, 'user_id' );
-    }
-
-    public function getViewURL() {
-        return route('manga.view', $this->slug);
-    }
-
-    public function getAdminEditURL() {
-        return route('admin.manga.edit', $this->id);
-    }
-
-    public function getAdminDeleteUrl() {
-        return route('admin.manga.delete', $this->id);
-    }
-
-    public function getAdminChaptersList() {
-        return route('admin.manga.chapter.all', $this->id);
     }
 
     public function getPublishedAtInputValue() {

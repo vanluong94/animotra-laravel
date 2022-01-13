@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Helper\Str;
+use App\Traits\ChapterQuery;
+use App\Traits\ChapterUrl;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
@@ -14,15 +15,9 @@ use Illuminate\Support\Facades\Storage;
 
 class Chapter extends Model
 {
-    use HasFactory;
+    use HasFactory, ChapterQuery, ChapterUrl;
 
     protected $fillable = [ 'name', 'extend_name', 'coin', 'released_at', 'user_id', 'content', 'slug' ];
-
-    public static function findBySlug( $manga_slug, $chapter_slug ) {
-        return self::whereHas('manga', function(Builder $query) use ($manga_slug) {
-            $query->whereSlug( $manga_slug );
-        })->whereSlug( $chapter_slug )->first();
-    }
 
     /**
      * @param array $data 
@@ -95,27 +90,6 @@ class Chapter extends Model
             $this->manga->save();
         }
 
-    }
-
-    public function getAdminEditUrl() {
-        return route('admin.manga.chapter.edit', [ 
-            'chapter' => $this->id, 
-            'id' => $this->manga->id 
-        ]);
-    }
-
-    public function getViewUrl() {
-        return route('chapter.view', [
-            'slug' => $this->manga->slug,
-            'chapter' => $this->slug
-        ]);
-    }
-
-    public function getPurchaseUrl() {
-        return route('chapter.purchase', [ 
-            'chapter' => $this->slug, 
-            'slug' => $this->manga->slug 
-        ]);
     }
 
     public function manga() {

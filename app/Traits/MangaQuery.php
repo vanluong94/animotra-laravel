@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Manga;
-use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 trait MangaQuery {
 
@@ -11,7 +11,8 @@ trait MangaQuery {
      * Query mangas by sold
      */
     public static function queryBestSelling() {
-        $query = Manga::leftJoin(
+        $query = Manga::queryPublished()
+        ->leftJoin(
             'user_purchases', 
             'mangas.id', '=', 'user_purchases.manga_id'
         )
@@ -25,29 +26,34 @@ trait MangaQuery {
      * Query mangas by most views
      */
     public static function queryPopular() {
-        return Manga::leftJoin('manga_views', 'mangas.id', '=', 'manga_views.manga_id')
+        return Manga::queryPublished()
+        ->leftJoin('manga_views', 'mangas.id', '=', 'manga_views.manga_id')
         ->selectRaw('*, SUM(manga_views.views) as total_views')
         ->groupBy('mangas.id')
         ->orderByDesc('total_views');
     }
 
     public static function queryNewest() {
-        return Manga::orderByDesc('created_at');
+        return Manga::queryPublished()->orderByDesc('created_at');
     }
 
     public static function queryRandom() {
-        return Manga::inRandomOrder();
+        return Manga::queryPublished()->inRandomOrder();
     }
 
     public static function queryLatest() {
-        return Manga::select('mangas.*')
+        return Manga::queryPublished()->select('mangas.*')
         ->leftJoin('chapters', 'chapters.manga_id', '=', 'mangas.id')
         ->groupBy('mangas.id')
         ->orderByDesc('chapters.created_at');
     }
 
     public static function queryTopRated() {
-        return Manga::orderByDesc('rating');
+        return Manga::queryPublished()->orderByDesc('rating');
+    }
+
+    public static function queryPublished() {
+        return Manga::wherePublishStatus('published')->where('published_at', '<=', Carbon::now());
     }
 }
 
