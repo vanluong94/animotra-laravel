@@ -1,11 +1,9 @@
 @push('vendorScripts')
-    <link href="/assets/vendor/select2.min.css" rel="stylesheet" />
-    <link href="/assets/vendor/select2-bootstrap.css" rel="stylesheet" />
-    <script src="/assets/vendor/select2.min.js"></script>
+
 @endpush
 
 @push('headerScripts')
-    <link rel="stylesheet" href="/assets/app/css/search.css">
+
 @endpush
 
 @push('floatMenuItems')

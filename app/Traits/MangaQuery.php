@@ -14,7 +14,7 @@ trait MangaQuery {
             'user_purchases', 
             'mangas.id', '=', 'user_purchases.manga_id'
         )
-        ->selectRaw('*, COUNT(*) as sold')
+        ->selectRaw('mangas.*, COUNT(*) as sold')
         ->groupBy('user_purchases.manga_id')
         ->orderByDesc('sold');
     }
@@ -38,7 +38,9 @@ trait MangaQuery {
     }
 
     public static function queryLatest() {
-        return Manga::leftJoin('chapters', 'chapters.manga_id', '=', 'mangas.id')
+        return Manga::select('mangas.*')
+        ->leftJoin('chapters', 'chapters.manga_id', '=', 'mangas.id')
+        ->groupBy('mangas.id')
         ->orderByDesc('chapters.created_at');
     }
 

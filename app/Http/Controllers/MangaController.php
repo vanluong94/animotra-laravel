@@ -125,4 +125,32 @@ class MangaController extends Controller
         ]);
 
     }
+
+    public function bestSelling() {
+        return view('app.page-archive', [
+            'title' => 'Best Selling',
+            'mangas' => Manga::queryBestSelling()->paginate(12)
+        ]);
+    }
+
+    public function newest() {
+        return view('app.page-archive', [
+            'title' => 'Newest',
+            'mangas' => Manga::queryNewest()->paginate(12)
+        ]);
+    }
+
+    public function latest() {
+        return view('app.page-archive', [
+            'title' => 'Latest Mangas',
+            'mangas' => Manga::queryLatest()->paginate(12)
+        ]);
+    }
+
+    public function topRated() {
+        return view('app.page-archive', [
+            'title' => 'Top Rated Mangas',
+            'mangas' => Manga::queryTopRated()->paginate(12)
+        ]);
+    }
 }

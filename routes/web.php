@@ -43,10 +43,14 @@ Route::prefix('collection')->group(function() {
 });
 
 Route::prefix('manga')->group(function() {
-    Route::get('all', [ MangaController::class, 'all' ])->name('manga.all');
     Route::get('{slug}', [ MangaController::class, 'view' ])->name('manga.view');
     Route::get('{slug}/{chapter}', [ ChapterController::class, 'view' ])->name('chapter.view');
 });
+Route::get('all', [ MangaController::class, 'all' ])->name('manga.all');
+Route::get('best-selling', [ MangaController::class, 'bestSelling' ])->name('manga.bestSelling');
+Route::get('newest', [ MangaController::class, 'newest' ])->name('manga.newest');
+Route::get('latest', [ MangaController::class, 'latest' ])->name('manga.latest');
+Route::get('top-rated', [ MangaController::class, 'topRated' ])->name('manga.topRated');
 
 Route::middleware('auth')->group(function(){
     Route::post( 'comment', [ CommentController::class, 'post' ] )->name('comment.post');

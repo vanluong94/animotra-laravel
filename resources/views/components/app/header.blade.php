@@ -111,12 +111,12 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <ul id="main-menu" class="navbar-nav menu w-100 justify-content-center">
-                    <li class="nav-item active"><a class="nav-link" href="homepage.html">Home Page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="manga.html">All Mangas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="chapter.html">Best Selling Mangas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html">New Mangas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Latest Mangas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Top Rated Mangas</a></li>
+                    <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">Home Page</a></li>
+                    <li class="nav-item {{ request()->routeIs('manga.all') ? 'active' : '' }}"><a class="nav-link" href="{{ route('manga.all') }}">All Mangas</a></li>
+                    <li class="nav-item {{ request()->routeIs('manga.bestSelling') ? 'active' : '' }}"><a class="nav-link" href="{{ route('manga.bestSelling') }}">Best Selling Mangas</a></li>
+                    <li class="nav-item {{ request()->routeIs('manga.newest') ? 'active' : '' }}"><a class="nav-link" href="{{ route('manga.newest')}}">New Mangas</a></li>
+                    <li class="nav-item {{ request()->routeIs('manga.latest') ? 'active' : '' }}"><a class="nav-link" href="{{ route('manga.latest')}}">Latest Mangas</a></li>
+                    <li class="nav-item {{ request()->routeIs('manga.topRated') ? 'active' : '' }}"><a class="nav-link" href="{{ route('manga.topRated')}}">Top Rated Mangas</a></li>
                 </ul>
             </nav>
         </div>
