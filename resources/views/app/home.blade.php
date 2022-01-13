@@ -35,14 +35,15 @@
 		<!-- SUBSCRIPTION BANNER -->
 		<section class="home-section home-subscription-banner">
 			<div class="container">
-				<div class="subscription text-uppercase text-white p-5">
+				<div class="subscription text-uppercase text-white pt-5 pb-4">
 					<div class="row">
-						<div class="col d-flex flex-column align-items-start">
+						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column align-items-start position-relative">
 							<span class="heading-underline h3">Subscribe</span>
 							<span class="h6 font-weight-normal">to get favorit anime</span>
 							<span class="heading-underline h6 font-weight-light">to get the newest episodes</span>
+							<i class="fas fa-bell icon-background"></i>
 						</div>
-						<div class="col d-flex flex-column">
+						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column">
 							<div class="subscription-logo">
 								<i class="fas fa-user-plus"></i>
 							</div>
@@ -57,7 +58,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col d-flex flex-column">
+						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column">
 							<div class="subscription-logo">
 								<i class="fas fa-bars"></i>
 							</div>
@@ -72,7 +73,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col d-flex flex-column">
+						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column">
 							<div class="subscription-logo">
 								<i class="fas fa-bell"></i>
 							</div>

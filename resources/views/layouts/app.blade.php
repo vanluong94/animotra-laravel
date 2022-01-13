@@ -20,18 +20,28 @@
         <link rel="stylesheet" href="/assets/app/css/page.css">
         <link rel="stylesheet" href="/assets/app/css/m-slider.css">
         <link rel="stylesheet" href="/assets/app/css/m-collection.css">
+        <link rel="stylesheet" href="/assets/app/css/floating-menu.css"> 
+        <link rel="stylesheet" href="/assets/app/css/mobile-menu.css"> 
         <script src="/assets/vendor/popper.min.js"></script>
     @endprepend
+
+    @push('headerScripts')
+        <link rel="stylesheet" href="/assets/app/css/responsive.css">
+    @endpush
 
     @push('footerScripts')
         <script src="/assets/vendor/bootstrap.min.js"></script>
         <script src="/assets/app/js/m-slider.js"></script>
     @endpush
 
-    {{ $slot }}
+    <div class="wrap">
+        {{ $slot }}
+    </div>
 
     @if (Auth::check() && Auth::user()->isAdmin())
         @include('app.floating-menu')
     @endif
+
+    @include('app.menu-mobile')
 
 </x-base-layout>

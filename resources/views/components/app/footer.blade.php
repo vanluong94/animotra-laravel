@@ -12,7 +12,7 @@
     <div class="container">
         <div class="footer-widgets">
             <div class="row">
-                <div class="footer-column col">
+                <div class="footer-column col-md-3 col-sm-12">
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-column col">
+                <div class="footer-column col-md-3 col-sm-12">
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-column col">
+                <div class="footer-column col-md-3 col-sm-12">
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
@@ -48,21 +48,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-column col">
-                    <div class="m-heading widget__title"><span class="m-heading__content">Manga Of The Day</span></div>
-                    <div class="widget__content">
-                        <a 
-                            href="{{ $best_selling->getViewUrl() }}"
-                            class="d-block w-100" 
-                            style="
-                                padding-top: 100%; 
-                                background-image: url({{ $best_selling->getThumbnailUrl() }});
-                                background-position: center;
-                                background-size: cover;
-                            "
-                        ></a>
+                @if ($best_selling)
+                    <div class="footer-column col-md-3 col-sm-12">
+                        <div class="m-heading widget__title"><span class="m-heading__content">Manga Of The Day</span></div>
+                        <div class="widget__content">
+                            <a 
+                                href="{{ $best_selling->getViewUrl() }}"
+                                class="d-block w-100" 
+                                style="
+                                    padding-top: 100%; 
+                                    background-image: url({{ $best_selling->getThumbnailUrl() }});
+                                    background-position: center;
+                                    background-size: cover;
+                                "
+                            ></a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
         {{-- <div class="footer-menu py-2">

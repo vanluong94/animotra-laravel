@@ -33,6 +33,7 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
 
     Route::prefix('user')->group(function(){
         Route::get('all', [ UserController::class, 'all' ])->name('admin.user.all');
+        Route::get('add', [ UserController::class, 'add' ])->name('admin.user.add');
         Route::get('{id}/delete', [ UserController::class, 'delete' ])->name('admin.user.delete')->middleware(VerifyCsrfTokenAll::class);
     });
 

@@ -1,0 +1,75 @@
+.header-mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header-left {
+        display: none;
+    }
+    
+    .top-header {
+        padding: 20px 0;
+    }
+    
+    .menu-header {
+        display: none;
+    }
+
+    .top-header .header-btn-group {
+        margin: 0px 5px;
+    }
+    
+    .home-header-extend #site-body {
+        margin-top: -320px;
+    }
+    
+    .home-header-extend #site-header {
+        padding-bottom: 320px;
+    }
+    
+    .header-mobile-menu-btn {
+        display: block;
+    }
+    
+    .floating-menu {
+        transform: scale(0.6);
+        left: 15px;
+        bottom: 60px;
+    }
+    
+    .m-item .meta__top .badge--left {
+        font-size: 9px;
+    }
+    
+    .m-slider.featured-slider .m-item .meta__top .badge--left .badge-text-big {
+        font-size: 1.8em;
+    }
+    
+    .dropdown-list.dropdown-menu {
+        top: 63px !important;
+    }
+
+    .m-slider .m-item {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .m-slider .glider {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .manga-page .manga-buttons {
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .manga-page .manga-buttons .btn {
+        width: 45%;
+    }
+
+    .manga-page .sidebar-col section.related-mangas {
+        display: none;
+    }
+}

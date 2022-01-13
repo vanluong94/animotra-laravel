@@ -50,7 +50,7 @@ class ChapterController extends Controller
             'manga_id'    => 'required|integer',
             'user_id'     => 'required|integer',
             'extend_name' => 'max:150',
-            'coin'        => 'integer|min:1',
+            'coin'        => 'integer',
             'files.*'     => 'image',
             'images'      => 'required|array',
             'released_at' => 'nullable|date',

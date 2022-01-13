@@ -12,12 +12,14 @@
 	--text-color: rgb(121,121,121);
 	--heading-color: rgb(88,88,88);
 	--border-color: rgb(228,228,228);
+    --bs-primary: #816bab;;
     --bs-success: #68a168;
     --bs-info: #5bc0de;
     --bs-warning: #f0ad4e;
     --bs-danger: #d9534f;
     --bs-light: #f7f7f7;
     --bs-dark: #292b2c;
+    --bs-primary-rgb: 129,107,171;
 }
 
 /* STYLE COMPONENT */
@@ -182,8 +184,6 @@ ul#main-menu > li.nav-item > a:hover{
 }
 
 .dropdown-header {
-    background-color: var(--primary-color);
-    color: #fff;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
@@ -202,6 +202,7 @@ ul#main-menu > li.nav-item > a:hover{
 
 .dropdown-list.dropdown-menu[aria-labelledby="notificationsDropdown"] {
     width: 300px;
+    right: -100%;
 }
 
 .dropdown-item {
@@ -705,4 +706,10 @@ ul.timeline.notifications-timeline > li > .card {
     max-height: 1.3em;
     width: auto;
     margin-right: 5px;
+}
+
+/* BACKGROUND IMAGE */
+.bg-image-cover {
+    background-size: cover;
+    background-position: center;
 }

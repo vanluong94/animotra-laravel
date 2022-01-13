@@ -73,10 +73,9 @@
                                 <section class="manga-info bg-white mb-5">
                                     <div class="m-table">
                                         <div class="m-table__row p-0">
-                                            <div class="manga-thumbnail">
-                                                <a href="#">
-                                                    <img src="{{ $manga->getThumbnailURL() }}"
-                                                        alt="{{ $manga->title }}">
+                                            <div class="manga-thumbnail bg-image-cover" style="background-image: url({{ $manga->getThumbnailURL() }})">
+                                                <a href="{{ $manga->getViewUrl() }}">
+                                                    
                                                 </a>
                                             </div>
                                         </div>

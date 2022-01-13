@@ -1,7 +1,3 @@
-@push('headerScripts')
-    <link rel="stylesheet" href="/assets/app/css/floating-menu.css">    
-@endpush
-
 <nav class="floating-menu">
 
     <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open">

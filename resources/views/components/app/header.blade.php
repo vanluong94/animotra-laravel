@@ -27,6 +27,7 @@
                 <div class="header-right col">
                     <div class="header-right-row d-flex justify-content-end">
 
+                        {{-- NOTIFICATIONS --}}
                         @auth
                             <div class="header-btn-group header-notifications position-relative">
 
@@ -37,28 +38,30 @@
                                     @endif  
                                 </a>
 
-                                <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="notificationsDropdown">
-                                    <h6 class="dropdown-header">
+                                <div class="dropdown-list dropdown-menu shadow animated--grow-in bg-primary" aria-labelledby="notificationsDropdown">
+                                    <h6 class="dropdown-header text-white">
                                         Notifications Center
                                     </h6>
 
-                                    @foreach (Auth::user()->notifications()->limit(10)->get() as $noti)
-                                        <a class="dropdown-item d-flex align-items-center notification-item {{ $noti->isRead() ? '' : 'unread' }}" href="{{ $noti->getReadUrl() }}">
-                                            <div>
-                                                <div class="notification-datetime">{{ $noti->created_at->format( 'M d, Y' ) }}</div>
-                                                <span class="notification-content">{!! $noti->content !!}</span>
-                                            </div>
-                                        </a>
-                                    @endforeach
-                                    <a class="dropdown-item dropdown-footer" href="{{ route('profile.notifications') }}">Show All Alerts</a>
+                                    <div class="dropdown-body bg-white">
+                                        @foreach (Auth::user()->notifications()->limit(10)->get() as $noti)
+                                            <a class="dropdown-item d-flex align-items-center notification-item {{ $noti->isRead() ? '' : 'unread' }}" href="{{ $noti->getReadUrl() }}">
+                                                <div>
+                                                    <div class="notification-datetime">{{ $noti->created_at->format( 'M d, Y' ) }}</div>
+                                                    <span class="notification-content">{!! $noti->content !!}</span>
+                                                </div>
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                    <a class="dropdown-item dropdown-footer bg-white" href="{{ route('profile.notifications') }}">Show All Alerts</a>
                                 </div>
 
                             </div>
                         @endauth
 
+                        {{-- USER MENU --}}
                         <div class="header-btn-group header-user position-relative">
 
-                            
                             <a class="header-btn user-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenuDropdownBtn">
                                 <i class="fas fa-user"></i>
                             </a>
@@ -66,7 +69,10 @@
                             <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="userMenuDropdownBtn" id="userMenuDropdown">
 
                                 @auth
-                                    <div class="dropdown-item p-4 d-flex flex-column align-items-center user-balance-item" href="#">
+                                    <div class="dropdown-item p-4 d-flex flex-column align-items-center user-balance-item">
+                                        <div class="mb-2 w-50">
+                                            <img src="{{ Auth::user()->getAvatar() }}" alt="{{ Auth::user()->name }}">
+                                        </div>
                                         <div class="mb-2 fs-6">
                                             <img src="/img/tokens.png" alt="token" class="token-icon me-2">
                                             <span><strong>{{ Auth::user()->balance }}</strong> tokens</span>
@@ -99,6 +105,15 @@
                                     </a>
                                 @endguest
                                 
+                            </div>
+                        </div>
+
+                        {{-- MOBILE MENU TOGGLE BTN --}}
+                        <div class="header-btn-group header-mobile-menu-btn">
+                            <div class="header-btn">
+                                <button type="button" class="menu_icon__open">
+                                    <span></span> <span></span> <span></span>
+                                </button>
                             </div>
                         </div>
 
