@@ -143,10 +143,10 @@ class MangaCollectionController extends Controller
             return $output;
         })
         ->editColumn('created_at', function( $collection ){
-            return Str::humanReadString( $collection->created_at );
+            return Str::humanReadDatetime( $collection->created_at );
         })
         ->editColumn('updated_at', function( $collection ){
-            return Str::humanReadString( $collection->updated_at );
+            return Str::humanReadDatetime( $collection->updated_at );
         })
         ->rawColumns(['actions'])
         ->make();

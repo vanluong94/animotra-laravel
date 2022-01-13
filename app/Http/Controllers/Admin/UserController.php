@@ -144,10 +144,10 @@ class UserController extends Controller
             return $output;
         })
         ->editColumn('created_at', function( $manga ){
-            return Str::humanReadString( $manga->created_at );
+            return Str::humanReadDatetime( $manga->created_at );
         })
         ->editColumn('avatar', function( User $user ){
-            return sprintf( '<img src="%s"/>', $user->getAvatar() );
+            return sprintf( '<img src="%s" class="rounded-circle img-avatar"/>', $user->getAvatar() );
         })
         ->editColumn('role', function( User $user ){
             return sprintf( '<div class="text-center"><span class="badge rounded-pill %s text-white py-2 px-3">%s</span></div>', $user->role == 'admin' ? 'bg-primary' : 'bg-secondary', $user->role );

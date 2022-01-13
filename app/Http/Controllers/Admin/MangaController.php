@@ -164,13 +164,13 @@ class MangaController extends Controller
             return $output;
         })
         ->editColumn('created_at', function( $manga ){
-            return Str::humanReadString( $manga->created_at );
+            return Str::humanReadDatetime( $manga->created_at );
         })
         ->editColumn('updated_at', function( $manga ){
-            return Str::humanReadString( $manga->updated_at );
+            return Str::humanReadDatetime( $manga->updated_at );
         })
         ->editColumn('published_at', function( $manga ){
-            return Str::humanReadString( $manga->updated_at );
+            return Str::humanReadDatetime( $manga->updated_at );
         })
         ->editColumn('publish_status', function( $manga ){
             return '<div class="text-center">' . $manga->getPublishStatusBadge() . '</div>';

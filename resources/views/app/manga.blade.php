@@ -84,9 +84,15 @@
                                             <div class="m-table__row">
                                                 <span class="m-table__row-label">Category:</span>
                                                 <span class="m-table__row-value">
-                                                    @foreach ($manga->categories as $cat)
-                                                        <a href="{{ $cat->getViewUrl() }}">{{ $cat->name }}</a>
-                                                    @endforeach
+                                                    {!!
+                                                        $manga->categories->map(function($cat){
+                                                            return sprintf(
+                                                                '<a href="%s">%s</a>',
+                                                                $cat->getViewUrl(),
+                                                                $cat->name
+                                                            );
+                                                        })->implode(', ');
+                                                    !!}
                                                 </span> 
                                             </div>
                                         @endif

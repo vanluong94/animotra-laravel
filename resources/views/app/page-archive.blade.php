@@ -10,7 +10,9 @@
             
             <div class="page__header pb-0">
                 <div class="container">
-                    <h1 class="text-center m-0 fw-bold">{{ $title }}</h1>
+                    <div class="m-heading page-heading text-center">
+                        <h1 class="m-heading__content text-normal">{{ $title }}</h1>
+                    </div>
                 </div>
             </div>
 

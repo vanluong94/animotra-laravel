@@ -35,7 +35,7 @@ class UserTransactionController extends Controller
             return '$ ' . $trans->price;
         })
         ->editColumn('created_at', function( UserTransaction $trans ){
-            return Str::humanReadString( $trans->created_at );
+            return Str::humanReadDatetime( $trans->created_at );
         })
         ->rawColumns([])
         ->make();

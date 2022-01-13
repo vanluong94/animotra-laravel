@@ -11,3 +11,27 @@ body.has-page-header .page__content {
 .sidebar-col__content.sidebar--offset {
     margin-top: -120px;
 }
+
+.page-heading.m-heading .m-heading__content:before {
+    border-width: 3.5px;
+}
+
+.page-heading.m-heading .m-heading__content:after {
+    border-bottom: 3.5px solid;
+    content: '';
+    display: block;
+    width: 2.5em;
+    height: 1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.page-heading.m-heading .m-heading__content {
+    padding: .7rem 1.7rem;
+}
+
+.page-heading.m-heading .m-heading__content {
+    font-weight: 500;
+    font-size: 2rem;
+}

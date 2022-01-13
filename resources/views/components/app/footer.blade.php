@@ -16,7 +16,7 @@
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
-                                <h4 class="m-heading__content">New Mangas</h4>
+                                <h4 class="m-heading__content">Newest Mangas</h4>
                             </div>
                         </div>
                         <div class="widget__content">

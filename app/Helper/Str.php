@@ -21,7 +21,7 @@ class Str {
      * @param string $precisely - day|hour|minute
      * @return string $timestring
      */
-    public static function humanReadString( Carbon $datetime, $precisely = 'hour' ){
+    public static function humanReadDatetime( Carbon $datetime, $precisely = 'hour' ){
 
         $convertable = false;
 
@@ -45,4 +45,11 @@ class Str {
 
     }
 
+    public static function humanReadMoney( $amount ){
+        return '$ ' . number_format( $amount, 2 );
+    }
+
+    public static function humanReadNumber( $num ){
+        return number_format( $num, 0 );
+    }
 }

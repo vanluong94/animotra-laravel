@@ -27,8 +27,10 @@
             
             <div class="page__header pb-0">
                 <div class="container">
+                    <div class="m-heading page-heading text-center">
+                        <h1 class="m-heading__content text-normal">{{ $collection->name }}</h1>
+                    </div>
                     <p class="text-center fs-5 m-0">{{ $collection->getTypeLabelSingular() }}</p>
-                    <h1 class="text-center m-0 fw-bold">{{ $collection->name }}</h1>
                 </div>
             </div>
 

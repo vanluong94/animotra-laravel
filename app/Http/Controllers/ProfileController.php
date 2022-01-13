@@ -206,7 +206,7 @@ class ProfileController extends Controller
 
         return DataTables::of( $logs )
         ->editColumn('created_at', function( $log ){
-            return Str::humanReadString( $log->created_at );
+            return Str::humanReadDatetime( $log->created_at );
         })
         ->editColumn('type', function( $log ){
             return ucfirst( $log->type );

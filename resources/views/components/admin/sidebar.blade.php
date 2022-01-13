@@ -114,24 +114,6 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Business Management
-    </div>
-
-    {{-- Reports --}}
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-trophy"></i>
-            <span>Best sold</span>
-        </a>
-        <a class="nav-link" href="#">
-            <i class="fas fa-chart-bar"></i>
-            <span>Analytistic</span>
-        </a>
-        
-    </li>
-
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

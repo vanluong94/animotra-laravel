@@ -6,7 +6,14 @@
 
 @section('pageHeading')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><strong>{{ $manga->title }}</strong> - Add New Chapter</h1>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 text-gray-800"><strong>{{ $manga->title }}</strong> - Add New Chapter</h1>
+        <div>
+            <a href="{{ route('admin.manga.chapter.all', $manga->id) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-stream fa-sm text-white-50"></i> Chapters List
+            </a>
+        </div>
+    </div>
 @endsection
 
 <x-dashboard-layout>

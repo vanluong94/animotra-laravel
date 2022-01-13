@@ -11,7 +11,6 @@
     <h1 class="h3 text-gray-800">Transactions</h1>
 @endsection
 
-
 <x-dashboard-layout>
     <div class="card shadow mb-4">
         <div class="card-header py-3">

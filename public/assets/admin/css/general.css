@@ -72,3 +72,7 @@
     background-repeat: no-repeat;
     background-color: rgb(85 63 129);
 }
+
+.img-avatar {
+    max-width: 80px;
+}

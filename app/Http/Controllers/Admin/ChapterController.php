@@ -190,13 +190,13 @@ class ChapterController extends Controller
             ', $chapter->coin);
         })
         ->editColumn('created_at', function( $chapter ){
-            return Str::humanReadString( $chapter->created_at );
+            return Str::humanReadDatetime( $chapter->created_at );
         })
         ->editColumn('updated_at', function( $chapter ){
-            return Str::humanReadString( $chapter->updated_at );
+            return Str::humanReadDatetime( $chapter->updated_at );
         })
         ->editColumn('published_at', function( $chapter ){
-            return Str::humanReadString( $chapter->updated_at );
+            return Str::humanReadDatetime( $chapter->updated_at );
         })
         ->rawColumns(['actions', 'coin'])
         ->make();
