@@ -83,6 +83,7 @@
 	font-size: 20px;
 	font-weight: 200;
     padding: 0;
+    display: block;
 }
 
 .m-slider.featured-slider .m-heading .m-heading__content::before{

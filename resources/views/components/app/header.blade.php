@@ -77,7 +77,7 @@
 
                                 @auth
                                     <div class="dropdown-item p-4 d-flex flex-column align-items-center user-balance-item">
-                                        <div class="mb-2 w-50">
+                                        <div class="mb-2 w-50 rounded-circle overflow-hidden">
                                             <img src="{{ Auth::user()->getAvatar() }}" alt="{{ Auth::user()->name }}">
                                         </div>
                                         <div class="mb-2">
