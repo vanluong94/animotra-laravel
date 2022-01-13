@@ -31,9 +31,9 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user"
-                                        placeholder="Enter Email Address..." 
-                                        id="email" type="email" name="email" :value="old('email')" required autofocus>
+                                    <input type="text" class="form-control form-control-user"
+                                        placeholder="Enter Email Address or Username..." 
+                                        id="login" type="login" name="login" :value="old('login')" required autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user"

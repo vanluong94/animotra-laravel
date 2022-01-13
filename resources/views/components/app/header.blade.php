@@ -73,6 +73,9 @@
                                         <div class="mb-2 w-50">
                                             <img src="{{ Auth::user()->getAvatar() }}" alt="{{ Auth::user()->name }}">
                                         </div>
+                                        <div class="mb-2">
+                                            <span>{{ '@' . Auth::user()->username }}</span>
+                                        </div>
                                         <div class="mb-2 fs-6">
                                             <img src="/img/tokens.png" alt="token" class="token-icon me-2">
                                             <span><strong>{{ Auth::user()->balance }}</strong> tokens</span>
@@ -91,9 +94,10 @@
                                         <i class="fas fa-id-card"></i>Profile
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">
-                                        <i class="fas fa-sign-out-alt"></i>Log out
-                                    </a>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Log out</button>
+                                    </form>
                                 @endauth
 
                                 @guest

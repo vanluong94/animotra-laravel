@@ -28,6 +28,18 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        
+        $login = $request->input('login');
+        if( filter_var( $login, FILTER_VALIDATE_EMAIL ) ){
+            $request->merge([
+                'email' => $login
+            ]);
+        } else {
+            $request->merge([
+                'username' => $login
+            ]);
+        }
+
         $request->authenticate();
 
         $request->session()->regenerate();

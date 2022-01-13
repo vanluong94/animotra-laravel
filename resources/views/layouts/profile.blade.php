@@ -66,6 +66,9 @@
                                                             <span><strong>{{ $user->balance }}</strong> tokens</span>
                                                         </div>
                                                     </div>
+                                                    <div class="user-login-name mb-2">
+                                                        {{ '@' . $user->username }}
+                                                    </div>
                                                 </div>
                                             </div>
 

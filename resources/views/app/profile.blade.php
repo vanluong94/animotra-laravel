@@ -13,6 +13,11 @@
             @csrf
     
             <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="user_login" id="user_login" value="{{ $user->username }}" placeholder="Username" readonly>
+                <label for="user_login">Username</label>
+            </div>
+
+            <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="user_name" id="user_name" value="{{ $user->name }}" placeholder="Name" required>
                 <label for="user_name">Name</label>
             </div>

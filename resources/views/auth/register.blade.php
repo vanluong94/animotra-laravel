@@ -28,11 +28,14 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="name" type="text" name="name" :value="old('name')" required autofocus placeholder="Name">
+                                    <input type="text" class="form-control form-control-user" id="username" type="text" name="username" :value="old('username')" required autofocus placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" name="email" :value="old('email')" required
                                         placeholder="Email Address">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="name" type="text" name="name" :value="old('name')" required autofocus placeholder="Name">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
