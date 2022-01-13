@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class Chapter extends Model
@@ -170,12 +171,19 @@ class Chapter extends Model
         $is_valid = false;
         $suffix = 0;
         $slug = Str::slugify( $name );
-
+        
         while( ! $is_valid ) {
-            $is_valid = self::where([
+            $query = self::where([
                 'slug' => $slug,
-            ])->first() ? false : true;
+                'manga_id' => $this->manga_id
+            ]);
 
+            if( $this->id ) {
+                $query = $query->where('id', '!=', $this->id);
+            }
+
+            $is_valid = $query->first() ? false : true;
+            
             if( ! $is_valid ) {
                 $slug .= '-' . ++$suffix;
             }

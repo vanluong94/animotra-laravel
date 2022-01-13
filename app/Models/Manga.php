@@ -220,7 +220,7 @@ class Manga extends Model
         while( ! $is_valid ) {
             $is_valid = self::where([
                 'slug' => $slug,
-            ])->first() ? false : true;
+            ])->where('id', '!=', $this->id)->first() ? false : true;
 
             if( ! $is_valid ) {
                 $slug .= '-' . ++$suffix;

@@ -40,7 +40,7 @@ class UserController extends Controller
 
     public function ajaxList() {
 
-        $users = User::all();
+        $users = User::query();
 
         return DataTables::of( $users )
         ->addColumn('actions', function( User $user ) {

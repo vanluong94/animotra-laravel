@@ -10,6 +10,7 @@ use App\Models\UserTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\DataTables;
 
 class ProfileController extends Controller
@@ -116,7 +117,8 @@ class ProfileController extends Controller
             'paypal_token' => 'required'
         ]);
 
-        $price = intval( $data['token_amount'] ) * intval( env('TOKEN_RATE') );
+        $price = intval( $data['token_amount'] ) * floatval( env('TOKEN_RATE') );
+        Log::debug( $price );
 
         try {
 
@@ -136,7 +138,7 @@ class ProfileController extends Controller
             if( empty( $order['purchase_units'] ) ){
                 throw new PaypalException('Unable to find valid purchase unit');
             }
-    
+            
             $purchase = $order['purchase_units'][0];
             if( $purchase['amount']['currency_code'] != 'USD' || $purchase['amount']['value'] < $price ){
                 throw new PaypalException('Purchase is invalid, please contact us for more details');
@@ -151,7 +153,7 @@ class ProfileController extends Controller
 
             UserTransaction::create([
                 'user_id'  => $request->user()->id,
-                'price'    => $price,
+                'price'    => $purchase['amount']['value'],
                 'order_id' => $order['id'],
                 'coins'    => $data['token_amount'],
             ]);

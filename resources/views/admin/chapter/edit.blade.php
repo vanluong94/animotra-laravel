@@ -22,6 +22,7 @@
 <x-dashboard-layout>
     <x-admin.card-chapter
         :id="$chapter->id"
+        :chapter="$chapter"
         :manga="$chapter->manga"
         :name="$chapter->name"
         :extendName="$chapter->extend_name"

@@ -44,7 +44,8 @@
                         { data: 'token', name: 'token' },
                         { data: 'entry', name: 'entry' },
                         { data: 'created_at', name: 'created_at' },
-                    ]
+                    ],
+                    order: [[ 3, 'desc' ]]
                 })
                 .on('draw', function(){
                     $('[data-toggle="tooltip"]').tooltip();

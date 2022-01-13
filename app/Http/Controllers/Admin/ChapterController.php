@@ -182,6 +182,13 @@ class ChapterController extends Controller
         ->addColumn('created_by', function( $chapter ){
             return $chapter->user->name;
         })
+        ->editColumn('coin', function( $chapter ){
+            return sprintf('
+                <div class="p-2 badge rounded-pill bg-primary text-white">
+                    <img src="/img/token.png" class="token-icon">%d tokens
+                </div>
+            ', $chapter->coin);
+        })
         ->editColumn('created_at', function( $chapter ){
             return Str::humanReadString( $chapter->created_at );
         })
@@ -191,7 +198,7 @@ class ChapterController extends Controller
         ->editColumn('published_at', function( $chapter ){
             return Str::humanReadString( $chapter->updated_at );
         })
-        ->rawColumns(['actions'])
+        ->rawColumns(['actions', 'coin'])
         ->make();
     }
 }

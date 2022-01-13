@@ -87,6 +87,15 @@
         </div>
     </li>
 
+
+    {{-- Transactions --}}
+    <li class="nav-item {{ request()->routeIs('admin.transaction.all') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.transaction.all') }}">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Transactions</span>
+        </a>
+    </li>
+
     {{-- Comments --}}
     <li class="nav-item">
         <a class="nav-link" href="#">

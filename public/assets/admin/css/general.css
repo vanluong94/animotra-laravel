@@ -56,3 +56,13 @@
     background-size: cover;
     background-position: center;
 }
+
+.img-thumbnail {
+    max-width: 200px;
+}
+
+.token-icon {
+    max-height: 1.3em;
+    width: auto;
+    margin-right: 5px;
+}

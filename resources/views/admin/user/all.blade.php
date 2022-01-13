@@ -66,7 +66,8 @@
                             { data: 'role', name: 'role' },
                             { data: 'created_at', name: 'created_at' },
                             { data: 'actions', name: 'actions' }
-                        ]
+                        ],
+                        order: [[ 4, 'desc' ]]
                     })
                     .on('draw', function(){
                         $('[data-toggle="tooltip"]').tooltip();

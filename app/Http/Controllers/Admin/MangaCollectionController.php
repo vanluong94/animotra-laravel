@@ -101,7 +101,7 @@ class MangaCollectionController extends Controller
 
         return Datatables::of( $collections )
         ->addColumn('manga_count', function( MangaCollection $collection ){
-            return 0;
+            return $collection->mangas()->count();
         })
         ->addColumn('actions', function( MangaCollection $collection ) {
 

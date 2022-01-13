@@ -71,7 +71,8 @@
                             { data: 'created_at', name: 'created_at' },
                             { data: 'updated_at', name: 'updated_at' },
                             { data: 'actions', name: 'actions' }
-                        ]
+                        ],
+                        order: [[ 3, 'desc' ]]
                     });
                 })
             </script>

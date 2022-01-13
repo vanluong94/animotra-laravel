@@ -46,7 +46,7 @@ class MangaCollection extends Model
      * @override parent save() method to generate slug before saving
      */
     public function save(array $options = []) {
-        $this->genUniqueSlug();
+        $this->findUniqueSlug();
         parent::save($options);
     }
 
@@ -63,7 +63,7 @@ class MangaCollection extends Model
      * Auto generate slug base on collection's name
      * @return void
      */
-    public function genUniqueSlug() {
+    public function findUniqueSlug() {
 
         $is_valid = false;
         $suffix = 0;

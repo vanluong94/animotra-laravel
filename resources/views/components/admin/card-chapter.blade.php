@@ -92,6 +92,16 @@
 
             <div class="row">
                 <div class="col-md-12 text-right">
+
+                    @if (isset($chapter))
+                        <a class="btn btn-primary btn-icon-split" href="{{ $chapter->getViewUrl() }}">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                            <span class="text text-center flex-grow-1">View</span>
+                        </a>
+                    @endif
+
                     <button type="submit" class="btn btn-success btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-save"></i>

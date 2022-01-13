@@ -44,14 +44,21 @@
                                     </h6>
 
                                     <div class="dropdown-body bg-white">
-                                        @foreach (Auth::user()->notifications()->limit(10)->get() as $noti)
-                                            <a class="dropdown-item d-flex align-items-center notification-item {{ $noti->isRead() ? '' : 'unread' }}" href="{{ $noti->getReadUrl() }}">
-                                                <div>
-                                                    <div class="notification-datetime">{{ $noti->created_at->format( 'M d, Y' ) }}</div>
-                                                    <span class="notification-content">{!! $noti->content !!}</span>
-                                                </div>
-                                            </a>
-                                        @endforeach
+                                        @php
+                                            $noties = Auth::user()->notifications()->limit(10)->get();
+                                        @endphp
+                                        @if ($noties->isNotEmpty())
+                                            @foreach ($noties as $noti)
+                                                <a class="dropdown-item d-flex align-items-center notification-item {{ $noti->isRead() ? '' : 'unread' }}" href="{{ $noti->getReadUrl() }}">
+                                                    <div>
+                                                        <div class="notification-datetime">{{ $noti->created_at->format( 'M d, Y' ) }}</div>
+                                                        <span class="notification-content">{!! $noti->content !!}</span>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        @else
+                                            <div class="dropdown-item text-center text-opacity-50 text-dark">You have no notification</div>
+                                        @endif
                                     </div>
                                     <a class="dropdown-item dropdown-footer bg-white" href="{{ route('profile.notifications') }}">Show All Alerts</a>
                                 </div>

@@ -60,7 +60,7 @@
                     @endguest
 
                     @auth
-                        @if(!$chapter->isPremium() || Auth::user()->hasPurchased($chapter))
+                        @if(Auth::user()->isAdmin() || !$chapter->isPremium() || Auth::user()->hasPurchased($chapter))
                             <!-- READING FRAME -->
                             <section id="readingFrame">
                                 <div class="reading__header">

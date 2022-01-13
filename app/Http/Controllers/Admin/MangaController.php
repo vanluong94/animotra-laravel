@@ -121,7 +121,7 @@ class MangaController extends Controller
 
     public function ajaxList() {
 
-        $mangas = Manga::all();
+        $mangas = Manga::query();
 
         return DataTables::of( $mangas )
         ->addColumn('actions', function( Manga $manga ) {

@@ -72,7 +72,8 @@
                             { data: 'created_at', name: 'created_at' },
                             { data: 'created_by', name: 'created_by' },
                             { data: 'actions', name: 'actions' }
-                        ]
+                        ],
+                        order: [[ 4, 'desc' ]]
                     });
                 })
             </script>
