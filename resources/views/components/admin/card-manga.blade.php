@@ -4,13 +4,12 @@
     <script src="/assets/vendor/select2.min.js"></script>
 @endpush
 
-{{-- CHAPTER LIST CARD --}}
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Manga Details</h6>
     </div>
     <div class="card-body">
-        <form action="{{ route('ajax.manga.save') }}" id="mangaForm" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.manga.save') }}" id="mangaForm" method="post" enctype="multipart/form-data">
 
             @csrf
 
@@ -213,38 +212,6 @@
             })
 
             let $mangaForm = $('#mangaForm');
-
-            // $mangaForm.on('submit', function(e){
-            //     e.preventDefault();
-
-            //     let form = this, 
-            //         $form = $(this), 
-            //         $card = $form.parents('.card')
-            //         $input = $form.find('input'),
-            //         fd = new FormData(form);
-
-            //     $.ajax({
-            //         url: `${$form.attr('action')}?_token=${fd.get('_token')}`,
-            //         method: $form.attr('method'),
-            //         processData: false,
-            //         data: new FormData(form),
-            //         beforeSend() {
-            //             $input.prop('disabled', true);
-            //             appUtils.appendLoading($card);
-            //         },
-            //         success(resp) {
-            //             appUtils.alert(resp.msg, resp.error ? 'error' : 'success');
-            //         },
-            //         complete(xhr, stt, err) {
-            //             $input.prop('disabled', false);
-            //             appUtils.removeLoading($card);
-
-            //             if(xhr.status !== 200) {
-            //                 appUtils.alert(`ERROR ${xhr.status}: Something wrong occured`, 'error');
-            //             }
-            //         }
-            //     })
-            // })
 
             let $inputFileThumb = $mangaForm.find('input[name="thumbnail_file"]');
             let $inputThumb = $mangaForm.find('input[name="thumbnail"]');

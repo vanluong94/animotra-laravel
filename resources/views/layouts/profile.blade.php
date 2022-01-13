@@ -52,26 +52,7 @@
                                     <div class="m-table">
 
                                         <div class="m-table__row">
-                                            <div class="user-summary d-flex align-items-center">
-                                                <div class="user-avatar rounded-circle overflow-hidden">
-                                                    <img src="{{ $user->getAvatar() }}" alt="">
-                                                </div>
-                                                <div class="user-names flex-grow-1 text-center">
-                                                    <div class="user-display-name mb-2">
-                                                        {{ $user->name }}
-                                                    </div>
-                                                    <div class="user-balance mb-2">
-                                                        <div class="btn btn-primary btn-sm px-3">
-                                                            <img src="/img/tokens.png" alt="token" class="token-icon">
-                                                            <span><strong>{{ $user->balance }}</strong> tokens</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-login-name mb-2">
-                                                        {{ '@' . $user->username }}
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                            <x-profile-user-summary></x-profile-user-summary>
                                         </div>
 
                                         <div class="m-table__row">

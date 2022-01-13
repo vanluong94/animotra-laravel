@@ -187,6 +187,19 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function uploadAvatar(Request $request) {
+
+        $request->validate([
+            'avatar_file' => 'required|file|image'
+        ]);
+
+        $user = $request->user();
+        $user->maybeUploadAvatar();
+
+        return redirect()->route('profile.topup.page');
+
+    }
+
     public function ajaxLogs(Request $request) {
 
         $logs = $request->user()->logs();

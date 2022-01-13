@@ -35,3 +35,21 @@ ul#profile-menu > li.active > a, ul#profile-menu > li > a:hover {
     border-bottom: 5px solid;
     color: var(--primary-color);
 }
+
+#changeAvtBtn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3c3c3cb3;
+    color: var(--bs-light);
+    font-size: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#avatarFile {
+    display: none;
+}

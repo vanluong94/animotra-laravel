@@ -127,7 +127,7 @@ class ChapterController extends Controller
 
     public function ajaxList( $manga_id ) {
 
-        $chapters = Chapter::whereMangaId( $manga_id )->get();
+        $chapters = Chapter::whereMangaId( $manga_id );
 
         return DataTables::of( $chapters )
         ->addColumn('actions', function( Chapter $chapter ) {

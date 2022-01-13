@@ -6,6 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -46,7 +50,7 @@ class User extends Authenticatable
     ];
 
     public function getAvatar() {
-        return $this->avatar ? $this->avatar : asset( 'img/avatar-person.svg' );
+        return $this->avatar ? Storage::url( $this->avatar ) : asset( 'img/avatar-person.svg' );
     }
 
     public function isAdmin() {
@@ -144,4 +148,18 @@ class User extends Authenticatable
         return route('admin.user.delete', $this->id);
     }
 
+    public function maybeUploadAvatar() {
+        $avatar_file = request()->avatar_file;
+        if( $avatar_file && $avatar_file instanceof UploadedFile ){
+            $avatar = $avatar_file->storePublicly('/avatars', [ 'disk' => 'public' ]);
+            if( $avatar ){
+                if( $this->avatar ){
+                    File::delete( storage_path( 'app/public/' . $this->avatar ) );
+                }
+
+                $this->avatar = $avatar;
+                $this->save();
+            }
+        }
+    }
 }

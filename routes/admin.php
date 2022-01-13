@@ -21,7 +21,7 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
 
         Route::get('all', [ MangaController::class, 'all' ])->name('admin.manga.all');
         Route::get('add', [ MangaController::class, 'add' ])->name('admin.manga.add');
-        Route::post('save', [ MangaController::class, 'save' ])->name('ajax.manga.save');
+        Route::post('add', [ MangaController::class, 'save' ])->name('admin.manga.save');
         Route::get('{id}/edit', [ MangaController::class, 'edit' ])->name('admin.manga.edit');
         Route::get('{id}/delete', [ MangaController::class, 'delete' ])->name('admin.manga.delete')->middleware(VerifyCsrfTokenAll::class);
 
@@ -36,6 +36,9 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
     Route::prefix('user')->group(function(){
         Route::get('all', [ UserController::class, 'all' ])->name('admin.user.all');
         Route::get('add', [ UserController::class, 'add' ])->name('admin.user.add');
+        Route::post('save', [ UserController::class, 'save' ])->name('admin.user.save');
+        Route::get('{id}/edit', [ UserController::class, 'edit' ])->name('admin.user.edit');
+        Route::post('{id}/update', [ UserController::class, 'update' ])->name('admin.user.update');
         Route::get('{id}/delete', [ UserController::class, 'delete' ])->name('admin.user.delete')->middleware(VerifyCsrfTokenAll::class);
     });
 

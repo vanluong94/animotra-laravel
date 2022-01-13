@@ -243,7 +243,7 @@ class Manga extends Model
     }
 
     public function getThumbnailURL() {
-        return asset(Storage::url( $this->thumbnail ));
+        return Storage::url( $this->thumbnail );
     }
 
     public function chapters() {

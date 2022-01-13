@@ -6,12 +6,92 @@ use App\Helper\Str;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
     public function all() {
         return view('admin.user.all');
+    }
+
+    public function add() {
+        return view('admin.user.add');
+    }
+
+    public function save(Request $request) {
+
+        $request->validate([
+            'avatar_file' => ['file', 'image'],
+            'username'    => ['required', 'string', 'max:255', 'unique:users'],
+            'name'        => ['required', 'string', 'max:255'],
+            'email'       => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'    => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'username' => $request->username,
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $user->maybeUploadAvatar();
+
+        return redirect()->route('admin.user.edit', $user->id)->with([
+            'successMsg' => 'Added new user successfully!'
+        ]);
+
+    }
+    
+    public function update(Request $request, $id) {
+        
+        $user = User::find( $id );
+
+        if( ! $user instanceof User ){
+            return redirect()->route('admin.user.all')->withErrors([
+                'msg' => 'User not found'
+            ]);
+        }
+
+        $rules = [
+            'name'  => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ];
+
+        if( $request->input('email') != $user->email ){
+            $rules['email'][] = 'unique:users';
+        }
+
+        if( $request->input('password') ){
+            $rules['password'] = ['confirmed', Rules\Password::defaults()];
+        }
+
+        if( $request->input('avatar_file') ) {
+            $rules['avatar_file'] = ['file', 'image'];
+        }
+
+        $data = $request->validate( $rules );
+        
+        $user->update( $data );
+        $user->maybeUploadAvatar();
+
+        return redirect()->route('admin.user.edit', $user->id)->with([
+            'successMsg' => 'Update user successfully!'
+        ]);
+    }
+
+    public function edit( $id ) {
+        $user = User::find( $id );
+
+        if( ! $user instanceof User ){
+            return redirect()->route('admin.user.all')->withErrors([
+                'msg' => 'User not found'
+            ]);
+        }
+
+        return view('admin.user.edit', compact(['user']));
     }
 
     public function delete( $id ) {

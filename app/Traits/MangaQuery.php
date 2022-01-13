@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Manga;
+use Illuminate\Support\Facades\Log;
 
 trait MangaQuery {
 
@@ -10,13 +11,14 @@ trait MangaQuery {
      * Query mangas by sold
      */
     public static function queryBestSelling() {
-        return Manga::leftJoin(
+        $query = Manga::leftJoin(
             'user_purchases', 
             'mangas.id', '=', 'user_purchases.manga_id'
         )
-        ->selectRaw('mangas.*, COUNT(*) as sold')
-        ->groupBy('user_purchases.manga_id')
+        ->selectRaw('mangas.*, COUNT(user_purchases.user_id) as sold')
+        ->groupBy('mangas.id')
         ->orderByDesc('sold');
+        return $query;
     }
 
     /**
