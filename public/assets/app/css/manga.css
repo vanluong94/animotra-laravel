@@ -13,6 +13,10 @@ body.manga-page .manga__header .manga__rating i {
     font-size: 17px;
 }
 
+body.manga-page .page__header {
+    min-height: 170px;
+}
+
 .manga__rating i {
     margin: 0px 1px;
 }
@@ -29,7 +33,7 @@ body.manga-page .manga-info-heading {
 }
 
 body.manga-page .sidebar-col__content.sidebar--offset {
-    margin-top: -172px;
+    margin-top: -156px;
 }
 
 body.manga-page .manga-thumbnail {
@@ -69,16 +73,18 @@ body.manga-page .manga-thumbnail img {
 
 .manga-buttons .btn.btn-favorite {
     background-color: rgb(231 109 105);
+    background-color: rgb(217 80 76);
     color: #fff;
 }
 
 .manga-buttons .btn.btn-read-later {
-    background-color: rgb(149 135 188);
+    background-color: var(--primary-color);
     color: #fff;
 }
 
 .manga-buttons .btn.btn-subscribe {
     background-color: rgb(135 208 132);
+    background-color: var(--bs-success);
     color: #fff;
 }
 

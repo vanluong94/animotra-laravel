@@ -2,35 +2,69 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    .header-mobile-menu-btn {
+        display: block;
+    }
+
     .header-left {
         display: none;
     }
-    
-    .top-header {
-        padding: 20px 0;
-    }
-    
+
     .menu-header {
         display: none;
     }
 
+    .top-header {
+        padding: 20px 0;
+    }
+    
+    .header-center-row {
+        justify-content: flex-start !important;
+    }
+
+    .user-summary {
+        flex-flow: column;
+    }
+
+    .m-slider .m-item {
+        margin-left: 2.5px;
+        margin-right: 2.5px;
+    }
+    
+    .m-slider .glider {
+        margin-left: -2.5px;
+        margin-right: -2.5px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .row>* {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .glider-paginate {
+        display: none;
+    }
+
+    #site-body .header-extend {
+        padding: 106px 0 2em;
+        margin-top: -106px;
+    }
+    
     .top-header .header-btn-group {
         margin: 0px 5px;
     }
-    
-    .home-header-extend #site-body {
-        margin-top: -320px;
-    }
-    
-    .home-header-extend #site-header {
-        padding-bottom: 320px;
-    }
-    
-    .header-mobile-menu-btn {
-        display: block;
-    }
-    
+
     .floating-menu {
         transform: scale(0.6);
         left: 15px;
@@ -42,21 +76,11 @@
     }
     
     .m-slider.featured-slider .m-item .meta__top .badge--left .badge-text-big {
-        font-size: 1.8em;
+        font-size: 1.8rem;
     }
     
     .dropdown-list.dropdown-menu {
         top: 63px !important;
-    }
-
-    .m-slider .m-item {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    
-    .m-slider .glider {
-        margin-left: -5px;
-        margin-right: -5px;
     }
 
     .manga-page .manga-buttons {
@@ -72,4 +96,18 @@
     .manga-page .sidebar-col section.related-mangas {
         display: none;
     }
+
+    .sidebar-col__content.sidebar--offset {
+        margin-top: 0 !important;
+    }
+
+    ul#profile-menu {
+        overflow-y: scroll;
+        width: 100%;
+    }
+    
+    ul#profile-menu > li > a {
+        white-space: nowrap;
+    }
+
 }

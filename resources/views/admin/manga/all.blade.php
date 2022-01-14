@@ -11,7 +11,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800">Manga</h1>
-        <a href="{{ route('admin.manga.add') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('admin.manga.add') }}" class="d-inline-block btn btn-sm btn-primary shadow-sm mb-1">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add New Manga
         </a>
     </div>
@@ -57,17 +57,18 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        // pageLength: 2,
+                        
                         ajax: '{{ route('admin.ajax.manga.list') }}',
                         columns: [
-                            { data: 'thumbnail', name: 'thumbnail' },
+                            { data: 'thumbnail', name: 'thumbnail', width: '200px' },
                             { data: 'title', name: 'title' },
-                            { data: 'publish_status', name: 'publish_status' },
-                            { data: 'published_at', name: 'published_at' },
-                            { data: 'created_at', name: 'created_at' },
-                            { data: 'actions', name: 'actions' }
+                            { data: 'publish_status', name: 'publish_status', width: '60px' },
+                            { data: 'published_at', name: 'published_at', width: '100px' },
+                            { data: 'created_at', name: 'created_at', width: '100px' },
+                            { data: 'actions', name: 'actions', width: '130px' }
                         ],
-                        order: [[ 4, 'desc' ]]
+                        order: [[ 4, 'desc' ]],
+                        fixedColumns: true
                     })
                     .on('draw', function(){
                         $('[data-toggle="tooltip"]').tooltip();

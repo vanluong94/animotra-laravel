@@ -7,6 +7,36 @@ document.querySelectorAll('.glider-contain').forEach( (e) => {
 			opts.arrows.prev = e.querySelector(opts.arrows.prev);
 			opts.arrows.next = e.querySelector(opts.arrows.next);
 		}
-		new Glider(glider, opts);
+		
+		let g = new Glider(glider, opts);
+		if(opts.autoplay) {
+			sliderAuto(g, 4000)
+		}
 	}
 } );
+
+function sliderAuto(slider, miliseconds) {
+	const slidesCount = slider.track.childElementCount;
+	let slideTimeout = null;
+	let nextIndex = 1;
+	
+	function slide () {
+		slideTimeout = setTimeout(
+			function () {
+				if (nextIndex >= slidesCount ) {
+					nextIndex = 0;
+				}
+				slider.scrollItem(nextIndex++);
+			},
+			miliseconds
+		);
+	}
+	
+	slider.ele.addEventListener('glider-animated', function() {
+		window.clearInterval(slideTimeout);
+		slide();
+	});
+	
+	slide();
+}
+	

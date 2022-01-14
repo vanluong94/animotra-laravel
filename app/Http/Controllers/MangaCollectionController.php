@@ -17,7 +17,7 @@ class MangaCollectionController extends Controller
             abort(404);
         }
 
-        $mangas = $collection->mangas()->paginate(16);
+        $mangas = $collection->mangas()->paginate(config('other.paginate'));
 
         return view('app.page-collection', compact(['collection', 'mangas']));
     }

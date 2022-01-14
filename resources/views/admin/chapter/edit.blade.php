@@ -8,11 +8,11 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800"><strong>{{ $chapter->manga->title }}</strong> - Edit <strong>{{ $chapter->name }}</strong></h1>
-        <div>
-            <a href="{{ route('admin.manga.chapter.all', $chapter->manga->id) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <div class="col-sm-3 text-right">
+            <a href="{{ route('admin.manga.chapter.all', $chapter->manga->id) }}" class="d-inline-block btn btn-sm btn-primary shadow-sm mb-1">
                 <i class="fas fa-stream fa-sm text-white-50"></i> Chapters List
             </a>
-            <a href="{{ route('admin.manga.chapter.add', $chapter->manga->id) }}" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
+            <a href="{{ route('admin.manga.chapter.add', $chapter->manga->id) }}" class="d-inline-block btn btn-sm btn-info shadow-sm">
                 <i class="fas fa-plus fa-sm text-white-50"></i> Add new Chapter
             </a>
         </div>

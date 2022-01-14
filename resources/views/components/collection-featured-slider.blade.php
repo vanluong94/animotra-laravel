@@ -7,7 +7,7 @@
         <div class="m-heading"><h4 class="m-heading__content">{{ $title }}</h4></div>
     </div>
     <div class="m-collection__content glider-contain">
-        <div class="glider" data-glider='{"slidesToShow":3,"slidesToScroll":3,"dots":".dots"}'>
+        <div class="glider" data-glider='{"slidesToShow":3,"slidesToScroll":3,"dots":".dots","autoplay":1}'>
 
             @foreach ($mangas as $manga)
                 <x-manga-big-thumb :manga="$manga"></x-manga-big-thumb>

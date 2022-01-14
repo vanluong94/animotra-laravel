@@ -16,7 +16,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800">{{ App\Models\MangaCollection::getTypeLabel( $type ) }}</h1>
-        <a href="{{ route('admin.collection.add', $type) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('admin.collection.add', $type) }}" class="d-inline-block btn btn-sm btn-primary shadow-sm mb-1">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add New {{ $labelSingular }}
         </a>
     </div>
@@ -62,15 +62,15 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        // pageLength: 2,
+                        
                         ajax: '{{ route('admin.ajax.collection.list', $type) }}',
                         columns: [
                             { data: 'name', name: 'name' },
                             { data: 'slug', name: 'slug' },
-                            { data: 'manga_count', name: 'manga_count' },
-                            { data: 'created_at', name: 'created_at' },
-                            { data: 'updated_at', name: 'updated_at' },
-                            { data: 'actions', name: 'actions' }
+                            { data: 'manga_count', name: 'manga_count', width: '30px' },
+                            { data: 'created_at', name: 'created_at', width: '80px' },
+                            { data: 'updated_at', name: 'updated_at', width: '80px' },
+                            { data: 'actions', name: 'actions', width: '250px' }
                         ],
                         order: [[ 3, 'desc' ]]
                     });

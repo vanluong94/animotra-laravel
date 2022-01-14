@@ -240,7 +240,7 @@ class Manga extends Model
     }
 
     public function comments() {
-        return $this->hasMany( Comment::class );
+        return $this->hasMany( Comment::class )->orderByDesc('created_at');
     }
 
     public function isBookmarked( $type ) {
@@ -268,11 +268,15 @@ class Manga extends Model
                 $query->whereIn('id', $authors->pluck('id'));
             });
         })
-        ->get();
+        ->inRandomOrder()->limit(6)->get();
     }
 
     public function getLatestChapter() {
         return $this->chapters->pop();
+    }
+    
+    public function getRating() {
+        return number_format( $this->rating, 1 );
     }
 
     public function increaseViews() {

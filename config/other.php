@@ -37,5 +37,6 @@ return [
         'collections' => [
             'favorite', 'read_later', 'subscribe'
         ]
-    ]
+    ],
+    'paginate' => 12
 ];

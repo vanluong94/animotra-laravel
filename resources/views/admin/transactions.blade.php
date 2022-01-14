@@ -52,16 +52,16 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        // pageLength: 2,
+                        
                         ajax: '{{ route('admin.ajax.transaction.list') }}',
                         columns: [
                             { data: 'order_id', name: 'order_id' },
-                            { data: 'user_id', name: 'user_id' },
+                            { data: 'user_id', name: 'user_id', width: '50px' },
                             { data: 'user_name', name: 'user_name' },
                             { data: 'user_email', name: 'user_email' },
-                            { data: 'price', name: 'publish_status' },
-                            { data: 'amount', name: 'published_at' },
-                            { data: 'created_at', name: 'created_at' },
+                            { data: 'price', name: 'price', width: '80px' },
+                            { data: 'amount', name: 'amount', width: '80px' },
+                            { data: 'created_at', name: 'created_at', width: '80px' },
                         ],
                         order: [[ 6, 'desc' ]]
                     })

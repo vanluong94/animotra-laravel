@@ -72,14 +72,13 @@
                     $(e).val('').trigger('change').trigger('select2:close');
                 })
             })
-
-            $(document).ready(function(){
-                if(!$('body').hasClass('advanced-search')) {
-                    $('button[data-bs-target="#collapsableSearch"]').click();
-                }
-            })
             
         });
+
+        if(!jQuery('body').hasClass('advanced-search')) {
+            jQuery('button[data-bs-target="#collapsableSearch"]').click();
+        }
+
     </script>
 @endpush
 
@@ -97,27 +96,29 @@
 
                 <div class="filters__top d-flex justify-content-center border-bottom pb-5">
                     <div class="container">
+
                         <!-- SORTING -->
+                        <div class="fs-4 text-center text-uppercase">Sort By</div>
                         <ul class="filter-sorting filters-list d-flex-center mb-3">
                             <li class="filter-item">
                                 <a 
                                     href="{{ request()->fullUrlWithQuery([ 'order' => 'alphabet']) }}" 
                                     class="text-uppercase {{ $order == 'alphabet' ? 'fw-bold' : '' }}"
-                                >Sort By a-z</a>
+                                >a-z</a>
                             </li>
                             <li class="filter-item">
                                 <a 
                                     href="{{ request()->fullUrlWithQuery([ 'order' => 'rating']) }}" 
                                     class="text-uppercase {{ $order == 'rating' ? 'fw-bold' : '' }}"
-                                >Sort By rating</a></li>
+                                >rating</a></li>
                             <li class="filter-item">
                                 <a 
                                     href="{{ request()->fullUrlWithQuery([ 'order' => 'newest']) }}" 
                                     class="text-uppercase {{ $order == 'newest' ? 'fw-bold' : '' }}"
-                                >Sort By newest</a></li>
+                                >newest</a></li>
                         </ul>
                         <!-- ALPHABET -->
-                        <ul class="filter-alphabet filters-list d-flex-center">
+                        <ul class="filter-alphabet filters-list d-flex-center flex-wrap">
                             @foreach ([
                                 'all', 'char', 
                                 'a', 'b', 'c', 'd', 'e', 'f', 
@@ -135,12 +136,13 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="filters__center py-2">
-                    <button class="btn text-center d-block w-100 text-gray" data-bs-toggle="collapse" data-bs-target="#collapsableSearch" role="button" aria-expanded="true" aria-controls="collapsableSearch">
+                    <button class="btn text-center d-block w-100 text-gray" data-bs-toggle="collapse" data-bs-target="#collapsableSearch" aria-expanded="true" aria-controls="collapsableSearch">
                         Advanced Search
                     </button>
                 </div>
-                <div id="collapsableSearch" class="filters__bottom collapse show border-top">
+                <div id="collapsableSearch" class="collapsed collapse show filters__bottom border-top">
                     <div class="container py-5">
                         <form method="GET" id="advancedSearchForm">
                             <div class="row">
@@ -210,7 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-lg-center mt-3">
+                            <div class="d-flex justify-content-center mt-3">
                                 <div class="btn-group">
                                     <button type="reset" class="btn btn-secondary btn-lg">Reset</button>
                                     <button type="submit" class="btn btn-primary bt-lg">Search</button>
@@ -223,7 +225,7 @@
 
             <div class="page__content">
                 <div class="container">
-                    <x-app.m-collections :mangas="$mangas" columnClass="col-md-3"></x-app.m-collections>
+                    <x-app.m-collections :mangas="$mangas" columnClass="col-lg-3 col-md-4 col-sm-6 col-6"></x-app.m-collections>
                 </div>
             </div>
 

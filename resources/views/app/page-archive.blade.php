@@ -8,7 +8,7 @@
     <main id="site-body">
         <div class="page">
             
-            <div class="page__header pb-0">
+            <div class="page__header">
                 <div class="container">
                     <div class="m-heading page-heading text-center">
                         <h1 class="m-heading__content text-normal">{{ $title }}</h1>
@@ -18,7 +18,7 @@
 
             <div class="page__content">
                 <div class="container">
-                    <x-app.m-collections :mangas="$mangas" columnClass="col-md-3"></x-app.m-collections>
+                    <x-app.m-collections :mangas="$mangas" columnClass="col-lg-3 col-md-4 col-sm-6 col-6"></x-app.m-collections>
                 </div>
             </div>
 

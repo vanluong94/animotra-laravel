@@ -52,7 +52,7 @@
                                     <span class="manga-status__value">{{ $manga->getReleaseStatus() }}</span>
                                 </div>
                                 <div class="manga__rating">
-                                    <input id="mangaRating" name="mangaRating" value="{{ $manga->rating }}" class="kv-ltr-theme-fas-star rating-loading" data-size="sm">
+                                    <input id="mangaRating" name="mangaRating" value="{{ $manga->getRating() }}" class="kv-ltr-theme-fas-star rating-loading" data-size="sm">
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
                                                             <a href="{{ $chapter->getViewUrl() }}">{{ $chapter->extend_name }}</a>
                                                         </div>
                                                     </div>
-                                                    <div class="chapter-item--right">
+                                                    <div class="chapter-item--right ml-2">
                                                         <div class="chapter-buttons">
                                                             @if ($chapter->coin)
                                                                 <a href="{{ $chapter->getViewUrl() }}" class="btn btn-primary btn-go-chapter {{ Auth::user()->hasPurchased($chapter) ? 'purchased' : '' }}">
@@ -296,7 +296,7 @@
         </div>
 
         <!-- Modal -->
-        <x-app.modal-rating :rating="$manga->rating"></x-app.modal-rating>
+        <x-app.modal-rating :rating="$manga->getRating()"></x-app.modal-rating>
 
         <script>
             const ajaxUrls = {

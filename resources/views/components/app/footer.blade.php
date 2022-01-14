@@ -12,7 +12,7 @@
     <div class="container">
         <div class="footer-widgets">
             <div class="row">
-                <div class="footer-column col-md-3 col-sm-12">
+                <div class="footer-column col-lg-3 col-md-6">
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-column col-md-3 col-sm-12">
+                <div class="footer-column col-lg-3 col-md-6">
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-column col-md-3 col-sm-12">
+                <div class="footer-column col-lg-3 col-md-6">
                     <div class="widget">
                         <div class="widget__title">
                             <div class="m-heading ">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 @if ($best_selling)
-                    <div class="footer-column col-md-3 col-sm-12">
+                    <div class="footer-column col-lg-3 col-sm-6">
                         <div class="m-heading widget__title"><span class="m-heading__content">Manga Of The Day</span></div>
                         <div class="widget__content">
                             <a 

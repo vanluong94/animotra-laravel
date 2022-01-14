@@ -31,7 +31,7 @@
                         @auth
                             <div class="header-btn-group header-notifications position-relative">
 
-                                <a class="header-btn notification-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notificationsDropdown">
+                                <a class="header-btn notification-btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="notificationsDropdown">
                                     <i class="fas fa-bell"></i>
                                     @if (($unread = Auth::user()->unreadNotifications->count()))
                                         <span class="badge">{{ $unread }}</span>
@@ -69,9 +69,9 @@
                         {{-- USER MENU --}}
                         <div class="header-btn-group header-user position-relative">
 
-                            <a class="header-btn user-btn nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenuDropdownBtn">
+                            <button type="button" class="header-btn user-btn nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenuDropdownBtn">
                                 <i class="fas fa-user"></i>
-                            </a>
+                            </button>
                             
                             <div class="dropdown-list dropdown-menu shadow animated--grow-in" aria-labelledby="userMenuDropdownBtn" id="userMenuDropdown">
 

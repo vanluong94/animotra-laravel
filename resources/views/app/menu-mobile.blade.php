@@ -6,6 +6,13 @@
     </div>
 
     <nav class="off-menu">
+
+        <form method="get" action="{{ route('manga.all') }}" class="px-4">
+            <div class="search-input-wrapper m-auto">
+                <input class="search-input d-block w-100" type="text" name="s" placeholder="Search Keywords">
+            </div>
+        </form>
+
 		<nav class="navbar navbar-expand-lg">
             <ul id="mobile-menu" class="navbar-nav menu w-100 justify-content-center">
                 <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">Home Page</a></li>

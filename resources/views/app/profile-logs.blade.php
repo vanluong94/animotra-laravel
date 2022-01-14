@@ -37,7 +37,7 @@
                 $('#dataTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    // pageLength: 2,
+                    
                     ajax: '{{ route('profile.logs.ajax') }}',
                     columns: [
                         { data: 'type', name: 'type' },

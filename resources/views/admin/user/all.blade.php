@@ -11,7 +11,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800">User</h1>
-        <a href="{{ route('admin.manga.add') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('admin.manga.add') }}" class="d-inline-block btn btn-sm btn-primary shadow-sm mb-1">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add New User
         </a>
     </div>
@@ -57,15 +57,15 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        // pageLength: 2,
+                        
                         ajax: '{{ route('admin.ajax.user.list') }}',
                         columns: [
-                            { data: 'avatar', name: 'avatar' },
+                            { data: 'avatar', name: 'avatar', width: '100px' },
                             { data: 'name', name: 'name' },
                             { data: 'email', name: 'email' },
-                            { data: 'role', name: 'role' },
+                            { data: 'role', name: 'role', width: '50px' },
                             { data: 'created_at', name: 'created_at' },
-                            { data: 'actions', name: 'actions' }
+                            { data: 'actions', name: 'actions', width: '50px' }
                         ],
                         order: [[ 4, 'desc' ]]
                     })

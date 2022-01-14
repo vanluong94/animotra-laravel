@@ -1,9 +1,14 @@
 .page__header {
     position: relative;
+	min-height: 130px;
+	padding: 2rem 0px 1.5rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 body.has-page-header .page__content {
-    padding: 50px 0px;
+    padding: 2rem 0px;
     background-color: rgb(252,252,252);
     border-top: 1px solid var(--border-color);
 }
@@ -33,5 +38,5 @@ body.has-page-header .page__content {
 
 .page-heading.m-heading .m-heading__content {
     font-weight: 500;
-    font-size: 2rem;
+    font-size: calc(1rem + 1.5vw);
 }

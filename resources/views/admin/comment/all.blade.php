@@ -54,15 +54,14 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        // pageLength: 2,
                         ajax: '{{ route('admin.ajax.comment.list') }}',
                         columns: [
-                            { data: 'avatar', name: 'avatar' },
-                            { data: 'user', name: 'user' },
+                            { data: 'avatar', name: 'avatar', width: '60px' },
+                            { data: 'user', name: 'user', width: '10%' },
                             { data: 'content', name: 'content' },
-                            { data: 'article', name: 'article' },
-                            { data: 'created_at', name: 'created_at' },
-                            { data: 'actions', name: 'actions' }
+                            { data: 'article', name: 'article', width: '15%' },
+                            { data: 'created_at', name: 'created_at', width: '80px' },
+                            { data: 'actions', name: 'actions', width: '160px' }
                         ],
                         order: [[ 4, 'desc' ]]
                     })

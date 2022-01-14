@@ -14,7 +14,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800"><strong>{{ $manga->title }}</strong> - Chapters List</h1>
-        <a href="{{ route('admin.manga.chapter.add', $manga->id) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('admin.manga.chapter.add', $manga->id) }}" class="d-inline-block btn btn-sm btn-primary shadow-sm mb-1">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add New Chapter
         </a>
     </div>
@@ -62,7 +62,7 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        // pageLength: 2,
+                        
                         ajax: '{{ route('admin.ajax.chapter.list', $manga->id) }}',
                         columns: [
                             { data: 'id', name: 'id' },

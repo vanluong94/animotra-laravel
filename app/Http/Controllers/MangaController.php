@@ -70,7 +70,7 @@ class MangaController extends Controller
             $query->where('title', 'like', $group . '%');
         }
 
-        $mangas = $query->paginate(16);
+        $mangas = $query->paginate(config('other.paginate'));
 
         $isSearchExpanded = $request->has('s');
 
@@ -128,28 +128,28 @@ class MangaController extends Controller
     public function bestSelling() {
         return view('app.page-archive', [
             'title' => 'Best Selling',
-            'mangas' => Manga::queryBestSelling()->paginate(16)
+            'mangas' => Manga::queryBestSelling()->paginate(config('other.paginate'))
         ]);
     }
 
     public function newest() {
         return view('app.page-archive', [
             'title' => 'Newest',
-            'mangas' => Manga::queryNewest()->paginate(16)
+            'mangas' => Manga::queryNewest()->paginate(config('other.paginate'))
         ]);
     }
 
     public function latest() {
         return view('app.page-archive', [
             'title' => 'Latest Mangas',
-            'mangas' => Manga::queryLatest()->paginate(16)
+            'mangas' => Manga::queryLatest()->paginate(config('other.paginate'))
         ]);
     }
 
     public function topRated() {
         return view('app.page-archive', [
             'title' => 'Top Rated Mangas',
-            'mangas' => Manga::queryTopRated()->paginate(16)
+            'mangas' => Manga::queryTopRated()->paginate(config('other.paginate'))
         ]);
     }
 }

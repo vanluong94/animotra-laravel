@@ -12,7 +12,7 @@
     <main id="site-body">
 
         <!-- HOME SLIDER -->
-		<section class="home-section home-featured-slider">
+		<section class="home-section home-featured-slider header-extend">
 			<div class="container">
 				<x-collection-featured-slider :mangas="$featuredMangas" title="Featured"></x-collection-featured-slider>
 			</div>
@@ -37,18 +37,18 @@
 			<div class="container">
 				<div class="subscription text-uppercase text-white pt-5 pb-4">
 					<div class="row">
-						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column align-items-start position-relative">
+						<div class="col-md-3 col-sm-6 mb-3 d-flex flex-column align-items-start position-relative">
 							<span class="heading-underline h3">Subscribe</span>
 							<span class="h6 font-weight-normal">to get favorit anime</span>
 							<span class="heading-underline h6 font-weight-light">to get the newest episodes</span>
 							<i class="fas fa-bell icon-background"></i>
 						</div>
-						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column">
+						<div class="col-md-3 col-sm-6 mb-3 d-flex flex-column">
 							<div class="subscription-logo">
 								<i class="fas fa-user-plus"></i>
 							</div>
 							<div class="subscription-step d-flex">
-								<div class="subscription-step-left d-flex flex-column">
+								<div class="subscription-step-left me-2 d-flex flex-column">
 									<span class="h4 heading-underline">01</span>
 									<small>step</small>
 								</div>
@@ -58,12 +58,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column">
+						<div class="col-md-3 col-sm-6 mb-3 d-flex flex-column">
 							<div class="subscription-logo">
 								<i class="fas fa-bars"></i>
 							</div>
 							<div class="subscription-step d-flex">
-								<div class="subscription-step-left d-flex flex-column">
+								<div class="subscription-step-left me-2 d-flex flex-column">
 									<span class="h4 heading-underline">02</span>
 									<small>step</small>
 								</div>
@@ -73,12 +73,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-12 mb-3 d-flex flex-column">
+						<div class="col-md-3 col-sm-6 mb-3 d-flex flex-column">
 							<div class="subscription-logo">
 								<i class="fas fa-bell"></i>
 							</div>
 							<div class="subscription-step d-flex">
-								<div class="subscription-step-left d-flex flex-column">
+								<div class="subscription-step-left me-2 d-flex flex-column">
 									<span class="h4 heading-underline">03</span>
 									<small>step</small>
 								</div>

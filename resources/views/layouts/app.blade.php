@@ -29,10 +29,11 @@
         <link rel="stylesheet" href="/assets/app/css/responsive.css">
     @endpush
 
-    @push('footerScripts')
+    @prepend('footerScripts')
         <script src="/assets/vendor/bootstrap.min.js"></script>
         <script src="/assets/app/js/m-slider.js"></script>
-    @endpush
+        <script src="/assets/app/js/template.js"></script>
+    @endprepend
 
     <div class="wrap">
         {{ $slot }}

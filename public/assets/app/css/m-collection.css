@@ -72,7 +72,7 @@
 }
 
 .m-collection--big .m-item .meta__top .badge--left .badge-text-big {
-	font-size: 1.8em;
+	font-size: 3em;
     line-height: 1em;
     font-family: 'Roboto', sans-serif;
     order: 2;
@@ -88,8 +88,8 @@
 
 .m-collection--big .m-item .meta__top .badge--left-wrapper {
     position: absolute;
-    top: 15%;
-	left: 15%;
+    top: 10%;
+	left: 10%;
 	display: flex;
     flex-flow: column;
 }
@@ -173,13 +173,43 @@
 	border-top: 1px solid #fff;
 	font-weight: 100;
 	padding-top: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.m-collection--big .m-item .meta__bottom .meta-title .item-title + .manga-chapter {
+    max-height: 1.7em;
+    transition: max-height .3s ease-in-out;
+}
+
+.m-collection--big .m-item.hovering .meta__bottom .meta-title .item-title + .manga-chapter {
+    max-height: 3.4em;
+    white-space: normal;
+}
+
+.m-collection--big .m-item.leaving .meta__bottom .meta-title .item-title + .manga-chapter {
+    white-space: normal;
 }
 
 .m-collection--big .m-item .thumbnail {
     padding-top: 150%;
+}
+
+.m-collection--big .m-item .thumbnail .thumbnail-content {
     background-size: cover;
     background-position: center;
+    position: absolute;
+    inset: 0;
+    transform: scale(1);
+    transition: transform .3s ease-in-out;
 }
+
+.m-collection--big .m-item:hover .thumbnail .thumbnail-content {
+    transform: scale(1.05);
+    /* inset: -5px; */
+}
+
 
 /* SMALL THUMBNAIL LAYOUT */
 /* REGULAR THUMBNAIL */
@@ -200,6 +230,7 @@
 .m-collection--regular .m-item .item-thumbnail {
     width: 80px;
     margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .m-collection--small .m-item .item-meta,
@@ -337,4 +368,46 @@ nav.m-pagination > .m-pagination-item.current {
 }
 .glider-next.disabled, .glider-prev.disabled {
     display: none;
+}
+
+
+@media(max-width: 576px) {
+    .m-collection.m-collection--big .m-item .meta__top .badge--left {
+        font-size: 8px;
+    }
+
+    .m-slider.featured-slider .m-item .meta__top .badge--left {
+        font-size: 8px;
+    }
+}
+
+@media(min-width: 768px) {
+    .m-collection.m-collection--big .m-item .meta__top .badge--left {
+        font-size: 9px;
+    }
+
+    .m-slider.featured-slider .m-item .meta__top .badge--left {
+        font-size: 12px;
+    }
+}
+
+@media(min-width: 992px) {
+    .m-collection.m-collection--big .m-item .meta__top .badge--left {
+        font-size: 12px;
+    }
+
+    .m-slider.featured-slider .m-item .meta__top .badge--left {
+        font-size: 16px;
+    }
+}
+
+
+@media(min-width:1200px) {
+    .m-collection.m-collection--big .m-item .meta__top .badge--left {
+        font-size: 13px;
+    }
+
+    .m-slider.featured-slider .m-item .meta__top .badge--left {
+        font-size: 14px;
+    }
 }
