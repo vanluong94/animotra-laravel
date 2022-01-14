@@ -33,14 +33,15 @@ class AdminController extends Controller
 
         $revenue = DB::table('user_transactions')->select(
             DB::raw('SUM(price) as `data`'), 
-            DB::raw("DATE_FORMAT(created_at, '%M %Y') month")
+            DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d') day")
         )
-        ->whereDate( 'created_at', '>=', Carbon::now()->subYear() )
+        ->whereDate( 'created_at', '>=', Carbon::now()->subWeek() )
         ->whereDate( 'created_at', '<=', $now )
-        ->groupby('month')->get();
+        ->orderBy('created_at', 'asc')
+        ->groupby('day')->get();
 
         $revenueChartData = [
-            'labels' => $revenue->pluck('month')->toArray(),
+            'labels' => $revenue->pluck('day')->toArray(),
             'data' => $revenue->pluck('data')->toArray(),
         ];
 
@@ -67,7 +68,7 @@ class AdminController extends Controller
 
         $bestSellingData = [
             'labels' => $bestSellingMangas->pluck('title')->toArray(),
-            'data' => $bestSellingMangas->pluck('sold')->toArray()
+            'data'   => $bestSellingMangas->pluck('sold')->toArray()
         ];
 
         return view('admin.dashboard', compact([

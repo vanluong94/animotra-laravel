@@ -5,7 +5,7 @@
     <script>
         const revenueChartData = {!! json_encode( $revenueChartData ) !!};
         const coinsChartData = {!! json_encode( $coinsChartData ) !!};
-        const bestSellingData = {!! json_encode( $bestSellingData ) !!};
+        const bestSellingMangas = {!! json_encode( $bestSellingData ) !!};
     </script>
 
     <!-- Page level plugins -->
@@ -14,6 +14,7 @@
     <!-- Page level custom scripts -->
     <script src="/assets/admin/js/demo/chart-area-demo.js"></script>
     <script src="/assets/admin/js/demo/chart-pie-demo.js"></script>
+    <script src="/assets/admin/js/demo/chart-bar-demo.js"></script>
 @endpush
     
 <x-dashboard-layout>

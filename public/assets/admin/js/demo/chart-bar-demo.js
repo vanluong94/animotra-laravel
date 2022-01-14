@@ -27,20 +27,20 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
-if(bestSellingData) {
+if(bestSellingMangas) {
 
   // Bar Chart Example
   var ctx = document.getElementById("myBarChart");
   var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: bestSellingData.labels,
+      labels: bestSellingMangas.labels.map((label) => label.substring(0,20)),
       datasets: [{
         label: "Revenue",
         backgroundColor: "#4e73df",
         hoverBackgroundColor: "#2e59d9",
         borderColor: "#4e73df",
-        data: bestSellingData.data,
+        data: bestSellingMangas.data,
       }],
     },
     options: {
@@ -70,13 +70,9 @@ if(bestSellingData) {
         yAxes: [{
           ticks: {
             min: 0,
-            max: 15000,
+            max: Math.max(...bestSellingMangas.data),
             maxTicksLimit: 5,
             padding: 10,
-            // Include a dollar sign in the ticks
-            callback: function(value, index, values) {
-              return '$' + number_format(value);
-            }
           },
           gridLines: {
             color: "rgb(234, 236, 244)",
