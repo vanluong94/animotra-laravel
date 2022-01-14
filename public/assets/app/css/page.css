@@ -38,5 +38,5 @@ body.has-page-header .page__content {
 
 .page-heading.m-heading .m-heading__content {
     font-weight: 500;
-    font-size: calc(1rem + 1.5vw);
+    font-size: calc(.8rem + 1.7vw);
 }

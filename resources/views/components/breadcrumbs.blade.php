@@ -1,0 +1,1 @@
+{{ DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::render('homepage') }}

@@ -12,7 +12,10 @@ use App\Http\Middleware\VerifyCsrfTokenAll;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
+Route::middleware([
+    'auth.admin',
+    'verified'
+])->prefix('admin')->group(function() {
     
     Route::get('/', [ AdminController::class, 'dashboard' ])->name('admin.dashboard');
 

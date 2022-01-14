@@ -31,11 +31,10 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-require __DIR__.'/auth.php';
-require __DIR__.'/admin.php';
-require __DIR__.'/ajax.php';
-require __DIR__.'/ajax.php';
-require __DIR__.'/breadcrumbs.php';
+require_once __DIR__.'/auth.php';
+require_once __DIR__.'/admin.php';
+require_once __DIR__.'/ajax.php';
+require_once __DIR__.'/ajax.php';
 
 /**
  * Manga Collections routes
@@ -54,7 +53,7 @@ Route::get('newest', [ MangaController::class, 'newest' ])->name('manga.newest')
 Route::get('latest', [ MangaController::class, 'latest' ])->name('manga.latest');
 Route::get('top-rated', [ MangaController::class, 'topRated' ])->name('manga.topRated');
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth', 'verified'])->group(function(){
     Route::post( 'comment', [ CommentController::class, 'post' ] )->name('comment.post');
 
     Route::prefix('profile')->group(function(){
