@@ -1,48 +1,76 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@section('pageTitle', 'Reset Password')
+@section('bodyClass', 'bg-animotra')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors" />
+<x-admin-layout>
+    <div class="container">
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+            <div class="col-xl-6 col-lg-12 col-md-6">
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+                <div class="logo text-center my-5">
+                    <img src="/logo.png" alt="Animotra">
+                </div>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-2">Reset Password</h1>
+                                <p class="mb-4">This is a secure area of the application. Please confirm your password before continuing.</p>
+                            </div>
+                            
+                            <!-- Validation Errors -->
+                            <x-auth-validation-errors :errors="$errors" />
+                            
+                            <form class="user" method="POST" action="{{ route('password.update') }}">
+
+                                @csrf
+
+                                <!-- Password Reset Token -->
+                                <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user"
+                                        placeholder="Email" 
+                                        id="email" type="email" name="email" value="{{ old('email', $request->email) }}" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="password" placeholder="Password" 
+                                        type="password"
+                                        name="password"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="password_confirmation" placeholder="Confirm Password" 
+                                        type="password"
+                                        name="password_confirmation"
+                                        required>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Reset Password
+                                </button>
+                            </form>
+
+                            <hr>
+
+                            <div class="text-center">
+                                <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+        </div>
 
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+</x-admin-layout>

@@ -10,7 +10,7 @@
             <div class="col-xl-6 col-lg-12 col-md-6">
                 
                 <div class="logo text-center my-5">
-                    <img src="logo.png" alt="Animotra">
+                    <img src="/logo.png" alt="Animotra">
                 </div>
                 
                 <div class="card o-hidden border-0 shadow-lg my-5">
@@ -53,13 +53,6 @@
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Login
                                 </button>
-                                {{-- <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Login with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                </a> --}}
                             </form>
                             <hr>
                             <div class="text-center">

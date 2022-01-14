@@ -10,7 +10,7 @@
             <div class="col-xl-6 col-lg-12 col-md-6">
 
                 <div class="logo text-center my-5">
-                    <img src="logo.png" alt="Animotra">
+                    <img src="/logo.png" alt="Animotra">
                 </div>
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
