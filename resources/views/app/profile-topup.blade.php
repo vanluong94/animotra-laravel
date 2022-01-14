@@ -36,7 +36,7 @@
 
         <script>
 
-            const rate         = {{ env('TOKEN_RATE') }}
+            const rate         = {{ config('animotra.token_rate') }}
             const topupForm    = document.getElementById('topupForm');
             const tokensAmount = document.getElementById('tokensAmount');
             const priceAmount  = document.getElementById('priceAmount');

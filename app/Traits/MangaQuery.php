@@ -55,5 +55,11 @@ trait MangaQuery {
     public static function queryPublished() {
         return Manga::wherePublishStatus('published')->where('published_at', '<=', Carbon::now());
     }
+
+    public static function queryFeatured() {
+        return Manga::whereIn('id', array_filter(
+            explode(',', config( 'animotra.featured_collection', '' ) )
+        ));
+    }
 }
 

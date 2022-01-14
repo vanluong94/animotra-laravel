@@ -42,11 +42,11 @@ class MangaController extends Controller
             'title'          => 'required|min:1|max:150',
             'publish_status' => [
                 'required', 
-                Rule:: in([ 'published', 'draft' ])
+                Rule::in([ 'published', 'draft' ])
             ],
             'release_status' => [
                 'required', 
-                Rule:: in([ 'ongoing', 'end', 'completed'])
+                Rule::in([ 'ongoing', 'end', 'completed'])
             ],
             'year' => [
                 'nullable', 'integer', 'min:1', 'max:2100'
@@ -184,6 +184,32 @@ class MangaController extends Controller
         ->rawColumns(['actions', 'thumbnail', 'title', 'publish_status'])
         ->make();
 
+    }
+
+    public function ajaxSearch(Request $request) {
+        $query = Manga::query()
+            ->where('id', '%' . $request->input('search') . '%')
+            ->orWhere('title', 'like', '%' . $request->input('search') . '%' );
+
+        if( $request->has('selected') && ( $selected = $request->input('selected') ) ) {
+            if( is_array( $selected ) ){
+                $query = $query->whereNotIn('id', $selected);
+            }
+        }
+
+        $results = $query->paginate(10);
+
+        return response()->json([
+            'results' => array_map(function($manga){
+                return [
+                    'id'   => $manga->id,
+                    'text' => $manga->title
+                ];
+            }, $results->items()),
+            'pagination' => [
+                'more' => $results->hasMorePages()
+            ],
+        ]);
     }
 
 }

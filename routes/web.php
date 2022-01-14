@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app.home', [
-        'featuredMangas'    => Manga::queryNewest()->limit(9)->get(),
+        'featuredMangas'    => Manga::queryFeatured()->limit(9)->get(),
         'latestMangas'      => Manga::queryLatest()->limit(8)->get(),
         'topRatedMangas'    => Manga::queryTopRated()->limit(8)->get(),
         'bestSellingMangas' => Manga::queryBestSelling()->limit(8)->get(),
@@ -34,6 +34,8 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/ajax.php';
+require __DIR__.'/ajax.php';
+require __DIR__.'/breadcrumbs.php';
 
 /**
  * Manga Collections routes

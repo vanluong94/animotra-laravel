@@ -9,6 +9,7 @@ use App\Models\UserTransaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -72,5 +73,40 @@ class AdminController extends Controller
         return view('admin.dashboard', compact([
             'earning', 'orders', 'mangas', 'users', 'revenueChartData', 'coinsChartData', 'bestSellingData'
         ]));
+    }
+
+    public function settings() {
+        return view('admin.settings', [
+            'featured_collection' => Manga::queryFeatured()->get(),
+            'default_coin'        => config('animotra.default_coin'),
+            'token_rate'          => config('animotra.token_rate', 0.001)
+        ]);
+    }
+
+    public function saveSettings(Request $request) {
+
+        $data = $request->validate([
+            'featured_collection' => 'nullable|array',
+            'default_coin'        => 'nullable|numeric',
+            'token_rate'          => 'required|numeric|gt:0',
+        ]);
+
+        if( isset( $data['featured_collection'] ) ){
+            $data['featured_collection'] = implode(',', $data['featured_collection']);
+        }
+
+        $output = collect( $data )->filter()->toArray();
+
+        $output = "<?php return " . var_export( $output, true ) . "; ?>";
+
+        file_put_contents( base_path('config/animotra.php'), $output );
+        
+        return view('admin.settings', [
+            'featured_collection' => Manga::queryFeatured()->get(),
+            'default_coin'        => config('animotra.default_coin'),
+            'token_rate'          => config('animotra.token_rate', 0.001)
+        ])->with([
+            'successMsg' => 'Updated successfully!'
+        ]);
     }
 }

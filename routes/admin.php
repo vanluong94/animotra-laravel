@@ -69,6 +69,7 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
 
         Route::prefix('manga')->group(function(){
             Route::get('list', [ MangaController::class, 'ajaxList' ])->name('admin.ajax.manga.list');
+            Route::get('search', [ MangaController::class, 'ajaxSearch' ])->name('admin.ajax.manga.search');
             Route::get('{id}/chapters', [ ChapterController::class, 'ajaxList' ])->name('admin.ajax.chapter.list');
         });
 
@@ -77,9 +78,8 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
         Route::get('comment/list', [ CommentController::class, 'ajaxList'])->name('admin.ajax.comment.list');
     });
 
-    Route::get('settings', function(){
-        
-    })->name('admin.settings');
+    Route::get('settings', [ AdminController::class, 'settings' ])->name('admin.settings');
+    Route::post('settings', [ AdminController::class, 'saveSettings' ])->name('admin.settings.save');
 
     Route::get('transaction/all', [ UserTransactionController::class, 'all'])->name('admin.transaction.all');
 

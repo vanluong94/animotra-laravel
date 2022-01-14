@@ -21,7 +21,7 @@
         :manga="$manga"
         :name="old('name')"
         :extendName="old('extend_name')"
-        :coin="old('coin')"
+        :coin="old('coin') ?: config('animotra.default_coin')"
         :release="old('release')"
     ></x-admin.card-chapter>
 </x-dashboard-layout>

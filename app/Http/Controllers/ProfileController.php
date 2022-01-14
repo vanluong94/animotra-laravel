@@ -117,8 +117,7 @@ class ProfileController extends Controller
             'paypal_token' => 'required'
         ]);
 
-        $price = intval( $data['token_amount'] ) * floatval( env('TOKEN_RATE') );
-        Log::debug( $price );
+        $price = intval( $data['token_amount'] ) * floatval( config('animotra.token_rate') );
 
         try {
 
