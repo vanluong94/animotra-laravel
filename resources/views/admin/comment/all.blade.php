@@ -5,15 +5,12 @@
     <script src="/assets/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 @endpush
 
-@section('pageTitle', 'Admin | All Users')
+@section('pageTitle', 'Admin | All Comments')
 
 @section('pageHeading')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 text-gray-800">User</h1>
-        <a href="{{ route('admin.manga.add') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-plus fa-sm text-white-50"></i> Add New User
-        </a>
+        <h1 class="h3 text-gray-800">Comment</h1>
     </div>
 @endsection
 
@@ -21,7 +18,7 @@
 <x-dashboard-layout>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
+            <h6 class="m-0 font-weight-bold text-primary">All Comments</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -29,9 +26,9 @@
                     <thead>
                         <tr>
                             <th>Avatar</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>User</th>
+                            <th>Content</th>
+                            <th>Article</th>
                             <th>Created at</th>
                             <th>Actions</th>
                         </tr>
@@ -39,9 +36,9 @@
                     <tfoot>
                         <tr>
                             <th>Avatar</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>User</th>
+                            <th>Content</th>
+                            <th>Article</th>
                             <th>Created at</th>
                             <th>Actions</th>
                         </tr>
@@ -58,12 +55,12 @@
                         processing: true,
                         serverSide: true,
                         // pageLength: 2,
-                        ajax: '{{ route('admin.ajax.user.list') }}',
+                        ajax: '{{ route('admin.ajax.comment.list') }}',
                         columns: [
                             { data: 'avatar', name: 'avatar' },
-                            { data: 'name', name: 'name' },
-                            { data: 'email', name: 'email' },
-                            { data: 'role', name: 'role' },
+                            { data: 'user', name: 'user' },
+                            { data: 'content', name: 'content' },
+                            { data: 'article', name: 'article' },
                             { data: 'created_at', name: 'created_at' },
                             { data: 'actions', name: 'actions' }
                         ],

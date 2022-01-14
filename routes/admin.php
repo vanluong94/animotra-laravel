@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ChapterAjaxController;
 use App\Http\Controllers\Admin\ChapterController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\MangaController;
 use App\Http\Controllers\Admin\MangaCollectionController;
 use App\Http\Controllers\Admin\UserController;
@@ -40,6 +41,11 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
         Route::get('{id}/delete', [ UserController::class, 'delete' ])->name('admin.user.delete')->middleware(VerifyCsrfTokenAll::class);
     });
 
+    Route::prefix('comment')->group(function(){
+        Route::get('all', [ CommentController::class, 'all' ])->name('admin.comment.all');
+        Route::get('{id}/delete', [ CommentController::class, 'delete' ])->name('admin.comment.delete')->middleware(VerifyCsrfTokenAll::class);
+    });
+
     /**
      * Manga Collections routes
      */
@@ -68,6 +74,7 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function() {
 
         Route::get('user/list', [ UserController::class, 'ajaxList' ])->name('admin.ajax.user.list');
         Route::get('transaction/list', [ UserTransactionController::class, 'ajaxList'])->name('admin.ajax.transaction.list');
+        Route::get('comment/list', [ CommentController::class, 'ajaxList'])->name('admin.ajax.comment.list');
     });
 
     Route::get('settings', function(){

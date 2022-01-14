@@ -46,6 +46,10 @@ class Comment extends Model
     }
 
     public function getViewUrl() {
-        return $this->getPageUrl() . '#' . $this-> id;
+        return $this->getPageUrl() . '#comment-' . $this->id;
+    }
+
+    public function getAdminDeleteUrl() {
+        return route('admin.comment.delete', $this->id);
     }
 }

@@ -97,8 +97,8 @@
     </li>
 
     {{-- Comments --}}
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ request()->routeIs('admin.comment.all') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.comment.all') }}">
             <i class="fas fa-comments"></i>
             <span>Comments</span>
         </a>

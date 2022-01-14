@@ -40,6 +40,6 @@
             @endforeach
         </ul>
     @else
-        <p class="text-center fs-5">Let's the first one make the mark here!</p>
+        <p class="text-center fs-5">Let's be the first one make the mark here!</p>
     @endif
 </div>
