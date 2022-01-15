@@ -192,7 +192,7 @@
                                         added-icon="fas fa-heart" 
                                         add-icon="far fa-heart" 
                                         animate="bounceIn"
-                                        text="Add to Favorite" 
+                                        text="Favorite" 
                                         collection="favorite"
                                     ></x-app.user-collection-btn>
 

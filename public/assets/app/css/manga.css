@@ -75,6 +75,7 @@ body.manga-page .manga-thumbnail img {
     background-color: rgb(231 109 105);
     background-color: rgb(217 80 76);
     color: #fff;
+    width: 160px;
 }
 
 .manga-buttons .btn.btn-read-later {
