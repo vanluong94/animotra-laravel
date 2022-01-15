@@ -1,0 +1,61 @@
+#preloader .preloader-icon div {
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px solid transparent;
+    -webkit-animation: rotate linear 3.5s infinite;
+    animation: rotate linear 3.5s infinite;
+    border-radius: 50%;
+    padding: 4px;
+    -webkit-animation: rotate2 4s infinite linear;
+    animation: rotate2 4s infinite linear;
+}
+
+#preloader .preloader-icon div:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+#preloader .preloader-icon, .preloader-icon * {
+    will-change: transform;
+}
+
+#preloader .preloader-icon {
+    position: relative;
+    margin: 75px auto;
+    width: 150px;
+    height: 150px;
+    display: block;
+    overflow: hidden;
+}
+
+#preloader .preloader-icon div {
+    height: 100%;
+}
+
+div#preloader {
+    position: fixed;
+    inset: 0;
+    /* background-color: var(--primary-color); */
+    background-color: #4b3677;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotate(0deg);
+        border-top-color: rgb(227 106 21 / 87%);
+    }
+    50% {
+        transform: rotate(180deg);
+        border-top-color: rgb(255 188 0 / 92%);
+    }
+    100% {
+        transform: rotate(360deg);
+        border-top-color: rgb(65 114 255 / 58%);
+    }
+}
