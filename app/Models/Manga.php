@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class Manga extends Model
@@ -244,7 +245,7 @@ class Manga extends Model
     }
 
     public function isBookmarked( $type ) {
-        return UserCollection::where([
+        return Auth::check() && UserCollection::where([
             'user_id'  => request()->user()->id,
             'manga_id' => $this->id,
             'type'     => $type

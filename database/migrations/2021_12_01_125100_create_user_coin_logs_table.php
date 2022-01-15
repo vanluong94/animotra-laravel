@@ -16,7 +16,7 @@ class CreateUserCoinLogsTable extends Migration
         Schema::create('user_coin_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('type', 50);
+            $table->string('type', 100)->index();
             $table->integer('coin');
             $table->longText('entry');
             $table->timestamps();

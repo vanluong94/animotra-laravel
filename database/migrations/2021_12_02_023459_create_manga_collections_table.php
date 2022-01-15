@@ -15,10 +15,12 @@ class CreateMangaCollectionsTable extends Migration
     {
         Schema::create('manga_collections', function (Blueprint $table) {
             $table->id();
-            $table->string('type', 50);
+            $table->string('type', 100)->index();
             $table->string('name', 150);
             $table->string('slug', 150);
             $table->timestamps();
+
+            $table->index(['type', 'slug']);
         });
     }
 

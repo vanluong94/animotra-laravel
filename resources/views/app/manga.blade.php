@@ -245,7 +245,7 @@
                                                     <div class="chapter-item--right ml-2">
                                                         <div class="chapter-buttons">
                                                             @if ($chapter->coin)
-                                                                <a href="{{ $chapter->getViewUrl() }}" class="btn btn-primary btn-go-chapter {{ Auth::user()->hasPurchased($chapter) ? 'purchased' : '' }}">
+                                                                <a href="{{ $chapter->getViewUrl() }}" class="btn btn-primary btn-go-chapter {{ Auth::check() && Auth::user()->hasPurchased($chapter) ? 'purchased' : '' }}">
                                                                     <img src="/img/token.png" alt="token" class="token-icon">{{ $chapter->coin }}
                                                                 </a>
                                                             @else

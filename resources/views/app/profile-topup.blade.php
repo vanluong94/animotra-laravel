@@ -72,7 +72,7 @@
                         purchase_units: [
                             {
                                 amount: {
-                                    value: parseFloat(priceAmount.innerText),
+                                    value: parseFloat(priceAmount.innerText).toFixed(2),
                                 },
                             },
                         ],

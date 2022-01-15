@@ -98,6 +98,10 @@ class MangaController extends Controller
 
     public function rate( Request $request, $id ) {
 
+        $request->validate([
+            'rate' => 'required|numeric|max:5|min:0.5'
+        ]);
+
         $manga = Manga::queryPublished()->find( $id );
 
         if( ! $manga ) {

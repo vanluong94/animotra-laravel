@@ -19,6 +19,8 @@ class ChapterController extends Controller
             abort(404);
         }
 
+        $chapter->manga->increaseViews();
+
         return view('app.chapter', compact(['chapter']));
 
     }

@@ -17,7 +17,7 @@ class CreateUserCollectionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('manga_id');
-            $table->string('type', 20)->index();
+            $table->string('type', 100)->index();
             $table->timestamps();
 
             $table->index([ 'user_id', 'manga_id', 'type' ]);

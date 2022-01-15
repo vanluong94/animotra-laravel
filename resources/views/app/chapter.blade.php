@@ -55,37 +55,33 @@
             <div class="page__content">
                 <div class="container">
 
-                    @guest
+                    @if ($chapter->isPremium() && !Auth::check())
                         <x-alert-login-required></x-alert-login-required>    
-                    @endguest
-
-                    @auth
-                        @if(Auth::user()->isAdmin() || !$chapter->isPremium() || Auth::user()->hasPurchased($chapter))
-                            <!-- READING FRAME -->
-                            <section id="readingFrame">
-                                <div class="reading__header">
-                                    <div id="chapterPageNavigator" class="d-flex justify-content-between">
-                                        <button id="pagePrev" class="btn bg-transparent rounded-0"><i class="fas fa-angle-left me-1"></i> Previous Page</button>
-                                        <select id="pagesDropdown" class="btn border-0 rounded-0 form-select w-auto px-5">
-                                            @foreach ($chapter->getImageUrls()->keys() as $index)
-                                                <option value="{{ $index + 1 }}">Page {{ str_pad( $index + 1, 2, 0, STR_PAD_LEFT )}}</option>
-                                            @endforeach
-                                        </select>
-                                        <button id="pageNext" class="btn bg-transparent rounded-0">Next Page <i class="fas fa-angle-right ms-1"></i></button>
-                                    </div>
+                    @elseif ($chapter->isPremium() && (!Auth::user()->isAdmin() && !Auth::user()->hasPurchased($chapter)))
+                        <x-alert-purchase :chapter="$chapter"></x-alert-purchase>
+                    @else
+                        <!-- READING FRAME -->
+                        <section id="readingFrame">
+                            <div class="reading__header">
+                                <div id="chapterPageNavigator" class="d-flex justify-content-between">
+                                    <button id="pagePrev" class="btn bg-transparent rounded-0"><i class="fas fa-angle-left me-1"></i> Previous Page</button>
+                                    <select id="pagesDropdown" class="btn border-0 rounded-0 form-select w-auto px-5">
+                                        @foreach ($chapter->getImageUrls()->keys() as $index)
+                                            <option value="{{ $index + 1 }}">Page {{ str_pad( $index + 1, 2, 0, STR_PAD_LEFT )}}</option>
+                                        @endforeach
+                                    </select>
+                                    <button id="pageNext" class="btn bg-transparent rounded-0">Next Page <i class="fas fa-angle-right ms-1"></i></button>
                                 </div>
-                                <div class="reading__content">
-                                    <img id="theImage" src="{{ $chapter->getImageUrls()->shift() }}" alt="{{ $chapter->getFullName() }}">
-                                </div>
+                            </div>
+                            <div class="reading__content">
+                                <img id="theImage" src="{{ $chapter->getImageUrls()->shift() }}" alt="{{ $chapter->getFullName() }}">
+                            </div>
 
-                                <script>
-                                    const chapterImgs = {!! json_encode( $chapter->getImageUrls() ) !!}
-                                </script>
-                            </section>
-                        @else
-                            <x-alert-purchase :chapter="$chapter"></x-alert-purchase>
-                        @endif
-                    @endauth    
+                            <script>
+                                const chapterImgs = {!! json_encode( $chapter->getImageUrls() ) !!}
+                            </script>
+                        </section>
+                    @endif
 
                     <div class="mb-5"></div>
 
